@@ -6,9 +6,9 @@
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		 ],
-	"name" : "DCFsmStateControllerTest",
+		"figure" ],
+	"name" : "DCFsmVertexControllerTest",
 	"pools" : [
 		 ],
-	"super" : "DCFsmVertexControllerTest",
+	"super" : "DCControllerTest",
 	"type" : "normal" }

@@ -1,3 +1,3 @@
 initialization
 defaultColor
-	^ Color white
+	^ Smalltalk ui theme windowColor

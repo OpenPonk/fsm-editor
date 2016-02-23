@@ -1,4 +1,4 @@
 accessing
 beSuccess
 	self borderColor: Color green muchDarker.
-	self color: Color paleGreen
+	self color: (colors at: #success)

@@ -1,4 +1,4 @@
 accessing
 beNormal
 	self borderColor: Color black.
-	self color: Color white
+	self color: (colors at: #normal)

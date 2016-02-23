@@ -1,4 +1,4 @@
 accessing
 beFailure
 	self borderColor: Color red.
-	self color: Color paleRed
+	self color: (colors at: #failure)

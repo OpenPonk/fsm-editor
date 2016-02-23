@@ -4,7 +4,7 @@ createEdgeFor: anElement inView: view
 	aFigure := DCRTArcLine new
 		color: Color black;
 		radius: 15;
-		head: RTFilledNarrowArrow;
+		head: DCRTFilledNarrowArrow;
 		edgeFrom: anElement to: anElement.
 
 	aLabel := RTLabel new

@@ -5,5 +5,5 @@ testCreateFigure
 	self assert: figure class equals: DCFsmStateFigure.
 	self assert: figure element class equals: RTElement.
 	self assert: figure element shape class equals: RTRoundedBox.
-	self assert: figure element color equals: Color transparent.
+	self assert: figure element color equals: Color white.
 	self assert: figure element extent equals: 50 @ 50

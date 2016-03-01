@@ -6,7 +6,8 @@
 		 ],
 	"commentStamp" : "PeterUhnak 6/13/2015 09:47",
 	"instvars" : [
-		"label" ],
+		"label",
+		"realModel" ],
 	"name" : "DCFsmStateFigure",
 	"pools" : [
 		 ],

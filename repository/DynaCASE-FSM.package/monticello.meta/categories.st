@@ -3,6 +3,7 @@ SystemOrganization addCategory: 'DynaCASE-FSM-Adapters'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Controllers'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Examples'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Figures'!
+SystemOrganization addCategory: 'DynaCASE-FSM-Help'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Models'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Simulations'!
 SystemOrganization addCategory: 'DynaCASE-FSM-Tests'!

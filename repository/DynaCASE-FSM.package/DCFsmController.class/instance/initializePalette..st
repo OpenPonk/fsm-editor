@@ -3,13 +3,13 @@ initializePalette: aPalette
 	aPalette
 		newCreationTool: 'Initial state'
 			factory: [ DCFsmInitialStateController new ]
-			icon: Smalltalk ui icons dcFsmInitialStateIcon;
+			icon: DCIcons current dcFsmInitialStateIcon;
 		newSeparator;
-		newCreationTool: 'State' factory: [ DCFsmStateController new ] icon: Smalltalk ui icons dcFsmRegularStateIcon;
+		newCreationTool: 'State' factory: [ DCFsmStateController new ] icon: DCIcons current dcFsmRegularStateIcon;
 		newCreationTool: 'Final state'
 			factory: [ DCFsmFinalStateController new ]
-			icon: Smalltalk ui icons dcFsmFinalStateIcon;
+			icon: DCIcons current dcFsmFinalStateIcon;
 		newSeparator;
 		newConnectionCreationTool: 'Transition'
 			factory: [ DCFsmTransitionController new ]
-			icon: Smalltalk ui icons dcFsmTransitionIcon
+			icon: DCIcons current dcFsmTransitionIcon

@@ -2,6 +2,6 @@ figures
 edgeBuilder
 	^ DCRTEdgeBuilder new
 		arrowHead;
-		circleAttachPoint;
-		constraintLabel: #name balance: 0.8 offset: 12;
+		attachPoint: (RTCircleAttachPoint new offset: -10);
+		constraintLabel: #name balance: 0.2 offset: 12;
 		yourself

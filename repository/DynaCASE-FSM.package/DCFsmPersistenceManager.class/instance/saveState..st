@@ -6,6 +6,3 @@ saveState: aMemento
 	(self autosaveFileFor: aMemento id)
 		ensureDelete;
 		writeStreamDo: [ :stream | stream nextPutAll: current ]
-	"	(self newHistoryFileFor: aMemento id)
-		ensureDelete;
-		writeStreamDo: [ :stream | stream nextPutAll: snapshot ]"

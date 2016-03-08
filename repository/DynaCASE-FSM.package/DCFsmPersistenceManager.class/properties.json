@@ -1,0 +1,16 @@
+{
+	"category" : "DynaCASE-FSM-Persistence",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"history",
+		"current",
+		"future" ],
+	"name" : "DCFsmPersistenceManager",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

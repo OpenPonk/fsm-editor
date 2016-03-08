@@ -1,3 +1,7 @@
 figures
 figure
-	^ figure ifNil: [ super figure element ] ifNotNil: [ figure element ]
+	figure
+		ifNil: [ (figure := self createFigure)
+				renderIn: self diagramController view;
+				when: TRMouseDragEnd do: [ :evt | self diagramController saveState ] ].
+	^ figure element

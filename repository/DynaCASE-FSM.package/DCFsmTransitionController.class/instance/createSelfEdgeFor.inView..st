@@ -1,5 +1,5 @@
 figures
-createEdgeFor: anElement inView: view
+createSelfEdgeFor: anElement inView: view
 	| aLabel aFigure |
 	aFigure := DCRTArcLine new
 		color: Color black;

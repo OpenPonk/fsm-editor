@@ -16,11 +16,18 @@ baseline: spec
 						versionString: #stable;
 						repository: 'http://smalltalkhub.com/mc/PharoExtras/XMLParser/main/' ].
 			spec
+				project: 'XPath'
+				with:
+					[ spec
+						className: #ConfigurationOfXPath;
+						versionString: #stable;
+						repository: 'http://smalltalkhub.com/mc/PharoExtras/XPath/main/' ].
+			spec
 				baseline: 'DynaCASE'
 				with: [ spec repository: 'github://dynacase/dynacase/repository' ].
 			spec
 				package: 'DynaCASE-FSM-GraphML'
-				with: [ spec requires: #('DynaCASE' 'Mustache' 'XMLParser') ].
+				with: [ spec requires: #('DynaCASE' 'Mustache' 'XMLParser' 'XPath') ].
 			spec
 				package: 'DynaCASE-FSM'
 				with: [ spec requires: #('DynaCASE' 'DynaCASE-FSM-GraphML') ].

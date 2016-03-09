@@ -10,6 +10,6 @@ startAction
 	nextButton enable.
 	self resetAction.
 	recognizer
-		input: input text
+		input: self inputData
 		startingAt: (diagramController model states detect: #isInitial).
-	letterPanel widget data: input text
+	letterPanel widget data: self inputData

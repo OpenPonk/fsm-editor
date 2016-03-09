@@ -1,3 +1,3 @@
 accessing
-morphForLetter: aSymbol
+morphForTerminal: aSymbol
 	^ aSymbol asMorph

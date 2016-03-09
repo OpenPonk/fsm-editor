@@ -7,7 +7,7 @@ initializeWidgets
 	stopButton := self newButton.
 	resetButton := self newButton.
 
-	letterPanel := DCFsmLetterPanel new asSpecAdapter.
+	letterPanel := DCFsmTerminalPanel new asSpecAdapter.
 
 	backButton := self newButton.
 	nextButton := self newButton

@@ -7,7 +7,7 @@
 	"commentStamp" : "PeterUhnak 7/6/2015 08:09",
 	"instvars" : [
 		 ],
-	"name" : "DCFsmLetterPanel",
+	"name" : "DCFsmTerminalPanel",
 	"pools" : [
 		 ],
 	"super" : "Morph",

@@ -8,8 +8,8 @@ export: aModel withLayout: aLayout
 				->
 					(aModel states
 						collect: [ :each | 
-							{(#dcID -> each dcID).
+							{(#uuid -> each uuid).
 							(#name -> each name).
 							(#graphmlType -> each graphmlType).
-							(#position -> (aLayout at: each dcID ifAbsent: [ 0 @ 0 ]))} asDictionary ]))}
+							(#position -> (aLayout at: each uuid ifAbsent: [ 0 @ 0 ]))} asDictionary ]))}
 				asDictionary

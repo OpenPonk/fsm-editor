@@ -15,11 +15,11 @@ template
 	<key id="y" attr.name="y" attr.type="double" for="node" />
 	<key id="matchBlock" attr.name="Pharo BlockClosure code" attr.type="string"  for="edge" />
 
-	<graph id="{{model.dcID}}" edgedefault="directed">
+	<graph id="{{model.uuid}}" edgedefault="directed">
 		<data key="name">{{model.name}}</data>
 		<data key="generated">{{dateTime}}</data>
 		{{# states }}
-		<node id="{{dcID}}">
+		<node id="{{uuid}}">
 			<data key="name">{{name}}</data>
 			<data key="node-type">{{graphmlType}}</data>
 			<data key="x">{{position.x}}</data>
@@ -27,7 +27,7 @@ template
 		</node>
 		{{/ states }}
 		{{# model.transitions }}
-		<edge id="{{dcID}}" source="{{source.dcID}}" target="{{target.dcID}}">
+		<edge id="{{uuid}}" source="{{source.uuid}}" target="{{target.uuid}}">
 			<data key="name">{{name}}</data>
 			<data key="matchBlock">{{matchBlock.asString}}</data>
 		</edge>

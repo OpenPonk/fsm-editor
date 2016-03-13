@@ -12,5 +12,5 @@
 	"name" : "DCFsmTransition",
 	"pools" : [
 		 ],
-	"super" : "DCNamedElement",
+	"super" : "DCMElement",
 	"type" : "normal" }

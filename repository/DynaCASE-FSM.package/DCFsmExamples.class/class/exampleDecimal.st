@@ -3,7 +3,7 @@ exampleDecimal
 	| project fsm initial z b c d k isDigit |
 	project := DCProject named: 'FSM Example'.
 	fsm := DCFsm named: 'Decimal number'.
-	project addDiagram: fsm.
+	project addModel: fsm.
 	initial := DCFsmInitialState new.
 	z := DCFsmState named: 'Z'.
 	b := DCFsmState named: 'B'.

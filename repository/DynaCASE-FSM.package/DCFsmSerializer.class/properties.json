@@ -1,0 +1,14 @@
+{
+	"category" : "DynaCASE-FSM-Persistence",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "DCFsmSerializer",
+	"pools" : [
+		 ],
+	"super" : "DCAbstractSerializer",
+	"type" : "normal" }

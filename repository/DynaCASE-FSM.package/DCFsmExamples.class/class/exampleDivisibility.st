@@ -3,7 +3,7 @@ exampleDivisibility
 	| project fsm initial zero one two |
 	project := DCProject named: 'FSM Example'.
 	fsm := DCFsm named: 'Divisibility By Three'.
-	project addDiagram: fsm.
+	project addModel: fsm.
 	initial := DCFsmInitialState new.
 	zero := DCFsmState named: '%3=0'.
 	zero beFinal.

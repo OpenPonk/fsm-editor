@@ -1,7 +1,7 @@
 undo/redo
 saveState
 	| memento |
-	memento := DCFsmPersistenceMemento model: self model layout: self layout.
-	self persistenceManager saveState: memento.
+	memento := self memento.
+	self autosaveManager saveState: memento.
 	self editor updateUndoRedo.
 	self editor workbench projectController autoSave: memento

@@ -1,3 +1,3 @@
 undo/redo
 hasRedo
-	^ self persistenceManager futureIsEmpty not
+	^ self autosaveManager futureIsEmpty not

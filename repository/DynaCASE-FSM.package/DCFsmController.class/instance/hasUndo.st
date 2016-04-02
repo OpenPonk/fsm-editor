@@ -1,3 +1,3 @@
 undo/redo
 hasUndo
-	^ self persistenceManager historyIsEmpty not
+	^ self autosaveManager historyIsEmpty not

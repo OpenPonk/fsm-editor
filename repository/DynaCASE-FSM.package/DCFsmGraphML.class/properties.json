@@ -1,15 +1,13 @@
 {
-	"category" : "DynaCASE-FSM-Persistence",
+	"category" : "DynaCASE-FSM-Serialization",
 	"classinstvars" : [
 		 ],
 	"classvars" : [
 		 ],
 	"commentStamp" : "",
 	"instvars" : [
-		"history",
-		"current",
-		"future" ],
-	"name" : "DCFsmPersistenceManager",
+		 ],
+	"name" : "DCFsmGraphML",
 	"pools" : [
 		 ],
 	"super" : "Object",

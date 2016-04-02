@@ -6,5 +6,5 @@ loadState: aMemento
 			self model removeAll.
 			self model addAll: aMemento model elements ].
 	super rebuild.	"call super rebuild, because my rebuild also applies layout"
-	self layout: aMemento layout.
+	self diagram: aMemento diagram.
 	self editor updateUndoRedo

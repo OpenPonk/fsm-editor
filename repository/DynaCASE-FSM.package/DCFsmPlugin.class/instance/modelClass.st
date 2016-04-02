@@ -1,3 +1,3 @@
 accessing
-diagramClass
+modelClass
 	^ DCFsm

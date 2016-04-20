@@ -6,6 +6,10 @@ initializePresenter
 	input autoAccept: true.
 	input textHolder whenChangedDo: [ :text | text ifEmpty: [ startButton disable ] ifNotEmpty: [ startButton enable ] ].
 	
+	separatorLabel label: 'Separated by:'.
+	separatorInput autoAccept: true.
+	separatorInput text: ','.
+	
 	startButton
 		label: 'Start';
 		icon: Smalltalk ui icons smallPrintItIcon;

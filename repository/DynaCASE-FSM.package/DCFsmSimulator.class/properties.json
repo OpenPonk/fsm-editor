@@ -15,7 +15,9 @@
 		"resetButton",
 		"letterPanel",
 		"backButton",
-		"nextButton" ],
+		"nextButton",
+		"separatorInput",
+		"separatorLabel" ],
 	"name" : "DCFsmSimulator",
 	"pools" : [
 		 ],

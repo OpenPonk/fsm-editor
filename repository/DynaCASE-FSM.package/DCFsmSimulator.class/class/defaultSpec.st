@@ -3,8 +3,10 @@ defaultSpec
 	^ SpecColumnLayout composed
 		newRow: [ :row | 
 					row
-						add: #inputLabel;
-						add: #input width: 250 ] height: 25;
+						add: #inputLabel width: 50;
+						add: #input;
+						add: #separatorLabel width: 80;
+						add: #separatorInput width: 20 ] height: 25;
 		newRow: [ :row | 
 					row
 						add: #startButton;

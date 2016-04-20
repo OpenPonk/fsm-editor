@@ -4,6 +4,7 @@ startAction
 		ifFalse: [ ^ self ].
 	self preconditions.
 	input disable.
+	separatorInput disable.
 	startButton disable.
 	stopButton enable.
 	backButton disable.

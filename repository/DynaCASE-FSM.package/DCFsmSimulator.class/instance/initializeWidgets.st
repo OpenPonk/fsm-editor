@@ -3,6 +3,9 @@ initializeWidgets
 	inputLabel := self newLabel.
 	input := self newTextInput.
 
+	separatorLabel := self newLabel.	
+	separatorInput := self newTextInput.
+
 	startButton := self newButton.
 	stopButton := self newButton.
 	resetButton := self newButton.

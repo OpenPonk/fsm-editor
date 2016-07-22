@@ -10,5 +10,5 @@
 	"name" : "DCFsmInitialStateFigure",
 	"pools" : [
 		 ],
-	"super" : "DCFigure",
+	"super" : "RTAbstractMultiElement",
 	"type" : "normal" }

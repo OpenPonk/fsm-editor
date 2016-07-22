@@ -2,4 +2,6 @@ running
 setUp
 	super setUp.
 	fromCtrl := DCFsmInitialStateController new.
-	toCtrl := DCFsmFinalStateController new
+	fromCtrl model: DCFsmInitialState new.
+	toCtrl := DCFsmFinalStateController new.
+	toCtrl model: DCFsmState new beFinal

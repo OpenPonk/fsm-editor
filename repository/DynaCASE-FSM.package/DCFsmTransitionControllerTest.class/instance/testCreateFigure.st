@@ -10,7 +10,7 @@ testCreateFigure
 	self assert: figure class equals: RTEdge.
 	self assert: figure from equals: fromCtrl figure.
 	self assert: figure to equals: toCtrl figure.
-	self assert: view elements size equals: 4.
+	self assert: view elements size equals: 5.
 	self assert: figure shape class equals: DCRTStyledMultiLine.
 	self assert: figure shape color equals: Color black.
 	self assert: figure shape head shape equals: RTSimpleArrow.

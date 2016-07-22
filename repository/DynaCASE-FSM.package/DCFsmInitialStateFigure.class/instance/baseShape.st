@@ -1,6 +1,5 @@
 instance creation
-newBackground
+baseShape
 	^ RTEllipse new
 		size: 14;
-		color: Color black;
-		element
+		color: Color black

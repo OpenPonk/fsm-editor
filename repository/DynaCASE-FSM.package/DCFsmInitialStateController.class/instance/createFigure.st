@@ -1,3 +1,3 @@
 hooks
 createFigure
-	^ DCFsmInitialStateFigure new
+	^ DCFsmInitialStateFigure on: self model

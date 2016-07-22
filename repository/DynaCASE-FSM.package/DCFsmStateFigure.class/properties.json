@@ -4,12 +4,12 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "PeterUhnak 6/13/2015 09:47",
+	"commentStamp" : "PeterUhnak 7/22/2016 11:16",
 	"instvars" : [
 		"label",
-		"realModel" ],
+		"innerCircle" ],
 	"name" : "DCFsmStateFigure",
 	"pools" : [
 		 ],
-	"super" : "DCFigure",
+	"super" : "RTAbstractMultiElement",
 	"type" : "normal" }

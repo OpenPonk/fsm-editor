@@ -1,6 +1,5 @@
 figures
 createFigure
-	^ DCFsmStateFigure on: self model.
-"	^ DCFsmStateFigure new
-		realModel: self model;
-		yourself"
+	^ (DCFsmStateFigure on: self model)
+		controller: self;
+		yourself

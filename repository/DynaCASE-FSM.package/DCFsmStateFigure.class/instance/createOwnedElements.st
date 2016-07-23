@@ -1,5 +1,6 @@
 as yet unclassified
 createOwnedElements
+	self createAdornment.
 	label := RTLabel new
 		color: Color black;
 		height: 11;

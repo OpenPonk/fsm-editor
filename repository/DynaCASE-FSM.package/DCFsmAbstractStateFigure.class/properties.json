@@ -4,11 +4,11 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "PeterUhnak 7/2/2015 01:50",
+	"commentStamp" : "PeterUhnak 7/23/2016 10:05",
 	"instvars" : [
-		 ],
-	"name" : "DCFsmInitialStateFigure",
+		"controller" ],
+	"name" : "DCFsmAbstractStateFigure",
 	"pools" : [
 		 ],
-	"super" : "DCFsmAbstractStateFigure",
+	"super" : "RTAbstractMultiElement",
 	"type" : "normal" }

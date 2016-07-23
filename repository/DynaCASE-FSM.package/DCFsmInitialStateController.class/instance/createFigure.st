@@ -1,3 +1,5 @@
 hooks
 createFigure
-	^ DCFsmInitialStateFigure on: self model
+	^ (DCFsmInitialStateFigure on: self model)
+		controller: self;
+		yourself

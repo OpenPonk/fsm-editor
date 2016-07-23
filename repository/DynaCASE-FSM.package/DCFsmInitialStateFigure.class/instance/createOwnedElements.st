@@ -1,3 +1,4 @@
 as yet unclassified
 createOwnedElements
-	self createAdornment
+	self createAdornment.
+	self createVertexAdornment

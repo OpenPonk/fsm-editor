@@ -1,6 +1,7 @@
 as yet unclassified
 createOwnedElements
 	self createAdornment.
+	self createVertexAdornment.
 	label := RTLabel new
 		color: Color black;
 		height: 11;

@@ -1,5 +1,5 @@
 as yet unclassified
-createAdornment
+createVertexAdornment
 	| tool icon transitionHelper |
 	transitionHelper := RTBox new
 		size: 20;
@@ -10,19 +10,32 @@ createAdornment
 		bottom;
 		right;
 		outer;
+		verticalPadding: -20;
 		stick.
-	icon := RTSVGPath new
-		path: 'M-6,6 L6,-6 L4,2 M6,-6 L-2,-4';
+	icon := RTEllipse new
+		color: Color transparent;
+		borderColor: Color black;
+		size: 14;
 		element.
 	(RTConstraint on: icon background: transitionHelper) stick.
 	transitionHelper
 		when: TRMouseLeftClick
 		do: [ :evt | 
-			(tool := DCConnectionCreationTool new)
+			(tool := DCCreationTool new)
 				palette: self controller diagramController editor paletteModel;
-				factory: [ DCFsmTransitionController new ].
-			self controller diagramController editor paletteModel selectTool: tool.
-			tool sourceSelected: self controller ].
+				factory: [ DCFsmStateController new ];
+				whenCompleted: [ :ctrl | 
+					| t2 |
+					t2 := DCConnectionCreationTool new
+						palette: self controller diagramController editor paletteModel;
+						factory: [ DCFsmTransitionController new ].
+					self controller diagramController editor paletteModel selectTool: t2.
+					t2
+						sourceSelected: self controller;
+						targetSelected: ctrl.
+					self controller diagramController editor paletteModel selectedTool
+						targetSelected: ctrl ].
+			self controller diagramController editor paletteModel selectTool: tool ].
 	self
 		when: DCTRFocused
 		do: [ self

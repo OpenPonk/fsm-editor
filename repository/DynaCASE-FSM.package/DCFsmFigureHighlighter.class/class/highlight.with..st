@@ -1,7 +1,6 @@
 api - highlight
 highlight: aShapedObject with: aColor
-	(aShapedObject isKindOf: RTElement)
+	aShapedObject isElement
 		ifTrue: [ self highlightElement: aShapedObject with: aColor ].
-
-	(aShapedObject isKindOf: RTEdge)
+	aShapedObject isEdge
 		ifTrue: [ self highlightEdge: aShapedObject with: aColor ]

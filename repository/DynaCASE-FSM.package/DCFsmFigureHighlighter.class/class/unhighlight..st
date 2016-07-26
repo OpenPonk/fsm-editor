@@ -1,7 +1,6 @@
 api - unhighlight
 unhighlight: aShapedObject
-	(aShapedObject isKindOf: RTElement)
+	aShapedObject isElement
 		ifTrue: [ self unhighlightElement: aShapedObject ].
-
-	(aShapedObject isKindOf: RTEdge)
+	aShapedObject isEdge
 		ifTrue: [ self unhighlightEdge: aShapedObject ]

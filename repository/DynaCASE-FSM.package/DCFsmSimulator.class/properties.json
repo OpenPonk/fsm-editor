@@ -17,7 +17,8 @@
 		"backButton",
 		"nextButton",
 		"separatorInput",
-		"separatorLabel" ],
+		"separatorLabel",
+		"runButton" ],
 	"name" : "DCFsmSimulator",
 	"pools" : [
 		 ],

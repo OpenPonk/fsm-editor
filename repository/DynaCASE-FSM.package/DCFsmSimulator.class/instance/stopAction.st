@@ -6,4 +6,5 @@ stopAction
 	stopButton disable.
 	backButton disable.
 	nextButton disable.
+	runButton disable.
 	letterPanel widget data: ''

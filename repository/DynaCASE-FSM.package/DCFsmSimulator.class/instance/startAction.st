@@ -9,6 +9,7 @@ startAction
 	stopButton enable.
 	backButton disable.
 	nextButton enable.
+	runButton enable.
 	self resetAction.
 	recognizer
 		input: self inputData

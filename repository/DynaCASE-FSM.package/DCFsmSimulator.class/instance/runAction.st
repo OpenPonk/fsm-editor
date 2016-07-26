@@ -1,6 +1,6 @@
 actions
-backAction
+runAction
 	nextButton disable.
 	backButton disable.
 	runButton disable.
-	recognizer back
+	recognizer nextUpToEnd

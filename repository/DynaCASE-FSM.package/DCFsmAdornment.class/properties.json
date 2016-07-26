@@ -1,0 +1,15 @@
+{
+	"category" : "DynaCASE-FSM-Figures",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"controller",
+		"icon" ],
+	"name" : "DCFsmAdornment",
+	"pools" : [
+		 ],
+	"super" : "RTAbstractMultiElement",
+	"type" : "normal" }

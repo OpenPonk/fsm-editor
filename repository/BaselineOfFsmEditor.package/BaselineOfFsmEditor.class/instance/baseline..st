@@ -23,7 +23,7 @@ baseline: spec
 						repository: 'http://smalltalkhub.com/mc/PharoExtras/XPath/main/' ].
 			spec
 				baseline: 'DynaCASE'
-				with: [ spec repository: 'github://dynacase/dynacase/repository' ].
+				with: [ spec repository: 'github://openponk/openponk/repository' ].
 			spec
 				package: 'DynaCASE-FSM'
 				with: [ spec requires: #('DynaCASE' 'Mustache' 'XMLParser' 'XPath') ].

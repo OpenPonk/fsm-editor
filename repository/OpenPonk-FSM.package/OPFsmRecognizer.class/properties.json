@@ -15,5 +15,5 @@
 	"name" : "OPFsmRecognizer",
 	"pools" : [
 		 ],
-	"super" : "AnObsoleteOPAnnouncableObject",
+	"super" : "OPAnnouncableObject",
 	"type" : "normal" }

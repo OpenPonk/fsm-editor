@@ -1,0 +1,1 @@
+I am a base class for FSM vertex figures and I provide basic adornment behavior.

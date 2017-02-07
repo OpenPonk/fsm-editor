@@ -1,0 +1,3 @@
+rendering
+addInteractions
+	self @ RTDraggable

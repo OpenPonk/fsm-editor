@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "PeterUhnak 7/6/2015 23:52",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmRecognizerFailure",
+	"pools" : [
+		 ],
+	"super" : "OPFsmRecognizerEvent",
+	"type" : "normal" }

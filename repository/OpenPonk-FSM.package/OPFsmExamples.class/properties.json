@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Examples",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmExamples",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

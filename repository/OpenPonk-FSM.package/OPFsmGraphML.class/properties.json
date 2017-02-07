@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Serialization",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmGraphML",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

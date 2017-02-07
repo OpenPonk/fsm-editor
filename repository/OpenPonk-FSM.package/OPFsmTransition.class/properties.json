@@ -1,0 +1,16 @@
+{
+	"category" : "OpenPonk-FSM-Models",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "tothmatu 10/4/2014 17:06",
+	"instvars" : [
+		"source",
+		"target",
+		"matchBlock" ],
+	"name" : "OPFsmTransition",
+	"pools" : [
+		 ],
+	"super" : "OPMElement",
+	"type" : "normal" }

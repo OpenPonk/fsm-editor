@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Figures",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "PeterUhnak 6/15/2015 23:57",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmFigureHighlighter",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

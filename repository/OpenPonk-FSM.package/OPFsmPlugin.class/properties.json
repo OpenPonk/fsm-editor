@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Plugin",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "PeterUhnak 7/2/2015 00:43",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmPlugin",
+	"pools" : [
+		 ],
+	"super" : "OPPlugin",
+	"type" : "normal" }

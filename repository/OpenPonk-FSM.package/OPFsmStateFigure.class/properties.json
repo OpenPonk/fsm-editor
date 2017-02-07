@@ -1,0 +1,15 @@
+{
+	"category" : "OpenPonk-FSM-Figures",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "PeterUhnak 7/22/2016 11:16",
+	"instvars" : [
+		"label",
+		"innerCircle" ],
+	"name" : "OPFsmStateFigure",
+	"pools" : [
+		 ],
+	"super" : "OPFsmAbstractStateFigure",
+	"type" : "normal" }

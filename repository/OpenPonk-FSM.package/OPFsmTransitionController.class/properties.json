@@ -1,0 +1,14 @@
+{
+	"category" : "OpenPonk-FSM-Controllers",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "tothmatu 10/4/2014 17:03",
+	"instvars" : [
+		 ],
+	"name" : "OPFsmTransitionController",
+	"pools" : [
+		 ],
+	"super" : "OPRelationshipController",
+	"type" : "normal" }

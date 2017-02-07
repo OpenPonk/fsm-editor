@@ -22,11 +22,11 @@ baseline: spec
 						versionString: #stable;
 						repository: 'http://smalltalkhub.com/mc/PharoExtras/XPath/main/' ].
 			spec
-				baseline: 'DynaCASE'
+				baseline: 'OpenPonk'
 				with: [ spec repository: 'github://openponk/openponk/repository' ].
 			spec
-				package: 'DynaCASE-FSM'
-				with: [ spec requires: #('DynaCASE' 'Mustache' 'XMLParser' 'XPath') ].
-			spec package: 'DynaCASE-FSM' with: [ spec requires: #('DynaCASE') ].
-			spec group: 'plugin' with: #('DynaCASE-FSM').
-			spec group: 'default' with: #('plugin' 'DynaCASE') ]
+				package: 'OpenPonk-FSM'
+				with: [ spec requires: #('OpenPonk' 'Mustache' 'XMLParser' 'XPath') ].
+			spec package: 'OpenPonk-FSM' with: [ spec requires: #('OpenPonk') ].
+			spec group: 'plugin' with: #('OpenPonk-FSM').
+			spec group: 'default' with: #('plugin' 'OpenPonk') ]

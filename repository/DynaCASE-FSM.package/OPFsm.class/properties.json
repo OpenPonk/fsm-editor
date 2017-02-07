@@ -1,0 +1,14 @@
+{
+	"category" : "DynaCASE-FSM-Models",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "tothmatu 10/4/2014 17:10",
+	"instvars" : [
+		 ],
+	"name" : "OPFsm",
+	"pools" : [
+		 ],
+	"super" : "OPMElement",
+	"type" : "normal" }

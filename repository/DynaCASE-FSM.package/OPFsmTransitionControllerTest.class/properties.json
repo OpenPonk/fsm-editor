@@ -1,0 +1,15 @@
+{
+	"category" : "DynaCASE-FSM-Tests",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"fromCtrl",
+		"toCtrl" ],
+	"name" : "OPFsmTransitionControllerTest",
+	"pools" : [
+		 ],
+	"super" : "OPControllerTest",
+	"type" : "normal" }

@@ -11,7 +11,7 @@ createSelfEdgeFor: anElement inView: view
 		color: Color black;
 		height: 10;
 		elementOn: ''.
-	aFigure attributeAt: #DCArcLabel put: aLabel.
+	aFigure attributeAt: self class name put: aLabel.
 	OPRTArcLine constraintLabel: aLabel at: aFigure.
 	
 	aFigure trachelShape addCallback: (TRRemoveCallback with: aLabel).

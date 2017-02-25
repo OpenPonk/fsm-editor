@@ -1,5 +1,5 @@
 toolbar
 toolbarMenu: aBuilder
-	<dcEditorToolbarMenu: #OPFsmPlugin>
+	<opEditorToolbarMenu: #OPFsmPlugin>
 	(aBuilder item: 'Open Simulator')
 		action: [ OPFsmSimulator new openOn: aBuilder model diagramController ]

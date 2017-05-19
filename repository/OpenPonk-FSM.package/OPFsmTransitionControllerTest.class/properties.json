@@ -1,15 +1,14 @@
 {
-	"category" : "OpenPonk-FSM-Tests",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "OPControllerTest",
+	"category" : "OpenPonk-FSM-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"fromCtrl",
-		"toCtrl" ],
+		"toCtrl"
+	],
 	"name" : "OPFsmTransitionControllerTest",
-	"pools" : [
-		 ],
-	"super" : "OPControllerTest",
-	"type" : "normal" }
+	"type" : "normal"
+}

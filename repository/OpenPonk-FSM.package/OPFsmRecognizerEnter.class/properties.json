@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 7/6/2015 23:51",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmRecognizerEnter",
-	"pools" : [
-		 ],
 	"super" : "OPFsmRecognizerEvent",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmRecognizerEnter",
+	"type" : "normal"
+}

@@ -1,11 +1,11 @@
-as yet unclassified
+creating - subelements
 createOwnedElements
 	self createAdornment.
 	self createVertexAdornment.
 	label := RTLabel new
 		color: Color black;
 		height: 11;
-		text: [ :m | m model name ];
+		text: [ :m | m model ifNil: [ '' ] ifNotNil: #name ];
 		elementOn: self.
 	self add: label.
 	(RTConstraint on: label background: self) stick.

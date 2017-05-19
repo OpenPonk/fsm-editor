@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Serialization",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmSerializer",
-	"pools" : [
-		 ],
 	"super" : "OPAbstractSerializer",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Serialization",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmSerializer",
+	"type" : "normal"
+}

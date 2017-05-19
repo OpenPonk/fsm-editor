@@ -1,14 +1,13 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 3/9/2016 01:06",
-	"instvars" : [
-		"colors" ],
-	"name" : "OPFsmTerminalBox",
-	"pools" : [
-		 ],
 	"super" : "BorderedMorph",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"colors"
+	],
+	"name" : "OPFsmTerminalBox",
+	"type" : "normal"
+}

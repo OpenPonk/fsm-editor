@@ -1,14 +1,13 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 7/6/2015 23:49",
-	"instvars" : [
-		"place" ],
-	"name" : "OPFsmRecognizerEvent",
-	"pools" : [
-		 ],
 	"super" : "Announcement",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"place"
+	],
+	"name" : "OPFsmRecognizerEvent",
+	"type" : "normal"
+}

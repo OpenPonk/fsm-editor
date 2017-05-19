@@ -1,10 +1,10 @@
 {
-	"category" : "OpenPonk-FSM-Tests",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "tothmatu 10/4/2014 17:14",
+	"super" : "OPTestCase",
+	"category" : "OpenPonk-FSM-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"diagram",
 		"initial",
@@ -12,9 +12,8 @@
 		"state",
 		"firstTransition",
 		"secondTransition",
-		"selfTransition" ],
+		"selfTransition"
+	],
 	"name" : "OPFsmTest",
-	"pools" : [
-		 ],
-	"super" : "OPTestCase",
-	"type" : "normal" }
+	"type" : "normal"
+}

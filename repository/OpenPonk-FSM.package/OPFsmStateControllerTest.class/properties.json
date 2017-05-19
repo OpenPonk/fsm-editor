@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Tests",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmStateControllerTest",
-	"pools" : [
-		 ],
 	"super" : "OPFsmVertexControllerTest",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Tests",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmStateControllerTest",
+	"type" : "normal"
+}

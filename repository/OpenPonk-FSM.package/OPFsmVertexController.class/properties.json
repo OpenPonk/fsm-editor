@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Controllers",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "tothmatu 10/4/2014 17:04",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmVertexController",
-	"pools" : [
-		 ],
 	"super" : "OPElementController",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Controllers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmVertexController",
+	"type" : "normal"
+}

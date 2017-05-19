@@ -1,14 +1,13 @@
 {
-	"category" : "OpenPonk-FSM-Controllers",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "tothmatu 10/4/2014 17:02",
-	"instvars" : [
-		"persistenceManager" ],
-	"name" : "OPFsmController",
-	"pools" : [
-		 ],
 	"super" : "OPDiagramController",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Controllers",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"persistenceManager"
+	],
+	"name" : "OPFsmController",
+	"type" : "normal"
+}

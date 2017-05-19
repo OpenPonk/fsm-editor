@@ -1,14 +1,13 @@
 {
-	"category" : "OpenPonk-FSM-Figures",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 7/23/2016 10:05",
-	"instvars" : [
-		"controller" ],
-	"name" : "OPFsmAbstractStateFigure",
-	"pools" : [
-		 ],
 	"super" : "RTAbstractMultiElement",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Figures",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"controller"
+	],
+	"name" : "OPFsmAbstractStateFigure",
+	"type" : "normal"
+}

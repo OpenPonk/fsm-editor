@@ -1,19 +1,18 @@
 {
-	"category" : "OpenPonk-FSM-Adapters",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "OPNavigatorAdapterTest",
+	"category" : "OpenPonk-FSM-Adapters",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"fsm",
 		"initialState",
 		"state",
 		"finalState",
 		"firstTransition",
-		"secondTransition" ],
+		"secondTransition"
+	],
 	"name" : "OPFsmNavigatorAdapterTest",
-	"pools" : [
-		 ],
-	"super" : "OPNavigatorAdapterTest",
-	"type" : "normal" }
+	"type" : "normal"
+}

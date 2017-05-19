@@ -1,15 +1,14 @@
 {
-	"category" : "OpenPonk-FSM-Figures",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
+	"super" : "RTAbstractMultiElement",
+	"category" : "OpenPonk-FSM-Figures",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"controller",
-		"icon" ],
+		"icon"
+	],
 	"name" : "OPFsmAdornment",
-	"pools" : [
-		 ],
-	"super" : "RTAbstractMultiElement",
-	"type" : "normal" }
+	"type" : "normal"
+}

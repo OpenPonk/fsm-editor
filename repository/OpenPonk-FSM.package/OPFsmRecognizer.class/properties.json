@@ -1,19 +1,18 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 7/6/2015 23:36",
+	"super" : "OPAnnouncableObject",
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"model",
 		"input",
 		"consumed",
 		"path",
 		"current",
-		"canContinue" ],
+		"canContinue"
+	],
 	"name" : "OPFsmRecognizer",
-	"pools" : [
-		 ],
-	"super" : "OPAnnouncableObject",
-	"type" : "normal" }
+	"type" : "normal"
+}

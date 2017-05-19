@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Help",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 3/1/2016 13:14",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmHelp",
-	"pools" : [
-		 ],
 	"super" : "CustomHelp",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Help",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmHelp",
+	"type" : "normal"
+}

@@ -1,14 +1,11 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 7/6/2015 08:09",
-	"instvars" : [
-		 ],
-	"name" : "OPFsmTerminalPanel",
-	"pools" : [
-		 ],
 	"super" : "Morph",
-	"type" : "normal" }
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "OPFsmTerminalPanel",
+	"type" : "normal"
+}

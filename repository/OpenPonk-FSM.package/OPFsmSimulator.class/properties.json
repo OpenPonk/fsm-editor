@@ -1,10 +1,10 @@
 {
-	"category" : "OpenPonk-FSM-Simulations",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "PeterUhnak 6/15/2015 23:16",
+	"super" : "ComposableModel",
+	"category" : "OpenPonk-FSM-Simulations",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"diagramController",
 		"recognizer",
@@ -18,9 +18,8 @@
 		"nextButton",
 		"separatorInput",
 		"separatorLabel",
-		"runButton" ],
+		"runButton"
+	],
 	"name" : "OPFsmSimulator",
-	"pools" : [
-		 ],
-	"super" : "ComposableModel",
-	"type" : "normal" }
+	"type" : "normal"
+}

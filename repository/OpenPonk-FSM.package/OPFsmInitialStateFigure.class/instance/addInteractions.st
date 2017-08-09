@@ -1,3 +1,4 @@
 rendering
 addInteractions
-	self @ RTDraggable
+	self @ RTDraggable.
+	self @ OPRTFocusable

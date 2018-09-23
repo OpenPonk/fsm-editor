@@ -23,7 +23,7 @@ baseline: spec
 						repository: 'http://smalltalkhub.com/mc/PharoExtras/XPath/main/' ].
 			spec
 				baseline: 'OpenPonk'
-				with: [ spec repository: 'github://openponk/openponk/repository' ].
+				with: [ spec repository: 'github://openponk/openponk:v0.1.0/repository' ].
 			spec
 				package: 'OpenPonk-FSM'
 				with: [ spec requires: #('OpenPonk' 'Mustache' 'XMLParser' 'XPath') ].

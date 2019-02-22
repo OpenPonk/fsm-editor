@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "OPNavigatorAdapterTest",
+	"super" : "TestCase",
 	"category" : "OpenPonk-FSM-Adapters",
 	"classinstvars" : [ ],
 	"pools" : [ ],

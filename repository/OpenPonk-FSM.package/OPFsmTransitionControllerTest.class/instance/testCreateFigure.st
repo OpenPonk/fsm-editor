@@ -1,16 +1,16 @@
 tests
 testCreateFigure
 	| figure |
-	fromCtrl figure: (self renderFigureOf: fromCtrl).
-	toCtrl figure: (self renderFigureOf: toCtrl).
-	ctrl
+	controller
 		source: fromCtrl;
-		target: toCtrl.
-	figure := self renderFigure.
+		target: toCtrl;
+		model: model.
+	diagramController addController: controller.
+	figure := controller renderFigureIn: diagramController view.
 	self assert: figure class equals: RTEdge.
 	self assert: figure from equals: fromCtrl figure.
 	self assert: figure to equals: toCtrl figure.
-	self assert: view elements size equals: 5.
+	self assert: diagramController view elements size equals: 5.
 	self assert: figure shape class equals: OPRTStyledMultiLine.
 	self assert: figure shape color equals: Color black.
 	self assert: figure shape head shape equals: RTSimpleArrow.

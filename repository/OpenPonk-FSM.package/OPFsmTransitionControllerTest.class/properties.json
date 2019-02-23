@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "OPControllerTest",
+	"super" : "OPControllerOfFsmTest",
 	"category" : "OpenPonk-FSM-Tests",
 	"classinstvars" : [ ],
 	"pools" : [ ],

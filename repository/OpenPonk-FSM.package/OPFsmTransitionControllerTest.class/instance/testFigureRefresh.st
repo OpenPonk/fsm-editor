@@ -1,15 +1,14 @@
 tests
 testFigureRefresh
 	| label |
-	fromCtrl figure: (self renderFigureOf: fromCtrl).
-	toCtrl figure: (self renderFigureOf: toCtrl).
-	ctrl
+	controller
 		source: fromCtrl;
-		target: toCtrl;
-		model: ctrl createModel;
-		figure: self renderFigure.
-	label := ctrl figure labels at: #name.
+		target: toCtrl.
+	diagramController addController: controller.
+	controller createModelIn: diagramController model.
+	controller renderFigureIn: diagramController view.
+	label := controller figure labels at: #name.
 	self assert: label trachelShape text equals: ''.
-	ctrl model name: 'new name'.
-	ctrl refreshFigure.
+	controller model name: 'new name'.
+	controller refreshFigure.
 	self assert: label trachelShape text equals: 'new name'

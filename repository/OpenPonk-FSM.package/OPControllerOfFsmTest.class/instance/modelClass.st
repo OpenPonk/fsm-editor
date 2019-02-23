@@ -1,3 +1,3 @@
-hooks
+accessing
 modelClass
 	^ self subclassResponsibility

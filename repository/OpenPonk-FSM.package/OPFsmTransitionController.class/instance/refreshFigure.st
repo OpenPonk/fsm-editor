@@ -1,5 +1,6 @@
 figures
 refreshFigure
+	self figure ifNil: [ ^ self ].
 	self figure from = self figure to
 		ifTrue: [ (self figure attributeAt: self class name)
 				model: self model name;

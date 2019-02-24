@@ -1,6 +1,6 @@
 # OpenPonk Finite-state machines
 
-![Travis build status](https://travis-ci.org/JanBliznicenko/fsm-editor.svg?branch=master)](https://travis-ci.org/JanBliznicenko/fsm-editor)
+[![Build Status](https://travis-ci.org/JanBliznicenko/fsm-editor.svg?branch=master)](https://travis-ci.org/JanBliznicenko/fsm-editor)
 
 This repository adds finite state machines to the OpenPonk tool.
 

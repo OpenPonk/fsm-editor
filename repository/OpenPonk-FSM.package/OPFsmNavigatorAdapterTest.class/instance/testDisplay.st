@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testDisplay
 	self displayFor: fsm equals: fsm name , ' (Diagram)'.
 	self displayFor: initialState equals: initialState name , ' (Initial State)'.

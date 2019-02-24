@@ -1,5 +1,5 @@
 rendering
 renderFigureIn: aView
-	(figure := self createFigure) renderIn: self diagramController view.
+	(figure := self createFigure) renderIn: aView.
 	self diagramController figureAdded: figure.
 	^ figure

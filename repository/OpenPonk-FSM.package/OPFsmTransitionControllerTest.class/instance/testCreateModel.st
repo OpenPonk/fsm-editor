@@ -1,11 +1,11 @@
 tests
 testCreateModel
 	| createdModel |
-	fromCtrl model: fromCtrl createModel.
-	toCtrl model: toCtrl createModel.
 	controller source: fromCtrl.
 	controller target: toCtrl.
-	createdModel := controller createModel.
-	self assert: model class equals: OPFsmTransition.
-	self assert: model source equals: fromCtrl model.
-	self assert: model target equals: toCtrl model
+	fromCtrl createModelIn: diagramController model.
+	toCtrl createModelIn: diagramController model.
+	createdModel := controller createModelIn: diagramController model.
+	self assert: createdModel class equals: self modelClass.
+	self assert: createdModel source equals: fromCtrl model.
+	self assert: createdModel target equals: toCtrl model

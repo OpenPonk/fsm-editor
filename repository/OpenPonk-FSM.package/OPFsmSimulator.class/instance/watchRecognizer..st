@@ -16,21 +16,22 @@ watchRecognizer: aRecognizer
 		when: OPFsmRecognizerSuccess
 		do: [ :ann | 
 			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureFor: ann place)
+				highlightElement: (diagramController figureForModel: ann place)
 				with: Color green ].
 	aRecognizer
 		when: OPFsmRecognizerFailure
 		do: [ :ann | 
 			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureFor: ann place)
+				highlightElement: (diagramController figureForModel: ann place)
 				with: Color red.
 			self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beFailure ].
 	aRecognizer
 		when: OPFsmRecognizerLeave
-		do: [ :ann | OPFsmFigureHighlighter unhighlight: (diagramController figureFor: ann place) ].
+		do:
+			[ :ann | OPFsmFigureHighlighter unhighlight: (diagramController figureForModel: ann place) ].
 	aRecognizer
 		when: OPFsmRecognizerEnter
 		do: [ :ann | 
 			OPFsmFigureHighlighter
-				highlight: (diagramController figureFor: ann place)
+				highlight: (diagramController figureForModel: ann place)
 				with: Color orange ]

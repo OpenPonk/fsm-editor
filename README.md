@@ -1,21 +1,15 @@
-# OpenPonk Finite-state machines
+# OpenPonk: Finite-state machines
 
 [![Build Status](https://travis-ci.org/JanBliznicenko/fsm-editor.svg?branch=master)](https://travis-ci.org/JanBliznicenko/fsm-editor)
 
-This is an unoffical updated version of Finite state machines extension for [OpenPonk tool](https://openponk.org) that adds finite state machines.
+This is an unoffical updated version of Finite-state machines extension for [OpenPonk tool](https://openponk.org) that adds finite state machines.
 
 ## Installation for usage
 
 Requires Pharo 6.1.
+Loading requires running one of following scripts. Which one is it depends whether you alreade have OpenPonk image or OpenPonk loaded to your image:
 
-Slow loading with any image without OpenPonk: In Playground, run following code:
-```
-Metacello new
-    baseline: 'FsmEditor';
-    repository: 'github://JanBliznicenko/fsm-editor/repository';
-    load
-```
-Fast loading with OpenPonk image: Download OpenPonk 1.0.0 from https://openponk.org/, open it and in Playground, run following code:
+If you have OpenPonk image (OpenPonk 1.x from https://openponk.org/) or OpenPonk loaded into your image:
 ```
 	IceRepository reset.
 	Metacello new
@@ -30,6 +24,13 @@ Fast loading with OpenPonk image: Download OpenPonk 1.0.0 from https://openponk.
 						ifFalse: [ warning pass ] ] ];
 		load
  ```
+If you have (clean) image without OpenPonk (loading will take several minutes):
+```
+Metacello new
+    baseline: 'FsmEditor';
+    repository: 'github://JanBliznicenko/fsm-editor/repository';
+    load
+```
 
 ## Installation for development
 

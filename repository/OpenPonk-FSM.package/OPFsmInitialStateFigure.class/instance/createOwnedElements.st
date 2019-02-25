@@ -1,4 +1,4 @@
-as yet unclassified
+creating - subelements
 createOwnedElements
 	self createAdornment.
 	self createVertexAdornment

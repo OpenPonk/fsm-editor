@@ -1,4 +1,4 @@
-as yet unclassified
+creating
 createVertexAdornment
 	| tool icon transitionHelper |
 	transitionHelper := RTBox new

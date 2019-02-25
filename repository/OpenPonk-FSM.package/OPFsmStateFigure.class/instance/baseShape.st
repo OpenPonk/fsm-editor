@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 baseShape
 	^ RTRoundedBox new
 		size: 50;

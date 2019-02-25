@@ -1,0 +1,3 @@
+deprecated
+createFigure
+	^ self subclassResponsibility

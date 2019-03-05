@@ -1,11 +1,12 @@
 {
 	"commentStamp" : "",
-	"super" : "OPNavigatorAdapterTest",
+	"super" : "OPNavigatorAdaptersTest",
 	"category" : "OpenPonk-FSM-Adapters",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
+		"adapter",
 		"fsm",
 		"initialState",
 		"state",

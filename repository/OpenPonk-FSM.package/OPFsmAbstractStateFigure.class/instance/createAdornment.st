@@ -1,4 +1,4 @@
-as yet unclassified
+creating
 createAdornment
 	| tool icon transitionHelper |
 	transitionHelper := RTBox new

@@ -1,3 +1,3 @@
 testing
 canBeSourceFor: aController
-	^ aController modelClass = OPFsmTransition
+	^ (aController respondsTo: #modelClass) and: [ aController modelClass = OPFsmTransition ]

@@ -1,5 +1,3 @@
 tests
 testCreateModel
-	self class = OPFsmVertexControllerTest
-		ifTrue: [ ^ self ].
-	self assert: ctrl createModel class equals: self modelClass
+	self assert: (controller createModelIn: diagramController model) class equals: self modelClass

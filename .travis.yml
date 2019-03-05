@@ -4,19 +4,6 @@ sudo: false
 os:
   - linux
 
-addons:
-  ssh_known_hosts: ccmi.fit.cvut.cz
-
-env:
-  global:
-    - ARTIFACT_DIR=openponk-fsm-image-$TRAVIS_BUILD_NUMBER
-
 smalltalk:
   - Pharo-6.1
-
-cache:
-  directories:
-    - $SMALLTALK_CI_BUILD_BASE/pharo-local/package-cache
-
-before_install:
-  - source ./scripts/ssh.sh
+  #- Pharo-7.0

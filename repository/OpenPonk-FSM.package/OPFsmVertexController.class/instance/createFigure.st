@@ -1,3 +1,3 @@
-hooks
-modelClass
+deprecated
+createFigure
 	^ self subclassResponsibility

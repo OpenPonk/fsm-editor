@@ -1,4 +1,4 @@
 actions
 resetAction
 	diagramController model elements
-		do: [ :each | OPFsmFigureHighlighter unhighlight: (diagramController figureFor: each) ]
+		do: [ :each | OPFsmFigureHighlighter unhighlight: (diagramController figureForModel: each) ]

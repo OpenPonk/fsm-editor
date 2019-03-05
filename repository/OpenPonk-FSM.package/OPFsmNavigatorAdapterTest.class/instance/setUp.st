@@ -1,6 +1,7 @@
-as yet unclassified
+initialization
 setUp
 	super setUp.
+	adapter := self adapterClass new.
 	fsm := OPFsm named: 'FSM'.
 	initialState := OPFsmInitialState named: 'initial'.
 	state := OPFsmState named: 'state'.

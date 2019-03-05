@@ -1,3 +1,3 @@
 testing
 canBeTargetFor: aController
-	^ aController modelClass = OPFsmTransition
+	^ self canBeSourceFor: aController

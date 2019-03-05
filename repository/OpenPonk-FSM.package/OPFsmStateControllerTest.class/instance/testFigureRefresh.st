@@ -1,8 +1,9 @@
 tests
 testFigureRefresh
-	ctrl model: ctrl createModel.
-	ctrl figure: self renderFigure.
-	self assert: ctrl figure model name equals: ''.
-	ctrl model name: 'new name'.
-	ctrl refreshFigure.
-	self assert: ctrl figure ownedElements first trachelShape text equals: 'new name'
+	controller createModelIn: diagramController model.
+	diagramController addController: controller.
+	controller renderFigureIn: diagramController view.
+	self assert: controller figure model name equals: ''.
+	controller model name: 'new name'.
+	controller refreshFigure.
+	self assert: controller figure ownedElements first trachelShape text equals: 'new name'

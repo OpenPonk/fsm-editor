@@ -25,7 +25,7 @@ baseline: spec
 				with: [ spec repository: 'github://openponk/openponk:v1.0.0/repository' ]. 
 			spec
 				baseline: 'OpenPonkModel'
-				with: [ spec repository: 'github://JanBliznicenko/openponk-model/repository' ].
+				with: [ spec repository: 'github://OpenPonk/openponk-model/repository' ].
 			spec
 				package: 'OpenPonk-FSM'
 				with: [ spec requires: #('OpenPonk' 'OpenPonkModel' 'Mustache' 'XMLParser' 'XPath') ].

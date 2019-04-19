@@ -1,6 +1,6 @@
 # OpenPonk: Finite-state machines
 
-[![Build Status](https://travis-ci.org/JanBliznicenko/fsm-editor.svg?branch=master)](https://travis-ci.org/JanBliznicenko/fsm-editor)
+[![Build Status](https://travis-ci.org/OpenPonk/fsm-editor.svg?branch=master)](https://travis-ci.org/OpenPonk/fsm-editor)
 
 This is an unoffical updated version of Finite-state machines extension for [OpenPonk tool](https://openponk.org) that adds finite state machines.
 
@@ -14,7 +14,7 @@ If you have OpenPonk image (OpenPonk 1.x from https://openponk.org/) or OpenPonk
 	IceRepository reset.
 	Metacello new
 		baseline: 'FsmEditor';
-		repository: 'github://JanBliznicenko/fsm-editor/repository';
+		repository: 'github://OpenPonk/fsm-editor/repository';
 		onConflictUseLoaded;
 		onWarning: [ :warning | 
 			(warning isKindOf: MCMergeOrLoadWarning)
@@ -28,7 +28,7 @@ If you have (clean) image without OpenPonk (loading will take several minutes):
 ```
 Metacello new
     baseline: 'FsmEditor';
-    repository: 'github://JanBliznicenko/fsm-editor/repository';
+    repository: 'github://OpenPonk/fsm-editor/repository';
     load
 ```
 

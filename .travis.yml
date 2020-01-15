@@ -32,21 +32,21 @@ deploy:
     skip_cleanup: true
     script: scripts/deploy.sh ""
     on:
-      smalltalk: Pharo32-6.1
+      smalltalk: Pharo32-7.0
   - provider: script
     skip_cleanup: true
     script: scripts/deploy.sh "64"
     on:
-      smalltalk: Pharo64-6.1
+      smalltalk: Pharo64-7.0
   - provider: script
     on:
       tags: true
-      smalltalk: Pharo32-6.1
+      smalltalk: Pharo32-7.0
     skip_cleanup: true
     script: scripts/deploy.sh ""
   - provider: script
     on:
       tags: true
-      smalltalk: Pharo64-6.1
+      smalltalk: Pharo64-7.0
     skip_cleanup: true
     script: scripts/deploy.sh "64"

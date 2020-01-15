@@ -12,8 +12,9 @@ env:
     - ARTIFACT_DIR=openponk-fsm-image-$TRAVIS_BUILD_NUMBER
 
 smalltalk: 
-  - Pharo32-6.1
-  - Pharo64-6.1
+  - Pharo32-7.0
+  - Pharo64-7.0
+  - Pharo64-8.0
 
 cache:
   directories:

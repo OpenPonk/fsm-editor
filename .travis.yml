@@ -39,6 +39,11 @@ deploy:
     on:
       smalltalk: Pharo64-7.0
   - provider: script
+    skip_cleanup: true
+    script: scripts/deploy.sh "64"
+    on:
+      smalltalk: Pharo64-8.0
+  - provider: script
     on:
       tags: true
       smalltalk: Pharo32-7.0
@@ -48,5 +53,11 @@ deploy:
     on:
       tags: true
       smalltalk: Pharo64-7.0
+    skip_cleanup: true
+    script: scripts/deploy.sh "64"
+  - provider: script
+    on:
+      tags: true
+      smalltalk: Pharo64-8.0
     skip_cleanup: true
     script: scripts/deploy.sh "64"

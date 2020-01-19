@@ -4,9 +4,6 @@ sudo: false
 os:
   - linux
 
-addons:
-  ssh_known_hosts: ccmi.fit.cvut.cz
-
 env:
   global:
     - ARTIFACT_DIR=openponk-fsm-image-$TRAVIS_BUILD_NUMBER
@@ -19,45 +16,3 @@ smalltalk:
 cache:
   directories:
     - $SMALLTALK_CI_BUILD_BASE/pharo-local/package-cache
-
-before_install:
-  - source ./scripts/ssh.sh
-
-before_deploy:
-  - ./scripts/copy-image.sh $SMALLTALK_CI_IMAGE $ARTIFACT_DIR/openponk
-  - ./scripts/mark-image.sh $ARTIFACT_DIR/openponk
-
-deploy:
-  - provider: script
-    skip_cleanup: true
-    script: scripts/deploy.sh ""
-    on:
-      smalltalk: Pharo32-7.0
-  - provider: script
-    skip_cleanup: true
-    script: scripts/deploy.sh "64"
-    on:
-      smalltalk: Pharo64-7.0
-  - provider: script
-    skip_cleanup: true
-    script: scripts/deploy.sh "64"
-    on:
-      smalltalk: Pharo64-8.0
-  - provider: script
-    on:
-      tags: true
-      smalltalk: Pharo32-7.0
-    skip_cleanup: true
-    script: scripts/deploy.sh ""
-  - provider: script
-    on:
-      tags: true
-      smalltalk: Pharo64-7.0
-    skip_cleanup: true
-    script: scripts/deploy.sh "64"
-  - provider: script
-    on:
-      tags: true
-      smalltalk: Pharo64-8.0
-    skip_cleanup: true
-    script: scripts/deploy.sh "64"

@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "tothmatu 10/4/2014 17:03",
-	"super" : "OPRelationshipController",
+	"super" : "OPDirectionalRelationshipController",
 	"category" : "OpenPonk-FSM-Controllers",
 	"classinstvars" : [ ],
 	"pools" : [ ],

@@ -1,6 +1,6 @@
 toolbar
 canvasToolbarFor: aBuilder
-	<dcCanvasToolbar: #OPFsmPlugin>
+	<opCanvasToolbar: #OPFsmPlugin>
 	(aBuilder item: 'Layout')
 		action: [ OPLayoutWizard new
 				controller: aBuilder model diagramController;

@@ -1,5 +1,5 @@
 construction
 createModelIn: aParentModel
-	model := self modelClass new.
+	self model: self modelClass new.
 	aParentModel add: model.
 	^ model

@@ -1,8 +1,9 @@
 rendering
 renderFigureIn: aView
 	figure := self
-		createEdgeFrom: source figure
-		to: target figure
-		inView: aView.
+		createEdgeFrom: self source figure
+		to: self target figure.
+	figure renderIn: aView.
+	self addLabels.
 	self diagramController figureAdded: figure.
 	^ figure

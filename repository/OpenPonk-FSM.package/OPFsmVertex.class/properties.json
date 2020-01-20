@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "tothmatu 10/4/2014 17:07",
-	"super" : "OPMElement",
+	"super" : "OPModelObject",
 	"category" : "OpenPonk-FSM-Models",
 	"classinstvars" : [ ],
 	"pools" : [ ],

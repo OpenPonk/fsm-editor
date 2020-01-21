@@ -6,6 +6,9 @@ SmalltalkCISpec {
 			#platforms : [ #pharo ]
 		}
 	],
+	#postLoading : [
+		'scripts/script.st'
+	],
 	#testing : {
 		#packages : [ 'OpenPonk-FSM.*' ]
 	}

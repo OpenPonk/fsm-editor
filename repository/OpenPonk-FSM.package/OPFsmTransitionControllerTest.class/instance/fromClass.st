@@ -1,3 +1,0 @@
-running
-fromClass
-	^ OPFsmInitialStateController

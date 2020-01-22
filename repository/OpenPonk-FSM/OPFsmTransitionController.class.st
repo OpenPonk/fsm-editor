@@ -5,7 +5,7 @@ A DCFsmTransitionController is a controller for a transition in FSM.
 Class {
 	#name : #OPFsmTransitionController,
 	#superclass : #OPDirectionalRelationshipController,
-	#category : 'OpenPonk-FSM-Controllers'
+	#category : #'OpenPonk-FSM-Controllers'
 }
 
 { #category : #rendering }
@@ -90,15 +90,6 @@ OPFsmTransitionController >> createEdgeFrom: fromElement to: toElement [
 		arrowHead;
 		attachPoint: (RTBorderAttachPoint new offset: -10);
 		edgeFrom: fromElement to: toElement
-]
-
-{ #category : #construction }
-OPFsmTransitionController >> createModelIn: aParentModel [
-	self model: self modelClass new.
-	model source: self source model.
-	model target: self target model.
-	self source diagramController model add: model.
-	^ model
 ]
 
 { #category : #'canvas actions' }

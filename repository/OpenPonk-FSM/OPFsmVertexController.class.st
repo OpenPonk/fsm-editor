@@ -5,7 +5,7 @@ A DCFsmVertexController is a controller for a vertex in FSM.
 Class {
 	#name : #OPFsmVertexController,
 	#superclass : #OPElementController,
-	#category : 'OpenPonk-FSM-Controllers'
+	#category : #'OpenPonk-FSM-Controllers'
 }
 
 { #category : #adding }
@@ -35,13 +35,6 @@ OPFsmVertexController >> canBeTargetFor: aController [
 { #category : #deprecated }
 OPFsmVertexController >> createFigure [
 	^ self subclassResponsibility
-]
-
-{ #category : #construction }
-OPFsmVertexController >> createModelIn: aParentModel [
-	self model: self modelClass new.
-	aParentModel add: model.
-	^ model
 ]
 
 { #category : #announcements }

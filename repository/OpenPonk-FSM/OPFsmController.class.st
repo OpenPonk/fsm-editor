@@ -8,8 +8,15 @@ Class {
 	#instVars : [
 		'persistenceManager'
 	],
-	#category : 'OpenPonk-FSM-Controllers'
+	#category : #'OpenPonk-FSM-Controllers'
 }
+
+{ #category : #'as yet unclassified' }
+OPFsmController >> allShowableElements [
+	"Should return all elements that could be directly hidden on diagram"
+
+	^ (Set with: model) , self model elements
+]
 
 { #category : #userinterface }
 OPFsmController >> applyDefaultLayout [

@@ -8,16 +8,14 @@ DCNavigator
 Class {
 	#name : #OPFsmNavigatorAdapter,
 	#superclass : #OPNavigatorAdapter,
-	#category : 'OpenPonk-FSM-Adapters'
+	#category : #'OpenPonk-FSM-Adapters'
 }
 
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
-	^ {
-	OPFsm -> #states.
-	OPFsmVertex -> #outgoing.
-	OPFsmTransition -> #().
-	}
+	^ {(OPFsm -> #states).
+	(OPFsmVertex -> #outgoing).
+	(OPFsmTransition -> #())}
 ]
 
 { #category : #accessing }
@@ -35,6 +33,13 @@ OPFsmNavigatorAdapter >> displayMapping [
 				ifTrue: [ 'State' ]
 				ifFalse: [ 'Final State' ] ]).
 	(OPFsmTransition -> 'Transition')}
+]
+
+{ #category : #testing }
+OPFsmNavigatorAdapter >> hasMappingFor: anObject [
+	^ {OPFsm.
+	OPFsmTransition.
+	OPFsmVertex} anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
 { #category : #'widget API' }

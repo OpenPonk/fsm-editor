@@ -10,7 +10,7 @@ Class {
 		'firstTransition',
 		'secondTransition'
 	],
-	#category : 'OpenPonk-FSM-Adapters'
+	#category : #'OpenPonk-FSM-Adapters'
 }
 
 { #category : #accessing }
@@ -49,9 +49,15 @@ OPFsmNavigatorAdapterTest >> setUp [
 
 { #category : #tests }
 OPFsmNavigatorAdapterTest >> testChildren [
-	self childrenFor: fsm equals: (Array with: initialState with: state with: finalState).
+	self
+		childrenFor: fsm
+		equals: (Array with: initialState with: state with: finalState).
 	self childrenFor: initialState equals: {firstTransition}.
-	self childrenFor: state equals: {secondTransition}
+	self
+		childrenFor: state
+		equals:
+			{firstTransition.
+			secondTransition}
 ]
 
 { #category : #tests }

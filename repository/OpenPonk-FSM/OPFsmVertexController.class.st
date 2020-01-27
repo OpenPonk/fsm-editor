@@ -37,6 +37,11 @@ OPFsmVertexController >> createFigure [
 	^ self subclassResponsibility
 ]
 
+{ #category : #accessing }
+OPFsmVertexController >> dependentElements [
+	^ (model incoming , model outgoing) asSet
+]
+
 { #category : #announcements }
 OPFsmVertexController >> internalSubscribeTo: aModel [
 	super internalSubscribeTo: aModel.

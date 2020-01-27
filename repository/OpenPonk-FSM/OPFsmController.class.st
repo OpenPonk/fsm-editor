@@ -11,11 +11,6 @@ Class {
 	#category : #'OpenPonk-FSM-Controllers'
 }
 
-{ #category : #accessing }
-OPFsmController >> allOwnedElementsInModel [
-	^ model elements
-]
-
 { #category : #userinterface }
 OPFsmController >> applyDefaultLayout [
 	self
@@ -41,6 +36,11 @@ OPFsmController >> applyLayout: anAlgorithm [
 { #category : #testing }
 OPFsmController >> canBeTargetFor: aController [
 	^ aController isKindOf: OPFsmVertexController
+]
+
+{ #category : #accessing }
+OPFsmController >> elementsToShowInside [
+	^ model elements
 ]
 
 { #category : #initialization }

@@ -14,7 +14,10 @@ Class {
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
 	^ {(OPFsm -> #states).
-	(OPFsmVertex -> #outgoing).
+	(OPFsmVertex
+		-> [ :o | 
+			o outgoing
+				, (o incoming collect: [ :each | OPFsmIncomingTransition of: each ]) ]).
 	(OPFsmIncomingTransition -> #()).
 	(OPFsmTransition -> #())}
 ]
@@ -22,18 +25,6 @@ OPFsmNavigatorAdapter >> childrenMapping [
 { #category : #accessing }
 OPFsmNavigatorAdapter >> contextMenuMapping [
 	^ {}
-]
-
-{ #category : #'widget API' }
-OPFsmNavigatorAdapter >> dependentMapping [
-	^ {(OPFsm -> #states).
-	(OPFsmVertex
-		-> [ :o | 
-			o outgoing
-				,
-					(o incoming
-						collect: [ :each | OPFsmIncomingTransition ofTransition: each ]) ]).
-	(OPFsmTransition -> #())}
 ]
 
 { #category : #'widget API' }

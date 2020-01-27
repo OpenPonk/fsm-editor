@@ -8,13 +8,15 @@ Class {
 }
 
 { #category : #'instance creation' }
+OPFsmIncomingTransition class >> of: aTransition [
+	^ self ofTransition: aTransition
+]
+
+{ #category : #'instance creation' }
 OPFsmIncomingTransition class >> ofTransition: aTransition [
-	cache ifNil: [ cache := WeakKeyDictionary new ].
-	^ cache
-		at: aTransition
-		ifAbsentPut: [ self new
-				transition: aTransition;
-				yourself ]
+	^ self new
+		transition: aTransition;
+		yourself
 ]
 
 { #category : #comparing }

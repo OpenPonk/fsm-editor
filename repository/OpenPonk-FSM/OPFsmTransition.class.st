@@ -20,7 +20,7 @@ Class {
 		'target',
 		'matchBlock'
 	],
-	#category : 'OpenPonk-FSM-Models'
+	#category : #'OpenPonk-FSM-Models'
 }
 
 { #category : #'instance creation' }
@@ -38,6 +38,12 @@ OPFsmTransition class >> from: aSource to: aTarget named: aString [
 		target: aTarget;
 		name: aString;
 		yourself
+]
+
+{ #category : #comparing }
+OPFsmTransition >> = otherTransition [
+	^ otherTransition isTransition
+		and: [ otherTransition represents: self ]
 ]
 
 { #category : #removing }
@@ -77,6 +83,11 @@ OPFsmTransition >> matchBlock: aOneArgBlock [
 { #category : #testing }
 OPFsmTransition >> matches: aValue [
 	^ matchBlock value: aValue
+]
+
+{ #category : #comparing }
+OPFsmTransition >> represents: otherTransition [
+	^ super = otherTransition
 ]
 
 { #category : #accessing }

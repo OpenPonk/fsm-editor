@@ -15,12 +15,25 @@ Class {
 OPFsmNavigatorAdapter >> childrenMapping [
 	^ {(OPFsm -> #states).
 	(OPFsmVertex -> #outgoing).
+	(OPFsmIncomingTransition -> #()).
 	(OPFsmTransition -> #())}
 ]
 
 { #category : #accessing }
 OPFsmNavigatorAdapter >> contextMenuMapping [
 	^ {}
+]
+
+{ #category : #'widget API' }
+OPFsmNavigatorAdapter >> dependentMapping [
+	^ {(OPFsm -> #states).
+	(OPFsmVertex
+		-> [ :o | 
+			o outgoing
+				,
+					(o incoming
+						collect: [ :each | OPFsmIncomingTransition ofTransition: each ]) ]).
+	(OPFsmTransition -> #())}
 ]
 
 { #category : #'widget API' }
@@ -32,13 +45,15 @@ OPFsmNavigatorAdapter >> displayMapping [
 			o isNormal
 				ifTrue: [ 'State' ]
 				ifFalse: [ 'Final State' ] ]).
-	(OPFsmTransition -> 'Transition')}
+	(OPFsmTransition -> 'Transition').
+	(OPFsmIncomingTransition -> 'Incoming transition')}
 ]
 
 { #category : #testing }
 OPFsmNavigatorAdapter >> hasMappingFor: anObject [
 	^ {OPFsm.
 	OPFsmTransition.
+	OPFsmIncomingTransition.
 	OPFsmVertex} anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
@@ -46,6 +61,8 @@ OPFsmNavigatorAdapter >> hasMappingFor: anObject [
 OPFsmNavigatorAdapter >> iconMapping [
 	^ {(OPFsm -> OPIcons current dcFsmDiagramIcon).
 	(OPFsmInitialState -> OPIcons current dcFsmInitialStateIcon).
+	(OPFsmIncomingTransition
+		-> OPIcons current dcFsmFlippedTransitionIcon).
 	(OPFsmTransition -> OPIcons current dcFsmTransitionIcon).
 	(OPFsmState
 		-> [ :o | 

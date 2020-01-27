@@ -43,6 +43,11 @@ OPFsmVertexController >> internalSubscribeTo: aModel [
 	aModel when: OPElementRemoved do: [ :e | self removeController ]
 ]
 
+{ #category : #testing }
+OPFsmVertexController >> isHideable [
+	^ true
+]
+
 { #category : #destruction }
 OPFsmVertexController >> removeModel [
 	self diagramController model remove: self model

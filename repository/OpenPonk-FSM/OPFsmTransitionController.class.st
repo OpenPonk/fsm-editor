@@ -105,6 +105,11 @@ OPFsmTransitionController >> internalSubscribeTo: aModel [
 	aModel when: OPElementRemoved do: [ :e | self removeController ]
 ]
 
+{ #category : #testing }
+OPFsmTransitionController >> isHideable [
+	^ true
+]
+
 { #category : #accessing }
 OPFsmTransitionController >> modelClass [
 	^ OPFsmTransition
@@ -135,8 +140,10 @@ OPFsmTransitionController >> renderFigureIn: aView [
 
 { #category : #construction }
 OPFsmTransitionController >> showInDiagram: aDiagramController [
-	source ifNil: [ self source: (aDiagramController controllerForModel: model source) ].
-	target ifNil: [ self target: (aDiagramController controllerForModel: model target) ].
+	source
+		ifNil: [ self source: (aDiagramController showModelInDiagram: model source) ].
+	target
+		ifNil: [ self target: (aDiagramController showModelInDiagram: model target) ].
 	^ super showInDiagram: aDiagramController
 ]
 

@@ -4,7 +4,7 @@ I am descriptior for FSM plugin.
 Class {
 	#name : #OPFsmPlugin,
 	#superclass : #OPPlugin,
-	#category : 'OpenPonk-FSM-Plugin'
+	#category : #'OpenPonk-FSM-Plugin'
 }
 
 { #category : #toolbar }
@@ -47,4 +47,9 @@ OPFsmPlugin >> name [
 { #category : #accessing }
 OPFsmPlugin >> serializerClass [
 	^ OPFsmSerializer
+]
+
+{ #category : #'as yet unclassified' }
+OPFsmPlugin >> supportsHidingElements [
+	^ true
 ]

@@ -11,11 +11,9 @@ Class {
 	#category : #'OpenPonk-FSM-Controllers'
 }
 
-{ #category : #'as yet unclassified' }
-OPFsmController >> allShowableElements [
-	"Should return all elements that could be directly hidden on diagram"
-
-	^ (Set with: model) , self model elements
+{ #category : #accessing }
+OPFsmController >> allOwnedElementsInModel [
+	^ model elements
 ]
 
 { #category : #userinterface }
@@ -80,9 +78,4 @@ OPFsmController >> modelToControllerMapping [
 OPFsmController >> rebuild [
 	super rebuild.
 	self applyDefaultLayout
-]
-
-{ #category : #rebuilding }
-OPFsmController >> showAllElements [
-	model states , model transitions do: [ :each | self showModelInDiagram: each ]
 ]

@@ -24,6 +24,11 @@ OPFsmIncomingTransition >> = otherTransition [
 	^ self represents: otherTransition
 ]
 
+{ #category : #converting }
+OPFsmIncomingTransition >> asTransition [
+	^ transition
+]
+
 { #category : #printing }
 OPFsmIncomingTransition >> changed [
 	^ transition changed

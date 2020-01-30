@@ -60,5 +60,17 @@ OPFsmController >> modelToControllerMapping [
 		at: OPFsmInitialState put: OPFsmInitialStateController;
 		at: OPFsmState put: OPFsmStateController;
 		at: OPFsmTransition put: OPFsmTransitionController;
+		at: OPFsmIncomingTransition put: OPFsmTransitionController;
 		yourself
+]
+
+{ #category : #'controllers management' }
+OPFsmController >> newControllerFor: aModel [
+	"IncomingTransition identifies itself as transition, but is not"
+
+	^ super
+		newControllerFor:
+			(aModel isTransition
+				ifTrue: [ aModel asTransition ]
+				ifFalse: [ aModel ])
 ]

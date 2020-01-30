@@ -42,8 +42,14 @@ OPFsmTransition class >> from: aSource to: aTarget named: aString [
 
 { #category : #comparing }
 OPFsmTransition >> = otherTransition [
-	^ otherTransition isTransition
-		and: [ otherTransition represents: self ]
+	^ (otherTransition respondsTo: #isTransition)
+		and: [ otherTransition isTransition
+				and: [ otherTransition represents: self ] ]
+]
+
+{ #category : #converting }
+OPFsmTransition >> asTransition [
+	^ self
 ]
 
 { #category : #removing }

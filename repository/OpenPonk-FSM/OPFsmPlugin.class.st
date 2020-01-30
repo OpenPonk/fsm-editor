@@ -8,19 +8,10 @@ Class {
 }
 
 { #category : #toolbar }
-OPFsmPlugin class >> canvasToolbarFor: aBuilder [
-	<opCanvasToolbar: #OPFsmPlugin>
-	(aBuilder item: 'Layout')
-		action: [ OPLayoutWizard new
-				controller: aBuilder model diagramController;
-				open ]
-]
-
-{ #category : #toolbar }
 OPFsmPlugin class >> toolbarMenu: aBuilder [
 	<opEditorToolbarMenu: #OPFsmPlugin>
 	(aBuilder item: 'Help')
-		icon: Smalltalk ui icons help;
+		icon: (self iconNamed: #help);
 		action: [ HelpBrowser openOn: OPFsmHelp ]
 ]
 
@@ -32,6 +23,11 @@ OPFsmPlugin >> diagramControllerClass [
 { #category : #accessing }
 OPFsmPlugin >> icon [
 	^ OPIcons current dcFsmDiagramIcon
+]
+
+{ #category : #'as yet unclassified' }
+OPFsmPlugin >> layouterClass [
+	^ OPFsmLayouter
 ]
 
 { #category : #accessing }

@@ -12,17 +12,6 @@ Class {
 }
 
 { #category : #userinterface }
-OPFsmController >> applyDefaultLayout [
-	self
-		applyLayout:
-			(RTHorizontalTreeLayout new
-				horizontalGap: 50;
-				verticalGap: 50;
-				doNotAttachPoint;
-				yourself)
-]
-
-{ #category : #userinterface }
 OPFsmController >> applyLayout: anAlgorithm [
 	| figures edges |
 	figures := self controllers
@@ -72,10 +61,4 @@ OPFsmController >> modelToControllerMapping [
 		at: OPFsmState put: OPFsmStateController;
 		at: OPFsmTransition put: OPFsmTransitionController;
 		yourself
-]
-
-{ #category : #rebuilding }
-OPFsmController >> rebuild [
-	super rebuild.
-	self applyDefaultLayout
 ]

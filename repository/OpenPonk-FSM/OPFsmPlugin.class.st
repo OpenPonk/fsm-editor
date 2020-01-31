@@ -36,13 +36,13 @@ OPFsmPlugin >> modelClass [
 ]
 
 { #category : #accessing }
-OPFsmPlugin >> name [
-	^ 'FSM Diagram'
+OPFsmPlugin >> modelSerializerClass [
+	^ OPFsmModelSerializer
 ]
 
 { #category : #accessing }
-OPFsmPlugin >> serializerClass [
-	^ OPFsmSerializer
+OPFsmPlugin >> name [
+	^ 'FSM Diagram'
 ]
 
 { #category : #'as yet unclassified' }

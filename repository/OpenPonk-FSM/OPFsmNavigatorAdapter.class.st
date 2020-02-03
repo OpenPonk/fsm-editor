@@ -61,3 +61,11 @@ OPFsmNavigatorAdapter >> iconMapping [
 				ifTrue: [ OPIcons current dcFsmRegularStateIcon ]
 				ifFalse: [ OPIcons current dcFsmFinalStateIcon ] ])}
 ]
+
+{ #category : #'widget API' }
+OPFsmNavigatorAdapter >> typesByDependency [
+	^ {OPFsm.
+	OPFsmVertex.
+	OPFsmTransition.
+	OPFsmIncomingTransition}
+]

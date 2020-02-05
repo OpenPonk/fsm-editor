@@ -141,9 +141,9 @@ OPFsmTransitionController >> renderFigureIn: aView [
 { #category : #construction }
 OPFsmTransitionController >> showInDiagram: aDiagramController [
 	source
-		ifNil: [ self source: (aDiagramController showInDiagramModel: model source) ].
+		ifNil: [ self source: (aDiagramController showWithoutDependentInDiagramModel: model source) ].
 	target
-		ifNil: [ self target: (aDiagramController showInDiagramModel: model target) ].
+		ifNil: [ self target: (aDiagramController showWithoutDependentInDiagramModel: model target) ].
 	^ super showInDiagram: aDiagramController
 ]
 
@@ -154,10 +154,10 @@ OPFsmTransitionController >> showSelectionFeedback [
 ]
 
 { #category : #construction }
-OPFsmTransitionController >> showWithDependentInDiagram: aDiagramController [
+OPFsmTransitionController >> showWithoutDependentInDiagram: aDiagramController [
 	source
-		ifNil: [ self source: (aDiagramController showInDiagramModel: model source) ].
+		ifNil: [ self source: (aDiagramController showWithoutDependentInDiagramModel: model source) ].
 	target
-		ifNil: [ self target: (aDiagramController showInDiagramModel: model target) ].
-	^ super showWithDependentInDiagram: aDiagramController
+		ifNil: [ self target: (aDiagramController showWithoutDependentInDiagramModel: model target) ].
+	^ super showWithoutDependentInDiagram: aDiagramController
 ]

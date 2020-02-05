@@ -40,3 +40,8 @@ OPFsmModelSerializer >> serializeDiagram: aDiagramMemento [
 OPFsmModelSerializer >> serializeModel: aModel [
 	^ OPFsmGraphML new export: aModel
 ]
+
+{ #category : #accessing }
+OPFsmModelSerializer >> serializeModel: aModel to: aStream [
+	^ aStream << (self serializeModel: aModel)
+]

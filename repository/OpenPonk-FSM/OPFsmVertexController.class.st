@@ -8,20 +8,6 @@ Class {
 	#category : #'OpenPonk-FSM-Controllers'
 }
 
-{ #category : #adding }
-OPFsmVertexController >> addAsSourceFor: aTransitionController [
-	self assert: (self canBeSourceFor: aTransitionController).
-	aTransitionController source: self
-]
-
-{ #category : #adding }
-OPFsmVertexController >> addAsTargetFor: aTransitionController [
-	self assert: (self canBeTargetFor: aTransitionController).
-	aTransitionController target: self.
-	aTransitionController createModelIn: self model andShowInDiagram: self diagramController.
-	self model owner add: aTransitionController model
-]
-
 { #category : #testing }
 OPFsmVertexController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and: [ aController modelClass = OPFsmTransition ]
@@ -51,6 +37,11 @@ OPFsmVertexController >> internalSubscribeTo: aModel [
 { #category : #testing }
 OPFsmVertexController >> isHideable [
 	^ true
+]
+
+{ #category : #adding }
+OPFsmVertexController >> modelAsParent [
+	^ self model owner
 ]
 
 { #category : #destruction }

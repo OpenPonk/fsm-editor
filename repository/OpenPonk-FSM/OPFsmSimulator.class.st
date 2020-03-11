@@ -12,7 +12,7 @@ DCFsmController
 "
 Class {
 	#name : #OPFsmSimulator,
-	#superclass : #ComposableModel,
+	#superclass : #ComposablePresenter,
 	#instVars : [
 		'diagramController',
 		'recognizer',
@@ -28,7 +28,7 @@ Class {
 		'separatorLabel',
 		'runButton'
 	],
-	#category : 'OpenPonk-FSM-Simulations'
+	#category : #'OpenPonk-FSM-Simulations'
 }
 
 { #category : #specs }

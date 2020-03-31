@@ -22,11 +22,6 @@ OPFsmNavigatorAdapter >> childrenMapping [
 	(OPFsmTransition -> #())}
 ]
 
-{ #category : #accessing }
-OPFsmNavigatorAdapter >> contextMenuMapping [
-	^ {}
-]
-
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> displayMapping [
 	^ {(OPFsm -> 'Diagram').

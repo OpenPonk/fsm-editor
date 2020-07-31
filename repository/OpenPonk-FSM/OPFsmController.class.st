@@ -27,6 +27,11 @@ OPFsmController >> canBeTargetFor: aController [
 	^ aController isKindOf: OPFsmVertexController
 ]
 
+{ #category : #'as yet unclassified' }
+OPFsmController >> commonModelClassPrefix [
+	^ 'OPFsm'
+]
+
 { #category : #accessing }
 OPFsmController >> elementsToShowInside [
 	^ model elements

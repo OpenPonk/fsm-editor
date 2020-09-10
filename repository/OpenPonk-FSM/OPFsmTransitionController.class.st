@@ -117,9 +117,9 @@ OPFsmTransitionController >> modelClass [
 
 { #category : #figures }
 OPFsmTransitionController >> refreshFigure [
-	self figure ifNil: [ ^ self ].
+	self figure ifNil: [ ^ nil ].
 	(figure labels at: #name) trachelShape text: self model name.
-	super refreshFigure
+	^ super refreshFigure
 ]
 
 { #category : #destruction }
@@ -129,13 +129,13 @@ OPFsmTransitionController >> removeModel [
 
 { #category : #rendering }
 OPFsmTransitionController >> renderFigureIn: aView [
+	self diagramController addingFigureFor: self.
 	figure := self
 		createEdgeFrom: self source figure
 		to: self target figure.
 	figure renderIn: aView.
 	self addLabels.
-	self diagramController figureAdded: figure.
-	^ figure
+	^ self diagramController addedFigureFor: self
 ]
 
 { #category : #construction }

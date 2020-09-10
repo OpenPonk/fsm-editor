@@ -5,7 +5,7 @@ A DCFsmStateController is a controller for a state in FSM.
 Class {
 	#name : #OPFsmStateController,
 	#superclass : #OPFsmVertexController,
-	#category : 'OpenPonk-FSM-Controllers'
+	#category : #'OpenPonk-FSM-Controllers'
 }
 
 { #category : #hooks }
@@ -32,5 +32,6 @@ OPFsmStateController >> modelClass [
 
 { #category : #figures }
 OPFsmStateController >> refreshFigure [
-	figure update
+	figure update.
+	^ self figure
 ]

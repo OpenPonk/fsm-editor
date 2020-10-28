@@ -22,10 +22,10 @@ BaselineOfFsmEditor >> baseline: spec [
 					[ spec repository: 'github://pharo-contributions/XML-XPath:2.2.0/src' ].
 			spec
 				baseline: 'OpenPonk'
-				with: [ spec repository: 'github://openponk/openponk:v2.0.0/repository' ].
+				with: [ spec repository: 'github://openponk/openponk/repository' ].
 			spec
 				baseline: 'OpenPonkModel'
-				with: [ spec repository: 'github://OpenPonk/openponk-model:v2.0.0/repository' ].
+				with: [ spec repository: 'github://OpenPonk/openponk-model/repository' ].
 			spec
 				package: 'OpenPonk-FSM'
 				with: [ spec

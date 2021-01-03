@@ -24,7 +24,8 @@ OPFsmController >> applyLayout: anAlgorithm [
 
 { #category : #testing }
 OPFsmController >> canBeTargetFor: aController [
-	^ aController isKindOf: OPFsmVertexController
+	^ (super canBeTargetFor: aController)
+		or: [ aController isKindOf: OPFsmVertexController ]
 ]
 
 { #category : #'as yet unclassified' }

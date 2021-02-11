@@ -124,6 +124,7 @@ OPFsmTransitionController >> refreshFigure [
 
 { #category : #destruction }
 OPFsmTransitionController >> removeModel [
+	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
 ]
 

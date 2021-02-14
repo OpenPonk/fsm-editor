@@ -34,6 +34,16 @@ OPFsmController >> commonModelClassPrefix [
 ]
 
 { #category : #accessing }
+OPFsmController >> controllerFactory [
+	^ super controllerFactory
+		register: OPFsmInitialStateController forModel: OPFsmInitialState;
+		register: OPFsmStateController forModel: OPFsmState;
+		register: OPFsmTransitionController forModel: OPFsmTransition;
+		register: OPFsmTransitionController
+			forModel: OPFsmIncomingTransition
+]
+
+{ #category : #accessing }
 OPFsmController >> elementsToShowInside [
 	^ model elements
 ]
@@ -58,16 +68,6 @@ OPFsmController >> initializePalette: aPalette [
 { #category : #accessing }
 OPFsmController >> modelClass [
 	^ OPFsm
-]
-
-{ #category : #accessing }
-OPFsmController >> modelToControllerMapping [
-	^ Dictionary new
-		at: OPFsmInitialState put: OPFsmInitialStateController;
-		at: OPFsmState put: OPFsmStateController;
-		at: OPFsmTransition put: OPFsmTransitionController;
-		at: OPFsmIncomingTransition put: OPFsmTransitionController;
-		yourself
 ]
 
 { #category : #'controllers management' }

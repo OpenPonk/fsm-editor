@@ -11,9 +11,7 @@ OPFsmModelSerializer >> formatName [
 
 { #category : #'serialize/materialize' }
 OPFsmModelSerializer >> materializeDiagramFrom: aString [
-	^ (STON reader
-		allowComplexMapKeys: true;
-		on: aString readStream) next
+	^ STON fromString: aString
 ]
 
 { #category : #'serialize/materialize' }

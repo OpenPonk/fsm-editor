@@ -57,6 +57,13 @@ OPFsmNavigatorAdapter >> iconMapping [
 				ifFalse: [ OPIcons current dcFsmFinalStateIcon ] ])}
 ]
 
+{ #category : #private }
+OPFsmNavigatorAdapter >> sort: modelObjects [
+	^ modelObjects
+		sorted:
+			[ :a :b | a name isNotNil and: [ b name isNil or: [ a name < b name ] ] ]
+]
+
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> typesByDependency [
 	^ {OPFsm.

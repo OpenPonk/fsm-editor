@@ -24,12 +24,23 @@ OPFsmController >> applyLayout: anAlgorithm [
 
 { #category : #testing }
 OPFsmController >> canBeTargetFor: aController [
-	^ aController isKindOf: OPFsmVertexController
+	^ (super canBeTargetFor: aController)
+		or: [ aController isKindOf: OPFsmVertexController ]
 ]
 
 { #category : #'as yet unclassified' }
 OPFsmController >> commonModelClassPrefix [
 	^ 'OPFsm'
+]
+
+{ #category : #accessing }
+OPFsmController >> controllerFactory [
+	^ super controllerFactory
+		register: OPFsmInitialStateController forModel: OPFsmInitialState;
+		register: OPFsmStateController forModel: OPFsmState;
+		register: OPFsmTransitionController forModel: OPFsmTransition;
+		register: OPFsmTransitionController
+			forModel: OPFsmIncomingTransition
 ]
 
 { #category : #accessing }
@@ -57,16 +68,6 @@ OPFsmController >> initializePalette: aPalette [
 { #category : #accessing }
 OPFsmController >> modelClass [
 	^ OPFsm
-]
-
-{ #category : #accessing }
-OPFsmController >> modelToControllerMapping [
-	^ Dictionary new
-		at: OPFsmInitialState put: OPFsmInitialStateController;
-		at: OPFsmState put: OPFsmStateController;
-		at: OPFsmTransition put: OPFsmTransitionController;
-		at: OPFsmIncomingTransition put: OPFsmTransitionController;
-		yourself
 ]
 
 { #category : #'controllers management' }

@@ -46,6 +46,7 @@ OPFsmVertexController >> modelAsParent [
 
 { #category : #destruction }
 OPFsmVertexController >> removeModel [
+	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
 ]
 

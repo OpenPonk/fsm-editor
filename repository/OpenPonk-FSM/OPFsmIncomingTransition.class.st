@@ -44,6 +44,12 @@ OPFsmIncomingTransition >> hash [
 	^ transition hash
 ]
 
+{ #category : #testing }
+OPFsmIncomingTransition >> isTransition [
+
+	^ true
+]
+
 { #category : #printing }
 OPFsmIncomingTransition >> printOn: aStream [
 	^ transition printOn: aStream
@@ -51,7 +57,9 @@ OPFsmIncomingTransition >> printOn: aStream [
 
 { #category : #comparing }
 OPFsmIncomingTransition >> represents: otherTransition [
-	^ super = otherTransition or: [ transition == otherTransition ]
+
+	^ super = otherTransition or: [ 
+		  transition == otherTransition or: [ transition = otherTransition ] ]
 ]
 
 { #category : #accessing }

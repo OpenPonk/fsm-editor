@@ -7,9 +7,12 @@ SmalltalkCISpec {
 		}
 	],
 	#postLoading : [
-		'scripts/script.st'
+		'.github/scripts/script.st'
 	],
 	#testing : {
-		#packages : [ 'OpenPonk-FSM.*' ]
+		#packages : [ 'OpenPonk*' ],
+		#coverage : {
+			#packages : [ 'OpenPonk-FSM*' ]
+		}
 	}
 }

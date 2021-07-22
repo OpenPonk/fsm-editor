@@ -20,7 +20,8 @@ BaselineOfFsmEditor >> baseline: spec [
 			spec
 				baseline: 'XPath'
 				with: [ spec
-						repository: 'github://pharo-contributions/XML-XPath:3450f91/src' ].
+						repository: 'github://pharo-contributions/XML-XPath:3450f91/src';
+						loads: #(Core) ].
 			spec
 				baseline: 'OpenPonk'
 				with: [ spec repository: 'github://openponk/openponk/repository' ].

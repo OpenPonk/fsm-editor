@@ -1,6 +1,6 @@
 # OpenPonk: Finite-state machines
 
-[![Build Status](https://travis-ci.com/OpenPonk/fsm-editor.svg?branch=master)](https://travis-ci.com/OpenPonk/fsm-editor)
+[![Nightly](https://github.com/OpenPonk/fsm-editor/actions/workflows/nightly.yml/badge.svg)](https://github.com/OpenPonk/fsm-editor/actions/workflows/nightly.yml) 
 
 This is an unoffical updated version of Finite-state machines extension for [OpenPonk tool](https://openponk.org).
 

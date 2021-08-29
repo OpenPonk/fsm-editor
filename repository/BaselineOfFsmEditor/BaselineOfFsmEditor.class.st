@@ -24,10 +24,10 @@ BaselineOfFsmEditor >> baseline: spec [
 						loads: #(Core) ].
 			spec
 				baseline: 'OpenPonk'
-				with: [ spec repository: 'github://openponk/openponk/repository' ].
+				with: [ spec repository: 'github://openponk/openponk:v3.0.x/repository' ].
 			spec
 				baseline: 'OpenPonkModel'
-				with: [ spec repository: 'github://OpenPonk/openponk-model/repository' ].
+				with: [ spec repository: 'github://OpenPonk/openponk-model:v2.1.x/repository' ].
 			spec
 				package: 'OpenPonk-FSM'
 				with: [ spec requires: #('OpenPonkModel' 'Mustache' 'XMLParser' 'XPath') ].

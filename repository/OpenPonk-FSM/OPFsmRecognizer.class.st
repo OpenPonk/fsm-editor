@@ -21,7 +21,7 @@ Class {
 		'current',
 		'canContinue'
 	],
-	#category : 'OpenPonk-FSM-Simulations'
+	#category : #'OpenPonk-FSM-Simulations'
 }
 
 { #category : #stepping }
@@ -101,7 +101,7 @@ OPFsmRecognizer >> nextUpToEnd [
 	[ canContinue ]
 		whileTrue: [ self next.
 			0 second asDelay wait.
-			World doOneCycle ]
+			self currentWorld doOneCycle ]
 ]
 
 { #category : #initialization }

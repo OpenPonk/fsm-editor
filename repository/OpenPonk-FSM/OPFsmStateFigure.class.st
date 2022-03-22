@@ -15,7 +15,7 @@ Class {
 		'label',
 		'innerCircle'
 	],
-	#category : 'OpenPonk-FSM-Figures'
+	#category : #'OpenPonk-FSM-Figures'
 }
 
 { #category : #rendering }
@@ -26,9 +26,8 @@ OPFsmStateFigure >> addInteractions [
 
 { #category : #accessing }
 OPFsmStateFigure >> baseShape [
-	^ RTRoundedBox new
+	^ RTEllipse new
 		size: 50;
-		borderRadius: 25;
 		borderWidth: 1.5;
 		color: Color white;
 		borderColor: Color black
@@ -45,9 +44,8 @@ OPFsmStateFigure >> createOwnedElements [
 		elementOn: self.
 	self add: label.
 	(RTConstraint on: label background: self) stick.
-	innerCircle := RTRoundedBox new
+	innerCircle := RTEllipse new
 		size: 44;
-		borderRadius: 22;
 		borderWidth: 1;
 		color: Color transparent;
 		borderColor: Color black;

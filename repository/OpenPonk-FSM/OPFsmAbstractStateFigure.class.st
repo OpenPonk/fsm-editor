@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'controller'
 	],
-	#category : 'OpenPonk-FSM-Figures'
+	#category : #'OpenPonk-FSM-Figures'
 }
 
 { #category : #accessing }
@@ -41,9 +41,9 @@ OPFsmAbstractStateFigure >> createAdornment [
 		when: TRMouseLeftClick
 		do: [ :evt | 
 			(tool := OPConnectionCreationTool new)
-				palette: self controller diagramController editor paletteModel;
+				palette: self controller diagramController editor palette;
 				factory: [ OPFsmTransitionController new ].
-			self controller diagramController editor paletteModel selectTool: tool.
+			self controller diagramController editor palette selectTool: tool.
 			tool sourceSelected: self controller ].
 	self
 		when: OPTRFocused
@@ -87,20 +87,20 @@ OPFsmAbstractStateFigure >> createVertexAdornment [
 		when: TRMouseLeftClick
 		do: [ :evt | 
 			(tool := OPCreationTool new)
-				palette: self controller diagramController editor paletteModel;
+				palette: self controller diagramController editor palette;
 				factory: [ OPFsmStateController new ];
 				whenCompleted: [ :ctrl | 
 					| t2 |
 					t2 := OPConnectionCreationTool new
-						palette: self controller diagramController editor paletteModel;
+						palette: self controller diagramController editor palette;
 						factory: [ OPFsmTransitionController new ].
-					self controller diagramController editor paletteModel selectTool: t2.
+					self controller diagramController editor palette selectTool: t2.
 					t2
 						sourceSelected: self controller;
 						targetSelected: ctrl.
-					self controller diagramController editor paletteModel selectedTool
+					self controller diagramController editor palette selectedTool
 						targetSelected: ctrl ].
-			self controller diagramController editor paletteModel selectTool: tool ].
+			self controller diagramController editor palette selectTool: tool ].
 	self
 		when: OPTRFocused
 		do: [ self

@@ -12,7 +12,7 @@ DCFsmController
 "
 Class {
 	#name : #OPFsmSimulator,
-	#superclass : #ComposablePresenter,
+	#superclass : #SpPresenter,
 	#instVars : [
 		'diagramController',
 		'recognizer',
@@ -31,32 +31,39 @@ Class {
 	#category : #'OpenPonk-FSM-Simulations'
 }
 
-{ #category : #specs }
-OPFsmSimulator class >> defaultSpec [
-	^ SpecColumnLayout composed
-		newRow: [ :row | 
+{ #category : #'as yet unclassified' }
+OPFsmSimulator class >> defaultLayout [
+	^ SpBoxLayout newTopToBottom
+		add: SpBoxLayout newLeftToRight:  [ :row | 
 			row
 				add: #inputLabel width: 50;
 				add: #input;
 				add: #separatorLabel width: 80;
 				add: #separatorInput width: 60 ]
 			height: 25;
-		newRow: [ :row | 
+		add: SpBoxLayout newLeftToRight:  [ :row | 
 			row
 				add: #startButton;
 				add: #stopButton;
 				add: #resetButton ]
 			height: self toolbarHeight;
-		newRow: [ :row | row add: #letterPanel ] height: self toolbarHeight;
-		newRow: [ :row | 
+		add: SpBoxLayout newLeftToRight:  [ :row | row add: #letterPanel ] height: self toolbarHeight;
+		add: SpBoxLayout newLeftToRight:  [ :row | 
 			row
 				add: #backButton;
 				add: #nextButton;
 				add: #runButton;
-				newColumn: [ :col |  ] ]
+				add: SpBoxLayout newTopToBottom:  [ :col |  ] ]
 			height: self toolbarHeight;
-		newRow: [ :row |  ];
+		add: SpBoxLayout newLeftToRight:  [ :row |  ];
 		yourself
+]
+
+{ #category : #specs }
+OPFsmSimulator class >> defaultSpec [
+
+	self flag: 'Pharo 9- compatibility'.
+	^ self defaultLayout
 ]
 
 { #category : #toolbar }
@@ -79,21 +86,9 @@ OPFsmSimulator >> backButton [
 	^ backButton
 ]
 
-{ #category : #api }
-OPFsmSimulator >> initialExtent [
-	^ 400 @ 300
-]
-
-{ #category : #initialization }
-OPFsmSimulator >> initialize [
-	recognizer := OPFsmRecognizer new.
-	self watchRecognizer: recognizer.
-	super initialize
-]
-
-{ #category : #initialization }
-OPFsmSimulator >> initializePresenter [
-	super initializePresenter.
+{ #category : #'as yet unclassified' }
+OPFsmSimulator >> connectPresenters [
+	super connectPresenters.
 	inputLabel label: 'Input:'.
 	input autoAccept: true.
 	input textHolder
@@ -134,7 +129,14 @@ OPFsmSimulator >> initializePresenter [
 ]
 
 { #category : #initialization }
-OPFsmSimulator >> initializeWidgets [
+OPFsmSimulator >> initialize [
+	recognizer := OPFsmRecognizer new.
+	self watchRecognizer: recognizer.
+	super initialize
+]
+
+{ #category : #'as yet unclassified' }
+OPFsmSimulator >> initializePresenters [
 	inputLabel := self newLabel.
 	input := self newTextInput.
 	separatorLabel := self newLabel.
@@ -146,6 +148,13 @@ OPFsmSimulator >> initializeWidgets [
 	backButton := self newButton.
 	nextButton := self newButton.
 	runButton := self newButton
+]
+
+{ #category : #'as yet unclassified' }
+OPFsmSimulator >> initializeWindow: aWindow [
+
+	aWindow initialExtent: 400 @ 300.
+	aWindow title: 'Finite State Machine Simulator'
 ]
 
 { #category : #'accessing - spec fields' }
@@ -276,11 +285,6 @@ OPFsmSimulator >> stopAction [
 { #category : #'accessing - spec fields' }
 OPFsmSimulator >> stopButton [
 	^ stopButton
-]
-
-{ #category : #api }
-OPFsmSimulator >> title [
-	^ 'Finite State Machine Simulator'
 ]
 
 { #category : #events }

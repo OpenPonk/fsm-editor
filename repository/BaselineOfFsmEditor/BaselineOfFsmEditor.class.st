@@ -24,7 +24,7 @@ BaselineOfFsmEditor >> baseline: spec [
 						loads: #(Core) ].
 			spec
 				baseline: 'OpenPonk'
-				with: [ spec repository: 'github://openponk/openponk/repository' ].
+				with: [ spec repository: 'github://openponk/openponk:spec2' ].
 			spec
 				baseline: 'OpenPonkModel'
 				with: [ spec repository: 'github://OpenPonk/openponk-model/repository' ].

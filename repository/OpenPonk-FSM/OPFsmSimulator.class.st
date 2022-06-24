@@ -59,13 +59,6 @@ OPFsmSimulator class >> defaultLayout [
 		yourself
 ]
 
-{ #category : #specs }
-OPFsmSimulator class >> defaultSpec [
-
-	self flag: 'Pharo 9- compatibility'.
-	^ self defaultLayout
-]
-
 { #category : #toolbar }
 OPFsmSimulator class >> toolbarMenu: aBuilder [
 	<opEditorToolbarMenu: #OPFsmPlugin>

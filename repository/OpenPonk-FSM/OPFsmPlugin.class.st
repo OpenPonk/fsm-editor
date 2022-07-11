@@ -22,7 +22,7 @@ OPFsmPlugin >> diagramControllerClass [
 
 { #category : #accessing }
 OPFsmPlugin >> icon [
-	^ OPIcons current dcFsmDiagramIcon
+	^ OPCoreIcons opFsmDiagramIcon
 ]
 
 { #category : #'as yet unclassified' }

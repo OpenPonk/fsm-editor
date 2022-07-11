@@ -45,16 +45,16 @@ OPFsmNavigatorAdapter >> hasMappingFor: anObject [
 
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> iconMapping [
-	^ {(OPFsm -> OPIcons current dcFsmDiagramIcon).
-	(OPFsmInitialState -> OPIcons current dcFsmInitialStateIcon).
+	^ {(OPFsm -> OPCoreIcons opFsmDiagramIcon).
+	(OPFsmInitialState -> OPCoreIcons opFsmInitialStateIcon).
 	(OPFsmIncomingTransition
-		-> OPIcons current dcFsmFlippedTransitionIcon).
-	(OPFsmTransition -> OPIcons current dcFsmTransitionIcon).
+		-> OPCoreIcons opFsmFlippedTransitionIcon).
+	(OPFsmTransition -> OPCoreIcons opFsmTransitionIcon).
 	(OPFsmState
 		-> [ :o | 
 			o isNormal
-				ifTrue: [ OPIcons current dcFsmRegularStateIcon ]
-				ifFalse: [ OPIcons current dcFsmFinalStateIcon ] ])}
+				ifTrue: [ OPCoreIcons opFsmRegularStateIcon ]
+				ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ])}
 ]
 
 { #category : #private }

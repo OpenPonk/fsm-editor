@@ -53,16 +53,16 @@ OPFsmController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Initial state'
 			factory: [ OPFsmInitialStateController new ]
-			icon: OPIcons current dcFsmInitialStateIcon;
+			icon: OPCoreIcons opFsmInitialStateIcon;
 		newSeparator;
-		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPIcons current dcFsmRegularStateIcon;
+		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPCoreIcons opFsmRegularStateIcon;
 		newCreationTool: 'Final state'
 			factory: [ OPFsmFinalStateController new ]
-			icon: OPIcons current dcFsmFinalStateIcon;
+			icon: OPCoreIcons opFsmFinalStateIcon;
 		newSeparator;
 		newConnectionCreationTool: 'Transition'
 			factory: [ OPFsmTransitionController new ]
-			icon: OPIcons current dcFsmTransitionIcon
+			icon: OPCoreIcons opFsmTransitionIcon
 ]
 
 { #category : #accessing }

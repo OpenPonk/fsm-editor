@@ -5,7 +5,7 @@ A DCFsmVertex is the class representing a vertex in FSM. Also parent class of al
 Class {
 	#name : #OPFsmVertex,
 	#superclass : #OPModelObject,
-	#category : 'OpenPonk-FSM-Models'
+	#category : #'OpenPonk-FSM-Models'
 }
 
 { #category : #associating }
@@ -16,16 +16,6 @@ OPFsmVertex >> -> aVertex [
 { #category : #'DynaCASE-FSM-GraphML-accessing' }
 OPFsmVertex >> graphmlType [
 	^ self subclassResponsibility
-]
-
-{ #category : #'gt-inspector' }
-OPFsmVertex >> gtInspectorPresentation: composite [
-	<gtInspectorPresentationOrder: 30>
-	composite table
-		title: 'DC Model';
-		display: [ self ];
-		column: 'Property' evaluated: [ :each | 'Name' ];
-		column: 'Value' evaluated: [ :each | each name ]
 ]
 
 { #category : #accessing }

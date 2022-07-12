@@ -94,12 +94,12 @@ OPFsmExamples class >> menuCommandOn: aBuilder [
 		order: 220;
 		with: [ 
 			(aBuilder item: #'FSM Example')
-				parent: #'DC Finite State Machine';
+				parent: #'OP Finite State Machine';
 				label: 'FSM Example Divisibility';
 				icon: OPCoreIcons opFsmDiagramIcon;
 				action: [ self exampleDivisibility ].
 			(aBuilder item: #'FSM Example 2')
-				parent: #'DC Finite State Machine';
+				parent: #'OP Finite State Machine';
 				label: 'FSM Example Decimal';
 				icon: OPCoreIcons opFsmDiagramIcon;
 				action: [ self exampleDecimal ] ]

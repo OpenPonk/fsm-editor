@@ -87,19 +87,20 @@ OPFsmExamples class >> exampleEmpty [
 OPFsmExamples class >> menuCommandOn: aBuilder [
 
 	<worldMenu>
-	(aBuilder item: #'OP Finite State Machine')
+	(aBuilder item: #OPFSM)
+		label: 'Finite State Machine';
 		icon: OPCoreIcons opFsmDiagramIcon;
 		action: [ self exampleEmpty ];
 		parent: #MostUsedTools;
 		order: 220;
 		with: [ 
 			(aBuilder item: #'FSM Example')
-				parent: #'OP Finite State Machine';
+				parent: #OPFSM;
 				label: 'FSM Example Divisibility';
 				icon: OPCoreIcons opFsmDiagramIcon;
 				action: [ self exampleDivisibility ].
 			(aBuilder item: #'FSM Example 2')
-				parent: #'OP Finite State Machine';
+				parent: #OPFSM;
 				label: 'FSM Example Decimal';
 				icon: OPCoreIcons opFsmDiagramIcon;
 				action: [ self exampleDecimal ] ]

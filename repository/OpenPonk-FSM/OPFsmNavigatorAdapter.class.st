@@ -11,6 +11,12 @@ Class {
 	#category : #'OpenPonk-FSM-Adapters'
 }
 
+{ #category : #accessing }
+OPFsmNavigatorAdapter class >> priority [
+
+	^ 10
+]
+
 { #category : #'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
 	^ {(OPFsm -> #states).

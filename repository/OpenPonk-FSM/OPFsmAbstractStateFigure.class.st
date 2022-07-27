@@ -89,7 +89,7 @@ OPFsmAbstractStateFigure >> createVertexAdornment [
 			(tool := OPCreationTool new)
 				palette: self controller diagramController editor palette;
 				factory: [ OPFsmStateController new ];
-				whenCompleted: [ :ctrl | 
+				whenCreated: [ :ctrl | 
 					| t2 |
 					t2 := OPConnectionCreationTool new
 						palette: self controller diagramController editor palette;

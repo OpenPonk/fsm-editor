@@ -42,11 +42,13 @@ OPFsmNavigatorAdapter >> displayMapping [
 ]
 
 { #category : #testing }
-OPFsmNavigatorAdapter >> hasMappingFor: anObject [
-	^ {OPFsm.
-	OPFsmTransition.
-	OPFsmIncomingTransition.
-	OPFsmVertex} anySatisfy: [ :any | anObject isKindOf: any ]
+OPFsmNavigatorAdapter >> hasMappingFor: anObject in: aModel [
+
+	^ { 
+		  OPFsm.
+		  OPFsmTransition.
+		  OPFsmIncomingTransition.
+		  OPFsmVertex } anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
 { #category : #'widget API' }

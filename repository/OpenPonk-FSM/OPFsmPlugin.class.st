@@ -9,9 +9,10 @@ Class {
 
 { #category : #toolbar }
 OPFsmPlugin class >> toolbarMenu: aBuilder [
+
 	<opEditorToolbarMenu: #OPFsmPlugin>
 	(aBuilder item: 'Help')
-		icon: (self iconNamed: #help);
+		icon: OPCoreIcons opFsmDiagramIcon;
 		action: [ HelpBrowser openOn: OPFsmHelp ]
 ]
 

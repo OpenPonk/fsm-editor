@@ -6,9 +6,8 @@ SmalltalkCISpec {
 			#platforms : [ #pharo ]
 		}
 	],
-	#postLoading : [
-		'.github/scripts/script.st'
-	],
+	#preLoading : '.github/scripts/preLoad.st',
+	#postLoading : '.github/scripts/postLoad.st',
 	#testing : {
 		#packages : [ 'OpenPonk*' ],
 		#coverage : {

@@ -85,7 +85,7 @@ OPFsmTransitionController >> constraintSelfEdgeLabel: labelName [
 ]
 
 { #category : #figures }
-OPFsmTransitionController >> createEdgeFrom: fromElement to: toElement [
+OPFsmTransitionController >> createLineFrom: fromElement to: toElement [
 	^ OPRTStyledMultiLine new
 		color: Color black;
 		arrowHead;
@@ -133,7 +133,7 @@ OPFsmTransitionController >> removeModel [
 OPFsmTransitionController >> renderFigureIn: aView [
 	self diagramController addingFigureFor: self.
 	figure := self
-		createEdgeFrom: self source figure
+		createLineFrom: self source figure
 		to: self target figure.
 	figure renderIn: aView.
 	self addLabels.

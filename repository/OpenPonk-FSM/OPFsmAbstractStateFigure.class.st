@@ -44,7 +44,7 @@ OPFsmAbstractStateFigure >> createAdornment [
 				palette: self controller diagramController editor palette;
 				factory: [ OPFsmTransitionController new ].
 			self controller diagramController editor palette selectTool: tool.
-			tool sourceSelected: self controller ].
+			tool selectedSourceControllers: {self controller} ].
 	self
 		when: OPTRFocused
 		do: [ self
@@ -65,12 +65,13 @@ OPFsmAbstractStateFigure >> createAdornment [
 
 { #category : #creating }
 OPFsmAbstractStateFigure >> createVertexAdornment [
+
 	| tool icon transitionHelper |
 	transitionHelper := RTBox new
-		size: 20;
-		color: Color white;
-		borderColor: Color veryVeryLightGray;
-		element.
+		                    size: 20;
+		                    color: Color white;
+		                    borderColor: Color veryVeryLightGray;
+		                    element.
 	(RTConstraint on: transitionHelper background: self)
 		bottom;
 		right;
@@ -78,43 +79,39 @@ OPFsmAbstractStateFigure >> createVertexAdornment [
 		verticalPadding: -20;
 		stick.
 	icon := RTEllipse new
-		color: Color transparent;
-		borderColor: Color black;
-		size: 14;
-		element.
+		        color: Color transparent;
+		        borderColor: Color black;
+		        size: 14;
+		        element.
 	(RTConstraint on: icon background: transitionHelper) stick.
-	transitionHelper
-		when: TRMouseLeftClick
-		do: [ :evt | 
-			(tool := OPCreationTool new)
-				palette: self controller diagramController editor palette;
-				factory: [ OPFsmStateController new ];
-				whenCreated: [ :ctrl | 
-					| t2 |
-					t2 := OPConnectionCreationTool new
-						palette: self controller diagramController editor palette;
-						factory: [ OPFsmTransitionController new ].
-					self controller diagramController editor palette selectTool: t2.
-					t2
-						sourceSelected: self controller;
-						targetSelected: ctrl.
-					self controller diagramController editor palette selectedTool
-						targetSelected: ctrl ].
-			self controller diagramController editor palette selectTool: tool ].
-	self
-		when: OPTRFocused
-		do: [ self
-				add: transitionHelper;
-				add: icon.
-			self view
-				add: transitionHelper;
-				add: icon ].
-	self
-		when: OPTRUnfocused
-		do: [ transitionHelper view
-				ifNotNil: [ ownedElements
-						remove: transitionHelper;
-						remove: icon.
-					transitionHelper remove.
-					icon remove ] ]
+	transitionHelper when: TRMouseLeftClick do: [ :evt | 
+		(tool := OPCreationTool new)
+			palette: self controller diagramController editor palette;
+			factory: [ OPFsmStateController new ];
+			whenCreated: [ :ctrl | 
+				| t2 |
+				t2 := OPConnectionCreationTool new
+					      palette: self controller diagramController editor palette;
+					      factory: [ OPFsmTransitionController new ].
+				self controller diagramController editor palette selectTool: t2.
+				t2
+					selectedSourceControllers: { self controller };
+					selectedTargetControllers: { ctrl }.
+				self controller diagramController editor palette selectedTool 
+					selectedTargetControllers: { ctrl } ].
+		self controller diagramController editor palette selectTool: tool ].
+	self when: OPTRFocused do: [ 
+		self
+			add: transitionHelper;
+			add: icon.
+		self view
+			add: transitionHelper;
+			add: icon ].
+	self when: OPTRUnfocused do: [ 
+		transitionHelper view ifNotNil: [ 
+			ownedElements
+				remove: transitionHelper;
+				remove: icon.
+			transitionHelper remove.
+			icon remove ] ]
 ]

@@ -15,10 +15,10 @@ OPFsmTransitionController >> addLabels [
 		ifTrue: [ self constraintSelfEdgeLabel: #name ]
 		ifFalse: [ self constraintLabel: #name balance: 0.2 offset: 12 ].
 	figure
-		when: TRMouseDoubleLeftClick
+		when: RSMouseDoubleClick 
 		do: [ :evt | OPRenameElementCommand executeOn: self ].
 	(figure labels at: #name)
-		when: TRMouseDoubleLeftClick
+		when: RSMouseDoubleClick
 		do: [ :evt | OPRenameElementCommand executeOn: self ]
 ]
 

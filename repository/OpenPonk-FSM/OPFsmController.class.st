@@ -21,7 +21,9 @@ OPFsmController >> applyLayout: anAlgorithm [
 	edges := (figures flatCollect: #connectedEdges) reject: [ :each | 
 		         each from = each to ].
 	anAlgorithm on: figures edges: edges.
-	self canvas shapes ifNotEmpty: [ self canvas camera zoomToFit ]
+	self canvas nodes
+		ifEmpty: [ self canvas camera scale: 1 ]
+		ifNotEmpty: [ self canvas zoomToFit ]
 ]
 
 { #category : #testing }

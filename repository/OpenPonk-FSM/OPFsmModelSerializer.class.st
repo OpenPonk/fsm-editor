@@ -4,6 +4,24 @@ Class {
 	#category : #'OpenPonk-FSM-Serialization'
 }
 
+{ #category : #'as yet unclassified' }
+OPFsmModelSerializer class >> exportVersion [
+
+	^ 1
+]
+
+{ #category : #formatting }
+OPFsmModelSerializer class >> formatName [
+
+	^ #ston
+]
+
+{ #category : #accessing }
+OPFsmModelSerializer class >> minImportVersion [
+
+	^ 1
+]
+
 { #category : #accessing }
 OPFsmModelSerializer >> formatName [
 	^ 'ston'

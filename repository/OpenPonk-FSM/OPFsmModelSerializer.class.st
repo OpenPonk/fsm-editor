@@ -13,7 +13,7 @@ OPFsmModelSerializer class >> exportVersion [
 { #category : #formatting }
 OPFsmModelSerializer class >> formatName [
 
-	^ #ston
+	^ #'graphml-ston'
 ]
 
 { #category : #accessing }
@@ -25,11 +25,6 @@ OPFsmModelSerializer class >> minImportVersion [
 { #category : #accessing }
 OPFsmModelSerializer >> formatName [
 	^ 'ston'
-]
-
-{ #category : #'serialize/materialize' }
-OPFsmModelSerializer >> materializeDiagramFrom: aString [
-	^ STON fromString: aString
 ]
 
 { #category : #'serialize/materialize' }
@@ -45,11 +40,6 @@ OPFsmModelSerializer >> materializeModelFromString: aString [
 { #category : #accessing }
 OPFsmModelSerializer >> modelExtension [
 	^ 'graphml'
-]
-
-{ #category : #'serialize/materialize' }
-OPFsmModelSerializer >> serializeDiagram: aDiagramMemento [
-	^ STON toStringPretty: aDiagramMemento
 ]
 
 { #category : #'serialize/materialize' }

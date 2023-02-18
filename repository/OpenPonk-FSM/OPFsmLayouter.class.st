@@ -8,14 +8,14 @@ Class {
 OPFsmLayouter >> allEdges [
 	^ diagramController controllers
 		select: [ :ctrl | ctrl isKindOf: OPFsmTransitionController ]
-		thenCollect: #figure
+		thenCollect: #roassalShape
 ]
 
 { #category : #accessing }
 OPFsmLayouter >> allNodes [
 	^ diagramController controllers
 		select: [ :ctrl | ctrl isKindOf: OPFsmVertexController ]
-		thenCollect: #figure
+		thenCollect: #roassalShape
 ]
 
 { #category : #layouts }

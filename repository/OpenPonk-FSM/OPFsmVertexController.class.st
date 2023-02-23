@@ -52,7 +52,7 @@ OPFsmVertexController >> removeModel [
 
 { #category : #rendering }
 OPFsmVertexController >> renderFigureIn: aView [
-	self diagramController addingFigureFor: self.
+	self diagramController willRender: self.
 	(figure := self createFigure) renderIn: aView.
-	^ self diagramController addedFigureFor: self
+	^ self diagramController rendered: self
 ]

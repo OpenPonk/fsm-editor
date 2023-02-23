@@ -131,13 +131,13 @@ OPFsmTransitionController >> removeModel [
 
 { #category : #rendering }
 OPFsmTransitionController >> renderFigureIn: aView [
-	self diagramController addingFigureFor: self.
+	self diagramController willRender: self.
 	figure := self
 		createLineFrom: self source figure
 		to: self target figure.
 	figure renderIn: aView.
 	self addLabels.
-	^ self diagramController addedFigureFor: self
+	^ self diagramController rendered: self
 ]
 
 { #category : #construction }

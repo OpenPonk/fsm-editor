@@ -1,7 +1,7 @@
 Class {
 	#name : #OPFsmVertexControllerTest,
 	#superclass : #OPControllerOfFsmTest,
-	#category : 'OpenPonk-FSM-Tests'
+	#category : #'OpenPonk-FSM-Tests'
 }
 
 { #category : #testing }
@@ -22,7 +22,7 @@ OPFsmVertexControllerTest >> testCreateFigure [
 	diagramController addController: controller.
 	controller renderFigureIn: diagramController view.
 	self assert: diagramController view elements size equals: 1.
-	self assert: controller figure class equals: OPFsmInitialStateFigure
+	self assert: controller figure class equals: OPFsmInitialStateShape
 ]
 
 { #category : #tests }

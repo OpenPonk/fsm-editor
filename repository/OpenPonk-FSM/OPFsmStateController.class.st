@@ -20,7 +20,7 @@ OPFsmStateController >> buildEditorForm: aForm [
 
 { #category : #figures }
 OPFsmStateController >> createFigure [
-	^ (OPFsmStateFigure on: self model)
+	^ (OPFsmStateShape on: self model)
 		controller: self;
 		yourself
 ]

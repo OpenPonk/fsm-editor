@@ -5,7 +5,7 @@ Class {
 		'controller',
 		'icon'
 	],
-	#category : 'OpenPonk-FSM-Figures'
+	#category : #'OpenPonk-FSM-DiagramElements'
 }
 
 { #category : #'as yet unclassified' }

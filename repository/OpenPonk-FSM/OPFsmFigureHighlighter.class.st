@@ -17,54 +17,51 @@ Class {
 
 { #category : #'api - highlight' }
 OPFsmFigureHighlighter class >> highlight: aShapedObject with: aColor [
-	aShapedObject isElement
-		ifTrue: [ self highlightElement: aShapedObject with: aColor ].
-	aShapedObject isEdge
-		ifTrue: [ self highlightEdge: aShapedObject with: aColor ]
+	aShapedObject isNode
+		ifTrue: [ self highlightNode: aShapedObject with: aColor ].
+	aShapedObject isLine
+		ifTrue: [ self highlightLine: aShapedObject with: aColor ]
 ]
 
 { #category : #'api - highlight' }
-OPFsmFigureHighlighter class >> highlightEdge: anEdge with: aColor [
-	self unhighlightElement: anEdge.
-	anEdge attributeAt: self name put: (anEdge shape colorFor: anEdge).
-	anEdge shape color: aColor.
-	anEdge update.
-	anEdge signalUpdate
+OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
+
+	self unhighlightNode: aLine.
+	aLine propertyAt: self name put: (aLine shape colorFor: aLine).
+	aLine shape color: aColor.
+	aLine signalUpdate
 ]
 
 { #category : #'api - highlight' }
-OPFsmFigureHighlighter class >> highlightElement: anElement with: aColor [
-	self unhighlightElement: anElement.
-	anElement attributeAt: self name put: (anElement shape borderColorFor: anElement).
-	anElement shape borderColor: aColor.
-	anElement update.
-	anElement signalUpdate
+OPFsmFigureHighlighter class >> highlightNode: aNode with: aColor [
+
+	self unhighlightNode: aNode.
+	aNode propertyAt: self name put: (aNode shape borderColorFor: aNode).
+	aNode shape borderColor: aColor.
+	aNode signalUpdate
 ]
 
 { #category : #'api - unhighlight' }
 OPFsmFigureHighlighter class >> unhighlight: aShapedObject [
-	aShapedObject isElement
-		ifTrue: [ self unhighlightElement: aShapedObject ].
-	aShapedObject isEdge
-		ifTrue: [ self unhighlightEdge: aShapedObject ]
+	aShapedObject isNode
+		ifTrue: [ self unhighlightNode: aShapedObject ].
+	aShapedObject isLine
+		ifTrue: [ self unhighlightLine: aShapedObject ]
 ]
 
 { #category : #'api - unhighlight' }
-OPFsmFigureHighlighter class >> unhighlightEdge: anEdge [
-	(anEdge hasAttribute: self name)
-		ifFalse: [ ^ self ].
-	anEdge shape color: (anEdge attributeAt: self name).
-	anEdge removeAttributeAt: self name.
-	anEdge update.
-	anEdge signalUpdate
+OPFsmFigureHighlighter class >> unhighlightLine: aLine [
+
+	aLine shape color: (aLine propertyAt: self name ifAbsent: [ ^ self ]).
+	aLine removePropertyAt: self name.
+	aLine signalUpdate
 ]
 
 { #category : #'api - unhighlight' }
-OPFsmFigureHighlighter class >> unhighlightElement: anElement [
-	(anElement hasAttribute: self name)
-		ifFalse: [ ^ self ].
-	anElement shape borderColor: (anElement attributeAt: self name).
-	anElement removeAttributeAt: self name.
-	anElement update.
-	anElement signalUpdate
+OPFsmFigureHighlighter class >> unhighlightNode: aNode [
+
+	aNode shape borderColor:
+		(aNode propertyAt: self name ifAbsent: [ ^ self ]).
+	aNode removePropertyAt: self name.
+	aNode signalUpdate
 ]

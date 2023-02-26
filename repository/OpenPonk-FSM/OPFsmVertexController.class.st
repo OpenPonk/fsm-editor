@@ -18,11 +18,6 @@ OPFsmVertexController >> canBeTargetFor: aController [
 	^ self canBeSourceFor: aController
 ]
 
-{ #category : #deprecated }
-OPFsmVertexController >> createFigure [
-	^ self subclassResponsibility
-]
-
 { #category : #accessing }
 OPFsmVertexController >> dependentElements [
 	^ (model incoming , model outgoing) asSet
@@ -48,11 +43,4 @@ OPFsmVertexController >> modelAsParent [
 OPFsmVertexController >> removeModel [
 	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
-]
-
-{ #category : #rendering }
-OPFsmVertexController >> renderFigureIn: aView [
-	self diagramController willRender: self.
-	(figure := self createFigure) renderIn: aView.
-	^ self diagramController rendered: self
 ]

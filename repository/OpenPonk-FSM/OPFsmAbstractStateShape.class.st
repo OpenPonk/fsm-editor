@@ -4,21 +4,8 @@ I am a base class for FSM vertex figures and I provide basic adornment behavior.
 Class {
 	#name : #OPFsmAbstractStateShape,
 	#superclass : #OPShape,
-	#instVars : [
-		'controller'
-	],
 	#category : #'OpenPonk-FSM-DiagramElements'
 }
-
-{ #category : #accessing }
-OPFsmAbstractStateShape >> controller [
-	^ controller
-]
-
-{ #category : #accessing }
-OPFsmAbstractStateShape >> controller: anObject [
-	controller := anObject
-]
 
 { #category : #creating }
 OPFsmAbstractStateShape >> createAdornment [
@@ -114,4 +101,22 @@ OPFsmAbstractStateShape >> createVertexAdornment [
 				remove: icon.
 			transitionHelper remove.
 			icon remove ] ]
+]
+
+{ #category : #rendering }
+OPFsmAbstractStateShape >> renderShapeDetails [
+
+	| selectable |
+	"self createAdornment.
+	self createVertexAdornment."
+	selectable := OPRSSelectable new.
+	self setupHighlight: selectable.
+	self roassalShape @ selectable.
+	self roassalShape @ OPRSSelectionDraggable thatDoesNotDragInnerShapes
+]
+
+{ #category : #hooks }
+OPFsmAbstractStateShape >> setupHighlight: aHighlightable [
+
+	self subclassResponsibility
 ]

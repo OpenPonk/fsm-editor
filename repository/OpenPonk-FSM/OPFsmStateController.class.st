@@ -18,20 +18,13 @@ OPFsmStateController >> buildEditorForm: aForm [
 			self refreshFigure ]
 ]
 
-{ #category : #figures }
-OPFsmStateController >> createFigure [
-	^ (OPFsmStateShape on: self model)
-		controller: self;
-		yourself
+{ #category : #construction }
+OPFsmStateController >> diagramElementClass [
+
+	^ OPFsmStateShape
 ]
 
 { #category : #accessing }
 OPFsmStateController >> modelClass [
 	^ OPFsmState
-]
-
-{ #category : #figures }
-OPFsmStateController >> refreshFigure [
-	figure update.
-	^ self figure
 ]

@@ -8,82 +8,6 @@ Class {
 	#category : #'OpenPonk-FSM-Controllers'
 }
 
-{ #category : #rendering }
-OPFsmTransitionController >> addLabels [
-
-	self source = self target
-		ifTrue: [ self constraintSelfEdgeLabel: #name ]
-		ifFalse: [ self constraintLabel: #name balance: 0.2 offset: 12 ].
-	figure
-		when: RSMouseDoubleClick 
-		do: [ :evt | OPRenameElementCommand executeOn: self ].
-	(figure labels at: #name)
-		when: RSMouseDoubleClick
-		do: [ :evt | OPRenameElementCommand executeOn: self ]
-]
-
-{ #category : #rendering }
-OPFsmTransitionController >> constraintLabel: labelName balance: aFloat offset: aNumber [
-	| label |
-	label := (RTLabel new
-		height: 10;
-		color: figure shape color;
-		text: self model name;
-		element)
-		@ RTDraggable;
-		yourself.
-	label model: figure.
-	figure trachelShape
-		addCallback:
-			(TRRemoveCallback new
-				block: [ :removedShape | 
-					figure labels removeKey: labelName.
-					label remove ]).
-	figure labels at: labelName put: label.
-	label renderIn: figure view.
-	OPRTEdgeAlongConstraint
-		stick: label
-		alongEdge: figure
-		balance: aFloat
-		offset: aNumber.
-	OPRTElementsConstraint
-		whenDragging: label
-		drawLineToPoint: [ label position
-				nearestPointOnLineFrom: (figure shape startingPointOf: figure)
-				to: (figure shape endingPointOf: figure) ]
-]
-
-{ #category : #rendering }
-OPFsmTransitionController >> constraintSelfEdgeLabel: labelName [
-	| label |
-	label := (RTLabel new
-		height: 10;
-		color: figure shape color;
-		text: self model name;
-		element)
-		@ RTDraggable;
-		yourself.
-	label model: figure.
-	figure trachelShape
-		addCallback:
-			(TRRemoveCallback new
-				block: [ :removedShape | 
-					figure labels removeKey: labelName.
-					label remove ]).
-	figure labels at: labelName put: label.
-	label renderIn: figure view.
-	OPRTEdgeAlongConstraint
-		stick: label
-		alongEdge: figure
-		offset: figure encompassingRectangle width / 2 negated.
-	OPRTElementsConstraint
-		whenDragging: label
-		drawLineToPoint: [ | spaceTakenByEdge |
-			spaceTakenByEdge := figure trachelShape encompassingRectangle.
-			spaceTakenByEdge center * 2
-				- (spaceTakenByEdge pointNearestTo: figure from center) ]
-]
-
 { #category : #figures }
 OPFsmTransitionController >> createLineFrom: fromElement to: toElement [
 	^ OPRTStyledMultiLine new
@@ -93,11 +17,23 @@ OPFsmTransitionController >> createLineFrom: fromElement to: toElement [
 		edgeFrom: fromElement to: toElement
 ]
 
-{ #category : #'canvas actions' }
-OPFsmTransitionController >> hideSelectionFeedback [
-	self figure view
-		ifNotNil: [ self figure announce: OPTRUnfocused.
-			self figure view signalUpdate ]
+{ #category : #construction }
+OPFsmTransitionController >> diagramElementClass [
+
+	^ OPFsmTransitionShape
+]
+
+{ #category : #accessing }
+OPFsmTransitionController >> ensureSourceAndTargetIn: aDiagramController [
+
+	source ifNil: [ 
+		self source:
+			(aDiagramController showWithoutDependentInDiagramModel:
+				 model source) ].
+	target ifNil: [ 
+		self target:
+			(aDiagramController showWithoutDependentInDiagramModel:
+				 model target) ]
 ]
 
 { #category : #announcements }
@@ -116,50 +52,22 @@ OPFsmTransitionController >> modelClass [
 	^ OPFsmTransition
 ]
 
-{ #category : #figures }
-OPFsmTransitionController >> refreshFigure [
-	self figure ifNil: [ ^ nil ].
-	(figure labels at: #name) trachelShape text: self model name.
-	^ super refreshFigure
-]
-
 { #category : #destruction }
 OPFsmTransitionController >> removeModel [
 	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
 ]
 
-{ #category : #rendering }
-OPFsmTransitionController >> renderFigureIn: aView [
-	self diagramController willRender: self.
-	figure := self
-		createLineFrom: self source figure
-		to: self target figure.
-	figure renderIn: aView.
-	self addLabels.
-	^ self diagramController rendered: self
-]
-
 { #category : #construction }
 OPFsmTransitionController >> showInDiagram: aDiagramController [
-	source
-		ifNil: [ self source: (aDiagramController showWithoutDependentInDiagramModel: model source) ].
-	target
-		ifNil: [ self target: (aDiagramController showWithoutDependentInDiagramModel: model target) ].
-	^ super showInDiagram: aDiagramController
-]
 
-{ #category : #'canvas actions' }
-OPFsmTransitionController >> showSelectionFeedback [
-	self figure announce: OPTRFocused.
-	self figure view signalUpdate
+	self ensureSourceAndTargetIn: aDiagramController.
+	^ super showInDiagram: aDiagramController
 ]
 
 { #category : #construction }
 OPFsmTransitionController >> showWithoutDependentInDiagram: aDiagramController [
-	source
-		ifNil: [ self source: (aDiagramController showWithoutDependentInDiagramModel: model source) ].
-	target
-		ifNil: [ self target: (aDiagramController showWithoutDependentInDiagramModel: model target) ].
+
+	self ensureSourceAndTargetIn: aDiagramController.
 	^ super showWithoutDependentInDiagram: aDiagramController
 ]

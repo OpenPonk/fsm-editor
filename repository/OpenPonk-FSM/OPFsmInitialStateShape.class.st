@@ -7,21 +7,16 @@ Class {
 	#category : #'OpenPonk-FSM-DiagramElements'
 }
 
-{ #category : #rendering }
-OPFsmInitialStateShape >> addInteractions [
-	self @ RTDraggable.
-	self @ OPRTFocusable
-]
-
 { #category : #'instance creation' }
-OPFsmInitialStateShape >> baseShape [
-	^ RTEllipse new
-		size: 14;
-		color: Color black
+OPFsmInitialStateShape >> renderBasicShape [
+
+	^ RSCircle new
+		  size: 14;
+		  color: Color black
 ]
 
-{ #category : #'creating - subelements' }
-OPFsmInitialStateShape >> createOwnedElements [
-	self createAdornment.
-	self createVertexAdornment
+{ #category : #hooks }
+OPFsmInitialStateShape >> setupHighlight: aHighlightable [
+
+	aHighlightable highlightColor: Color blue
 ]

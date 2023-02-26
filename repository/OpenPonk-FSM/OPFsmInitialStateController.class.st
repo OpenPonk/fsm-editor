@@ -13,11 +13,10 @@ OPFsmInitialStateController >> canBeTargetFor: aController [
 	^ false
 ]
 
-{ #category : #hooks }
-OPFsmInitialStateController >> createFigure [
-	^ (OPFsmInitialStateShape on: self model)
-		controller: self;
-		yourself
+{ #category : #construction }
+OPFsmInitialStateController >> diagramElementClass [
+
+	^ OPFsmInitialStateShape
 ]
 
 { #category : #accessing }

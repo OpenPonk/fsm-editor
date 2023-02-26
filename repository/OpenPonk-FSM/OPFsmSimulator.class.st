@@ -301,13 +301,13 @@ OPFsmSimulator >> watchRecognizer: aRecognizer [
 		when: OPFsmRecognizerSuccess
 		do: [ :ann | 
 			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureForModel: ann place)
+				highlightNode: (diagramController figureForModel: ann place)
 				with: Color green ].
 	aRecognizer
 		when: OPFsmRecognizerFailure
 		do: [ :ann | 
 			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureForModel: ann place)
+				highlightNode: (diagramController figureForModel: ann place)
 				with: Color red.
 			self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beFailure ].
 	aRecognizer

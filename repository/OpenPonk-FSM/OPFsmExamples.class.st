@@ -1,11 +1,12 @@
 Class {
 	#name : #OPFsmExamples,
 	#superclass : #Object,
-	#category : 'OpenPonk-FSM-Examples'
+	#category : #'OpenPonk-FSM-Examples'
 }
 
 { #category : #examples }
 OPFsmExamples class >> exampleDecimal [
+
 	| project fsm initial z b c d k isDigit |
 	project := OPProject named: 'FSM Example'.
 	fsm := OPFsm named: 'Decimal number'.
@@ -24,9 +25,8 @@ OPFsmExamples class >> exampleDecimal [
 		add: d;
 		add: k.
 
-	fsm
-		addAll:
-			{(initial -> z).
+	fsm addAll: { 
+			(initial -> z).
 			(z -> b name: '+').
 			(z -> b name: '-').
 			(z -> c name: 'd').
@@ -36,16 +36,19 @@ OPFsmExamples class >> exampleDecimal [
 			(c -> c name: 'd').
 			(b -> d name: '.').
 			(d -> k name: 'd').
-			(k -> k name: 'd')}.
+			(k -> k name: 'd') }.
 
 	isDigit := [ :aValue | '^[0-9]$' asRegex matches: aValue ].
-	fsm transitions select: [ :each | each name = 'd' ] thenDo: [ :each | each matchBlock: isDigit ].
+	fsm transitions
+		select: [ :each | each name = 'd' ]
+		thenDo: [ :each | each matchBlock: isDigit ].
 
-	OPWorkbench openProject: project
+	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
 { #category : #examples }
 OPFsmExamples class >> exampleDivisibility [
+
 	| project fsm initial zero one two |
 	project := OPProject named: 'FSM Example'.
 	fsm := OPFsm named: 'Divisibility By Three'.
@@ -61,26 +64,26 @@ OPFsmExamples class >> exampleDivisibility [
 		add: one;
 		add: two.
 
-	fsm
-		addAll:
-			{(initial -> zero).
+	fsm addAll: { 
+			(initial -> zero).
 			(zero -> zero name: '0').
 			(zero -> one name: '1').
 			(one -> zero name: '1').
 			(one -> two name: '0').
 			(two -> one name: '0').
-			(two -> two name: '1')}.
+			(two -> two name: '1') }.
 
-	OPWorkbench openProject: project
+	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
 { #category : #examples }
 OPFsmExamples class >> exampleEmpty [
+
 	| project fsm |
 	project := OPProject new name: 'New StateMachine'.
 	fsm := OPFsm new name: 'New StateMachine Diagram'.
 	project addModel: fsm.
-	OPWorkbench openProject: project
+	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
 { #category : #menu }

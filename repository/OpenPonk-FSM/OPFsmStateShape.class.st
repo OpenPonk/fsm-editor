@@ -18,43 +18,57 @@ Class {
 	#category : #'OpenPonk-FSM-DiagramElements'
 }
 
-{ #category : #rendering }
-OPFsmStateShape >> addInteractions [
-	self @ RTDraggable.
-	self @ OPRTFocusable
-]
-
 { #category : #accessing }
-OPFsmStateShape >> baseShape [
-	^ RTEllipse new
-		size: 50;
-		borderWidth: 1.5;
-		color: Color white;
-		borderColor: Color black
+OPFsmStateShape >> renderBasicShape [
+
+	^ RSCircle new
+		  size: 50;
+		  color: Color white;
+		  border: (RSBorder new
+				   color: Color black;
+				   width: 1.5;
+				   yourself);
+		  yourself
 ]
 
-{ #category : #'creating - subelements' }
-OPFsmStateShape >> createOwnedElements [
-	self createAdornment.
-	self createVertexAdornment.
-	label := RTLabel new
-		color: Color black;
-		height: 11;
-		text: [ :m | m model ifNil: [ '' ] ifNotNil: #name ];
-		elementOn: self.
-	self add: label.
-	(RTConstraint on: label background: self) stick.
-	innerCircle := RTEllipse new
-		size: 44;
-		borderWidth: 1;
-		color: Color transparent;
-		borderColor: Color black;
-		element.
-	(RTConstraint on: innerCircle background: self) stick
+{ #category : #rendering }
+OPFsmStateShape >> renderShapeDetails [
+
+	super renderShapeDetails.
+
+	label := RSLabel new
+		         color: Color black;
+		         height: 11;
+		         model: self;
+		         yourself.
+	RSLocation new stick: label on: self roassalShape.
+	innerCircle := RSCircle new
+		               size: 44;
+		               color: Color transparent;
+		               model: self;
+		               yourself.
+	RSLocation new stick: innerCircle on: self roassalShape.
+	self canvas
+		add: label;
+		add: innerCircle.
+	self roassalShape when: RSShapeRemovedEvent do: [ 
+		label remove.
+		innerCircle remove ]
+]
+
+{ #category : #hooks }
+OPFsmStateShape >> setupHighlight: aHighlightable [
+
+	aHighlightable highlightBorderColor: Color blue
 ]
 
 { #category : #updating }
-OPFsmStateShape >> update [
-	self show: innerCircle if: self model isFinal.
-	super update
+OPFsmStateShape >> updateRenderFromModel [
+
+	label text: self modelElement name.
+	innerCircle borderColor: (self modelElement isFinal
+			 ifTrue: [ Color black ]
+			 ifFalse: [ Color transparent ]).
+	super updateRenderFromModel.
+	roassalShape signalUpdate
 ]

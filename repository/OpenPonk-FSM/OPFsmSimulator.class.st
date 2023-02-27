@@ -33,30 +33,34 @@ Class {
 
 { #category : #'as yet unclassified' }
 OPFsmSimulator class >> defaultLayout [
+
 	^ SpBoxLayout newTopToBottom
-		add: SpBoxLayout newLeftToRight:  [ :row | 
-			row
-				add: #inputLabel width: 50;
-				add: #input;
-				add: #separatorLabel width: 80;
-				add: #separatorInput width: 60 ]
-			height: 25;
-		add: SpBoxLayout newLeftToRight:  [ :row | 
-			row
-				add: #startButton;
-				add: #stopButton;
-				add: #resetButton ]
-			height: self toolbarHeight;
-		add: SpBoxLayout newLeftToRight:  [ :row | row add: #letterPanel ] height: self toolbarHeight;
-		add: SpBoxLayout newLeftToRight:  [ :row | 
-			row
-				add: #backButton;
-				add: #nextButton;
-				add: #runButton;
-				add: SpBoxLayout newTopToBottom:  [ :col |  ] ]
-			height: self toolbarHeight;
-		add: SpBoxLayout newLeftToRight:  [ :row |  ];
-		yourself
+		  add: (SpBoxLayout newLeftToRight
+				   add: #inputLabel width: 50;
+				   add: #input;
+				   add: #separatorLabel width: 80;
+				   add: #separatorInput width: 60;
+				   yourself)
+		  height: 25;
+		  add: (SpBoxLayout newLeftToRight
+				   add: #startButton;
+				   add: #stopButton;
+				   add: #resetButton;
+				   yourself)
+		  height: self toolbarHeight;
+		  add: (SpBoxLayout newLeftToRight
+				   add: #letterPanel;
+				   yourself)
+		  height: self toolbarHeight;
+		  add: (SpBoxLayout newLeftToRight
+				   add: #backButton;
+				   add: #nextButton;
+				   add: #runButton;
+				   add: SpNullPresenter new;
+				   yourself)
+		  height: self toolbarHeight;
+		  add: SpNullPresenter new;
+		  yourself
 ]
 
 { #category : #toolbar }
@@ -65,8 +69,7 @@ OPFsmSimulator class >> toolbarMenu: aBuilder [
 	<opEditorToolbarMenu: #OPFsmPlugin>
 	(aBuilder item: 'Open Simulator')
 		icon: OPCoreIcons opFsmDiagramIcon;
-		action: [ 
-			OPFsmSimulator new openOn: aBuilder model diagramController ]
+		action: [ self new openOn: aBuilder model diagramController ]
 ]
 
 { #category : #actions }
@@ -84,42 +87,43 @@ OPFsmSimulator >> backButton [
 
 { #category : #'as yet unclassified' }
 OPFsmSimulator >> connectPresenters [
+
 	super connectPresenters.
 	inputLabel label: 'Input:'.
-	input autoAccept: true.
-	input textHolder
-		whenChangedDo: [ :text | text ifEmpty: [ startButton disable ] ifNotEmpty: [ startButton enable ] ].
+	input whenTextChangedDo: [ :text | 
+		text
+			ifEmpty: [ startButton disable ]
+			ifNotEmpty: [ startButton enable ] ].
 	separatorLabel label: 'Separated by:'.
-	separatorInput autoAccept: true.
 	separatorInput text: ','.
 	startButton
 		label: 'Start';
-		icon: Smalltalk ui icons smallPrintItIcon;
+		iconName: #smallDoIt;
 		action: [ self startAction ];
 		disable.
 	stopButton
 		label: 'Stop';
-		icon: Smalltalk ui icons stopIcon;
+		iconName: #stop;
 		action: [ self stopAction ];
 		disable.
 	resetButton
 		label: 'Reset';
-		icon: Smalltalk ui icons smallUpdateIcon;
+		iconName: #smallUpdate;
 		action: [ self resetAction ].
-	letterPanel widget data: ''.
+	letterPanel data: ''.
 	backButton
 		label: 'Back';
-		icon: Smalltalk ui icons backIcon;
+		iconName: #back;
 		action: [ self backAction ];
 		disable.
 	nextButton
 		label: 'Next';
-		icon: Smalltalk ui icons forwardIcon;
+		iconName: #forward;
 		action: [ self nextAction ];
 		disable.
 	runButton
 		label: 'Run';
-		icon: Smalltalk ui icons smallPrintItIcon;
+		iconName: #smallDoIt;
 		action: [ self runAction ];
 		disable
 ]
@@ -133,6 +137,7 @@ OPFsmSimulator >> initialize [
 
 { #category : #'as yet unclassified' }
 OPFsmSimulator >> initializePresenters [
+
 	inputLabel := self newLabel.
 	input := self newTextInput.
 	separatorLabel := self newLabel.
@@ -140,7 +145,7 @@ OPFsmSimulator >> initializePresenters [
 	startButton := self newButton.
 	stopButton := self newButton.
 	resetButton := self newButton.
-	letterPanel := OPFsmTerminalPanel new asSpecAdapter.
+	letterPanel := self instantiate: OPFsmTerminalPanelPresenter.
 	backButton := self newButton.
 	nextButton := self newButton.
 	runButton := self newButton
@@ -192,8 +197,9 @@ OPFsmSimulator >> nextButton [
 
 { #category : #'instance creation' }
 OPFsmSimulator >> openOn: aDiagramController [
+
 	diagramController := aDiagramController.
-	self openWithSpec
+	self open
 ]
 
 { #category : #actions }
@@ -258,7 +264,7 @@ OPFsmSimulator >> startAction [
 	recognizer
 		input: self inputData
 		startingAt: (diagramController model states detect: #isInitial).
-	letterPanel widget data: self inputData
+	letterPanel data: self inputData
 ]
 
 { #category : #'accessing - spec fields' }
@@ -275,7 +281,7 @@ OPFsmSimulator >> stopAction [
 	backButton disable.
 	nextButton disable.
 	runButton disable.
-	letterPanel widget data: ''
+	letterPanel data: ''
 ]
 
 { #category : #'accessing - spec fields' }
@@ -285,39 +291,37 @@ OPFsmSimulator >> stopButton [
 
 { #category : #events }
 OPFsmSimulator >> watchRecognizer: aRecognizer [
-	aRecognizer
-		when: OPFsmRecognizerEvent
-		do: [ :ann | 
-			aRecognizer isInputEmpty
-				ifFalse: [ nextButton enable.
-					runButton enable ].
-			aRecognizer isPathEmpty
-				ifFalse: [ backButton enable ].
-			(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState
-				ifTrue: [ self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beSuccess ].
-			ann place isTransition
-				ifTrue: [ self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beProcessed ] ].
-	aRecognizer
-		when: OPFsmRecognizerSuccess
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureForModel: ann place)
-				with: Color green ].
-	aRecognizer
-		when: OPFsmRecognizerFailure
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlightElement: (diagramController figureForModel: ann place)
-				with: Color red.
-			self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beFailure ].
-	aRecognizer
-		when: OPFsmRecognizerLeave
-		do:
-			[ :ann | OPFsmFigureHighlighter unhighlight: (diagramController figureForModel: ann place) ].
-	aRecognizer
-		when: OPFsmRecognizerEnter
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlight: (diagramController figureForModel: ann place)
-				with: Color orange ]
+
+	aRecognizer when: OPFsmRecognizerEvent do: [ :ann | 
+		aRecognizer isInputEmpty ifFalse: [ 
+			nextButton enable.
+			runButton enable ].
+		aRecognizer isPathEmpty ifFalse: [ backButton enable ].
+		(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState 
+			ifTrue: [ 
+				self letterPanel
+					changeBoxAt: aRecognizer inputPosition - 1
+					to: #success ].
+		ann place isTransition ifTrue: [ 
+			self letterPanel
+				changeBoxAt: aRecognizer inputPosition - 1
+				to: #processed ] ].
+	aRecognizer when: OPFsmRecognizerSuccess do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlightElement: (diagramController figureForModel: ann place)
+			with: Color green ].
+	aRecognizer when: OPFsmRecognizerFailure do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlightElement: (diagramController figureForModel: ann place)
+			with: Color red.
+		self letterPanel
+			changeBoxAt: aRecognizer inputPosition - 1
+			to: #failure ].
+	aRecognizer when: OPFsmRecognizerLeave do: [ :ann | 
+		OPFsmFigureHighlighter unhighlight:
+			(diagramController figureForModel: ann place) ].
+	aRecognizer when: OPFsmRecognizerEnter do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlight: (diagramController figureForModel: ann place)
+			with: Color orange ]
 ]

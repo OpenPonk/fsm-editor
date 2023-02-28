@@ -27,8 +27,8 @@ OPFsmFigureHighlighter class >> highlight: aShapedObject with: aColor [
 OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
 
 	self unhighlightNode: aLine.
-	aLine propertyAt: self name put: (aLine shape colorFor: aLine).
-	aLine shape color: aColor.
+	aLine propertyAt: self name put: aLine color.
+	aLine color: aColor.
 	aLine signalUpdate
 ]
 
@@ -36,8 +36,8 @@ OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
 OPFsmFigureHighlighter class >> highlightNode: aNode with: aColor [
 
 	self unhighlightNode: aNode.
-	aNode propertyAt: self name put: (aNode shape borderColorFor: aNode).
-	aNode shape borderColor: aColor.
+	aNode propertyAt: self name put: aNode borderColor.
+	aNode borderColor: aColor.
 	aNode signalUpdate
 ]
 

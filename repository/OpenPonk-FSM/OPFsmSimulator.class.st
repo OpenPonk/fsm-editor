@@ -217,7 +217,7 @@ OPFsmSimulator >> preconditions [
 { #category : #actions }
 OPFsmSimulator >> resetAction [
 	diagramController model elements
-		do: [ :each | OPFsmFigureHighlighter unhighlight: (diagramController figureForModel: each) ]
+		do: [ :each | OPFsmFigureHighlighter unhighlight: (diagramController roassalShapeForModel: each) ]
 ]
 
 { #category : #'accessing - spec fields' }
@@ -291,39 +291,37 @@ OPFsmSimulator >> stopButton [
 
 { #category : #events }
 OPFsmSimulator >> watchRecognizer: aRecognizer [
-	aRecognizer
-		when: OPFsmRecognizerEvent
-		do: [ :ann | 
-			aRecognizer isInputEmpty
-				ifFalse: [ nextButton enable.
-					runButton enable ].
-			aRecognizer isPathEmpty
-				ifFalse: [ backButton enable ].
-			(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState
-				ifTrue: [ self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beSuccess ].
-			ann place isTransition
-				ifTrue: [ self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beProcessed ] ].
-	aRecognizer
-		when: OPFsmRecognizerSuccess
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlightNode: (diagramController figureForModel: ann place)
-				with: Color green ].
-	aRecognizer
-		when: OPFsmRecognizerFailure
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlightNode: (diagramController figureForModel: ann place)
-				with: Color red.
-			self letterPanel widget changeBoxAt: aRecognizer inputPosition - 1 to: #beFailure ].
-	aRecognizer
-		when: OPFsmRecognizerLeave
-		do:
-			[ :ann | OPFsmFigureHighlighter unhighlight: (diagramController figureForModel: ann place) ].
-	aRecognizer
-		when: OPFsmRecognizerEnter
-		do: [ :ann | 
-			OPFsmFigureHighlighter
-				highlight: (diagramController figureForModel: ann place)
-				with: Color orange ]
+
+	aRecognizer when: OPFsmRecognizerEvent do: [ :ann | 
+		aRecognizer isInputEmpty ifFalse: [ 
+			nextButton enable.
+			runButton enable ].
+		aRecognizer isPathEmpty ifFalse: [ backButton enable ].
+		(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState 
+			ifTrue: [ 
+				self letterPanel
+					changeBoxAt: aRecognizer inputPosition - 1
+					to: #success ].
+		ann place isTransition ifTrue: [ 
+			self letterPanel
+				changeBoxAt: aRecognizer inputPosition - 1
+				to: #processed ] ].
+	aRecognizer when: OPFsmRecognizerSuccess do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlightNode: (diagramController roassalShapeForModel: ann place)
+			with: Color green ].
+	aRecognizer when: OPFsmRecognizerFailure do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlightNode: (diagramController roassalShapeForModel: ann place)
+			with: Color red.
+		self letterPanel
+			changeBoxAt: aRecognizer inputPosition - 1
+			to: #failure ].
+	aRecognizer when: OPFsmRecognizerLeave do: [ :ann | 
+		OPFsmFigureHighlighter unhighlight:
+			(diagramController roassalShapeForModel: ann place) ].
+	aRecognizer when: OPFsmRecognizerEnter do: [ :ann | 
+		OPFsmFigureHighlighter
+			highlight: (diagramController roassalShapeForModel: ann place)
+			with: Color orange ]
 ]

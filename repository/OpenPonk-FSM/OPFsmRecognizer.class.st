@@ -98,10 +98,11 @@ OPFsmRecognizer >> next [
 
 { #category : #stepping }
 OPFsmRecognizer >> nextUpToEnd [
-	[ canContinue ]
-		whileTrue: [ self next.
-			0 second asDelay wait.
-			self currentWorld doOneCycle ]
+
+	[ canContinue ] whileTrue: [ 
+		self next.
+		100 milliseconds wait.
+		self currentWorld doOneCycle ]
 ]
 
 { #category : #initialization }

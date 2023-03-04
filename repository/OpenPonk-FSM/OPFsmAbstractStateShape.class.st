@@ -112,7 +112,7 @@ OPFsmAbstractStateShape >> renderShapeDetails [
 	selectable := OPRSSelectable new.
 	self setupHighlight: selectable.
 	self roassalShape @ selectable.
-	self roassalShape @ OPRSSelectionDraggable thatDoesNotDragInnerShapes
+	self roassalShape @ OPRSSelectionDraggable
 ]
 
 { #category : #hooks }

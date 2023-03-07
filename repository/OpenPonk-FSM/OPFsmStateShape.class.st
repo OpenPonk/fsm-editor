@@ -59,6 +59,7 @@ OPFsmStateShape >> renderShapeDetails [
 { #category : #hooks }
 OPFsmStateShape >> setupHighlight: aHighlightable [
 
+	super setupHighlight: aHighlightable.
 	aHighlightable highlightBorderColor: Color blue
 ]
 

@@ -18,5 +18,6 @@ OPFsmInitialStateShape >> renderBasicShape [
 { #category : #hooks }
 OPFsmInitialStateShape >> setupHighlight: aHighlightable [
 
+	super setupHighlight: aHighlightable.
 	aHighlightable highlightColor: Color blue
 ]

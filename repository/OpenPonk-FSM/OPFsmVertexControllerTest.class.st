@@ -18,11 +18,16 @@ OPFsmVertexControllerTest >> createController [
 
 { #category : #tests }
 OPFsmVertexControllerTest >> testCreateFigure [
+
 	controller createModelIn: diagramController model.
 	diagramController addController: controller.
-	controller renderFigureIn: diagramController view.
-	self assert: diagramController view elements size equals: 1.
-	self assert: controller figure class equals: OPFsmInitialStateShape
+	controller
+		createDiagramElement;
+		renderDiagramElement.
+	self assert: diagramController canvas nodes size equals: 1.
+	self
+		assert: controller diagramElement class
+		equals: OPFsmInitialStateShape
 ]
 
 { #category : #tests }

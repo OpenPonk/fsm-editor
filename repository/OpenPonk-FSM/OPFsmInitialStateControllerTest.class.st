@@ -1,7 +1,7 @@
 Class {
 	#name : #OPFsmInitialStateControllerTest,
 	#superclass : #OPFsmVertexControllerTest,
-	#category : 'OpenPonk-FSM-Tests'
+	#category : #'OpenPonk-FSM-Tests'
 }
 
 { #category : #accessing }
@@ -16,8 +16,9 @@ OPFsmInitialStateControllerTest >> modelClass [
 
 { #category : #tests }
 OPFsmInitialStateControllerTest >> testCreateFigure [
+
 	super testCreateFigure.
-	self assert: controller figure shape class equals: RTEllipse.
-	self assert: controller figure color equals: Color black.
-	self assert: controller figure extent equals: 14 @ 14
+	self assert: (controller roassalShape isKindOf: RSCircularShape).
+	self assert: controller roassalShape color equals: Color black.
+	self assert: controller roassalShape extent equals: 14 @ 14
 ]

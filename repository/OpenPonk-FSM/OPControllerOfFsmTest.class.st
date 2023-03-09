@@ -1,7 +1,7 @@
 Class {
 	#name : #OPControllerOfFsmTest,
-	#superclass : #OPControllerTest,
-	#category : 'OpenPonk-FSM-Tests'
+	#superclass : #OPElementControllerTest,
+	#category : #'OpenPonk-FSM-Tests'
 }
 
 { #category : #testing }
@@ -18,6 +18,12 @@ OPControllerOfFsmTest >> controllerClass [
 ]
 
 { #category : #accessing }
+OPControllerOfFsmTest >> diagramControllerClass [
+
+	^ OPFsmController
+]
+
+{ #category : #accessing }
 OPControllerOfFsmTest >> diagramModelClass [
 	^ OPFsm
 ]
@@ -25,11 +31,6 @@ OPControllerOfFsmTest >> diagramModelClass [
 { #category : #accessing }
 OPControllerOfFsmTest >> modelClass [
 	^ self subclassResponsibility
-]
-
-{ #category : #tests }
-OPControllerOfFsmTest >> testClassSideModelClass [
-	self assert: self controllerClass modelClass equals: self modelClass
 ]
 
 { #category : #tests }

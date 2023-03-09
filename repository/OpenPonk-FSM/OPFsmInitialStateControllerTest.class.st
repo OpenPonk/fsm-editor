@@ -9,6 +9,12 @@ OPFsmInitialStateControllerTest >> controllerClass [
 	^ OPFsmInitialStateController
 ]
 
+{ #category : #construction }
+OPFsmInitialStateControllerTest >> diagramElementClass [
+
+	^ OPFsmInitialStateShape
+]
+
 { #category : #hooks }
 OPFsmInitialStateControllerTest >> modelClass [
 	^ OPFsmInitialState

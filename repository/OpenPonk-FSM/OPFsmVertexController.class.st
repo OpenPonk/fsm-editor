@@ -19,16 +19,6 @@ OPFsmVertexController >> canBeTargetFor: aController [
 ]
 
 { #category : #figures }
-OPFsmVertexController >> createDiagramElement [
-
-	super createDiagramElement.
-	self diagramElement adornmentCreationBlock: [ :builder | 
-		self
-			createVertexAdornmentBy: builder;
-			createTransitionAdornmentBy: builder ]
-]
-
-{ #category : #figures }
 OPFsmVertexController >> createTransitionAdornmentBy: builder [
 
 	builder
@@ -77,6 +67,17 @@ OPFsmVertexController >> createVertexAdornmentBy: builder [
 { #category : #accessing }
 OPFsmVertexController >> dependentElements [
 	^ (model incoming , model outgoing) asSet
+]
+
+{ #category : #figures }
+OPFsmVertexController >> hookDiagramElement [
+
+	super hookDiagramElement.
+	
+	self diagramElement adornmentCreationBlock: [ :builder | 
+		self
+			createVertexAdornmentBy: builder;
+			createTransitionAdornmentBy: builder ]
 ]
 
 { #category : #announcements }

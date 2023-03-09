@@ -66,11 +66,6 @@ OPFsmController >> initializePalette: aPalette [
 			icon: OPCoreIcons opFsmTransitionIcon
 ]
 
-{ #category : #accessing }
-OPFsmController >> modelClass [
-	^ OPFsm
-]
-
 { #category : #'controllers management' }
 OPFsmController >> newControllerFor: aModel [
 	"IncomingTransition identifies itself as transition, but is not"

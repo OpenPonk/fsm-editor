@@ -13,6 +13,12 @@ OPFsmTransitionControllerTest >> controllerClass [
 	^ OPFsmTransitionController
 ]
 
+{ #category : #construction }
+OPFsmTransitionControllerTest >> diagramElementClass [
+
+	^ OPFsmTransitionShape
+]
+
 { #category : #running }
 OPFsmTransitionControllerTest >> fromClass [
 	^ OPFsmInitialStateController
@@ -40,6 +46,16 @@ OPFsmTransitionControllerTest >> setUp [
 	toCtrl
 		createDiagramElement;
 		renderDiagramElement
+]
+
+{ #category : #tests }
+OPFsmTransitionControllerTest >> testCreateDiagramElement [
+
+	controller model: model.
+	controller model source: fromCtrl model.
+	controller model target: toCtrl model.
+
+	super testCreateDiagramElement
 ]
 
 { #category : #tests }

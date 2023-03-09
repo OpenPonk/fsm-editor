@@ -9,6 +9,12 @@ OPFsmStateControllerTest >> controllerClass [
 	^ OPFsmStateController
 ]
 
+{ #category : #construction }
+OPFsmStateControllerTest >> diagramElementClass [
+
+	^ OPFsmStateShape
+]
+
 { #category : #accessing }
 OPFsmStateControllerTest >> modelClass [
 	^ OPFsmState

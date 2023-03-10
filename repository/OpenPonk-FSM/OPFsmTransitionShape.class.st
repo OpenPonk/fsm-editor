@@ -7,7 +7,7 @@ Class {
 { #category : #initialization }
 OPFsmTransitionShape >> createOwnedElementsWithoutController [
 
-	super createOwnedElementsWithoutController.
+	self ownedElements ifNotEmpty: [ ^ self ].
 	OPFsmTransitionLabel in: self
 ]
 

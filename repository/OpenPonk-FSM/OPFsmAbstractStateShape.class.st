@@ -20,8 +20,6 @@ OPFsmAbstractStateShape >> adornmentCreationBlock: aBlock [
 OPFsmAbstractStateShape >> renderShapeDetails [
 
 	| selectable |
-	"self createAdornment.
-	self createVertexAdornment."
 	selectable := OPRSSelectable new.
 	self setupHighlight: selectable.
 	self roassalShape @ selectable.

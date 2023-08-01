@@ -51,9 +51,12 @@ OPFsmStateShape >> renderShapeDetails [
 	self canvas
 		add: label;
 		add: innerCircle.
-	self roassalShape when: RSShapeRemovedEvent do: [ 
-		label remove.
-		innerCircle remove ]
+	self roassalShape
+		when: RSShapeRemovedEvent
+		do: [
+			label remove.
+			innerCircle remove ]
+		for: self
 ]
 
 { #category : #hooks }

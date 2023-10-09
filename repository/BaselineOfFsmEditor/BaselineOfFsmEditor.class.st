@@ -4,21 +4,21 @@ Class {
 	#category : #BaselineOfFsmEditor
 }
 
-{ #category : #accessing }
+{ #category : #baselines }
 BaselineOfFsmEditor >> baseline: spec [
 
 	<baseline>
 	spec for: #common do: [
 		spec
 			baseline: 'Mustache'
-			with: [ spec repository: 'github://noha/mustache:v1.1' ].
+			with: [ spec repository: 'github://noha/mustache:v1.2' ].
 		spec baseline: 'XMLParser' with: [
 			spec
-				repository: 'github://pharo-contributions/XML-XMLParser:3.5.x/src';
+				repository: 'github://pharo-contributions/XML-XMLParser:4f9cb10';
 				loads: #( Core ) ].
 		spec baseline: 'XPath' with: [
 			spec
-				repository: 'github://pharo-contributions/XML-XPath:3450f91/src';
+				repository: 'github://pharo-contributions/XML-XPath:c063098';
 				loads: #( Core ) ].
 		spec
 			baseline: 'OpenPonk'

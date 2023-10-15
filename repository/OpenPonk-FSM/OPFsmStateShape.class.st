@@ -60,10 +60,11 @@ OPFsmStateShape >> renderShapeDetails [
 ]
 
 { #category : #hooks }
-OPFsmStateShape >> setupHighlight: aHighlightable [
+OPFsmStateShape >> selectableInteraction [
 
-	super setupHighlight: aHighlightable.
-	aHighlightable highlightBorderColor: Color blue
+	^ super selectableInteraction
+		  highlightBorderColor: Color blue;
+		  yourself
 ]
 
 { #category : #updating }

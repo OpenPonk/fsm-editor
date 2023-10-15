@@ -16,26 +16,22 @@ OPFsmAbstractStateShape >> adornmentCreationBlock: aBlock [
 	adornmentCreationBlock := aBlock
 ]
 
-{ #category : #rendering }
-OPFsmAbstractStateShape >> renderShapeDetails [
+{ #category : #hooks }
+OPFsmAbstractStateShape >> selectableInteraction [
 
-	| selectable |
-	selectable := OPRSSelectable new.
-	self setupHighlight: selectable.
-	self roassalShape @ selectable.
-	self roassalShape @ OPRSSelectionDraggable
+	^ OPRSSelectable highlightAdornments: [ :builder |
+		  builder horizontalLocation
+			  outer;
+			  right.
+		  builder verticalLocation
+			  inner;
+			  middle.
+		  builder directionDown.
+		  adornmentCreationBlock value: builder ]
 ]
 
-{ #category : #hooks }
-OPFsmAbstractStateShape >> setupHighlight: aHighlightable [
+{ #category : #rendering }
+OPFsmAbstractStateShape >> shouldBePositionableByUser [
 
-	aHighlightable highlightAdornments: [ :builder | 
-		builder horizontalLocation
-			outer;
-			right.
-		builder verticalLocation
-			inner;
-			middle.
-		builder directionDown.
-		adornmentCreationBlock value: builder ]
+	^ true
 ]

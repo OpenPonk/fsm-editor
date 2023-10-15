@@ -16,8 +16,9 @@ OPFsmInitialStateShape >> renderBasicShape [
 ]
 
 { #category : #hooks }
-OPFsmInitialStateShape >> setupHighlight: aHighlightable [
+OPFsmInitialStateShape >> selectableInteraction [
 
-	super setupHighlight: aHighlightable.
-	aHighlightable highlightColor: Color blue
+	^ super selectableInteraction
+		  highlightColor: Color blue;
+		  yourself
 ]

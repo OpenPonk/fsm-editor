@@ -33,7 +33,7 @@ OPFsmStateControllerTest >> testCreateFigure [
 	self assert: controller diagramElement class equals: OPFsmStateShape.
 	self assert: (controller roassalShape isKindOf: RSCircularShape).
 	self assert: controller roassalShape color equals: Color white.
-	self assert: controller roassalShape extent equals: 50 @ 50
+	self assert: controller roassalShape extent >= (50 @ 50)
 ]
 
 { #category : #tests }

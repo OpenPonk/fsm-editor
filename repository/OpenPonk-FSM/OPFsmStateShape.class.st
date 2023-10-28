@@ -15,7 +15,7 @@ Class {
 		'label',
 		'innerCircle'
 	],
-	#category : #'OpenPonk-FSM-DiagramElements'
+	#category : #'OpenPonk-FSM-Shapes'
 }
 
 { #category : #accessing }

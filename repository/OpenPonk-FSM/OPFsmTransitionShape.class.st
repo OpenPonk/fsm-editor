@@ -1,7 +1,7 @@
 Class {
 	#name : #OPFsmTransitionShape,
 	#superclass : #OPEdge,
-	#category : #'OpenPonk-FSM-DiagramElements'
+	#category : #'OpenPonk-FSM-Shapes'
 }
 
 { #category : #initialization }

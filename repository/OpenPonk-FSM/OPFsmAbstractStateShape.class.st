@@ -3,11 +3,11 @@ I am a base class for FSM vertex figures and I provide basic adornment behavior.
 "
 Class {
 	#name : #OPFsmAbstractStateShape,
-	#superclass : #OPShape,
+	#superclass : #OPBoundNode,
 	#instVars : [
 		'adornmentCreationBlock'
 	],
-	#category : #'OpenPonk-FSM-DiagramElements'
+	#category : #'OpenPonk-FSM-Shapes'
 }
 
 { #category : #accessing }

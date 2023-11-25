@@ -7,15 +7,6 @@ Class {
 	#category : #'OpenPonk-FSM-Plugin'
 }
 
-{ #category : #toolbar }
-OPFsmPlugin class >> toolbarMenu: aBuilder [
-
-	<opEditorToolbarMenu: #OPFsmPlugin>
-	(aBuilder item: 'Help')
-		icon: OPCoreIcons opFsmDiagramIcon;
-		action: [ HelpBrowser openOn: OPFsmHelp ]
-]
-
 { #category : #accessing }
 OPFsmPlugin >> diagramControllerClass [
 	^ OPFsmController

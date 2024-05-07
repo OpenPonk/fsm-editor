@@ -11,7 +11,7 @@ BaselineOfFsmEditor >> baseline: spec [
 	spec for: #common do: [
 		spec
 			baseline: 'Mustache'
-			with: [ spec repository: 'github://noha/mustache:v1.2' ].
+			with: [ spec repository: 'github://noha/mustache:a8db6a2' ].
 		spec baseline: 'XMLParser' with: [
 			spec
 				repository: 'github://pharo-contributions/XML-XMLParser:3.5.x';

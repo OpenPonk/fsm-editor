@@ -1,28 +1,30 @@
 Class {
-	#name : #OPFsmTransitionLabel,
-	#superclass : #OPEdgeLabel,
-	#category : #'OpenPonk-FSM-Shapes'
+	#name : 'OPFsmTransitionLabel',
+	#superclass : 'OPEdgeLabel',
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmTransitionLabel >> defaultAnchorConstraintPosition [
 
 	^ OPRSAnchorConstraintBalanceReference balance: 0.2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmTransitionLabel >> defaultMinDistance [
 
 	^ 5
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmTransitionLabel >> defaultText [
 
 	^ self modelElement name
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 OPFsmTransitionLabel >> renderShapeDetails [
 
 	super renderShapeDetails.

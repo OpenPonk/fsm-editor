@@ -11,8 +11,8 @@ DCFsmRecognizer
 DCFsmController
 "
 Class {
-	#name : #OPFsmSimulator,
-	#superclass : #SpPresenter,
+	#name : 'OPFsmSimulator',
+	#superclass : 'SpPresenter',
 	#instVars : [
 		'diagramController',
 		'recognizer',
@@ -28,10 +28,12 @@ Class {
 		'separatorLabel',
 		'runButton'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmSimulator class >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
@@ -63,7 +65,7 @@ OPFsmSimulator class >> defaultLayout [
 		  yourself
 ]
 
-{ #category : #toolbar }
+{ #category : 'toolbar' }
 OPFsmSimulator class >> toolbarMenu: aBuilder [
 
 	<opEditorToolbarMenu: #OPFsmPlugin>
@@ -72,7 +74,7 @@ OPFsmSimulator class >> toolbarMenu: aBuilder [
 		action: [ self new openOn: aBuilder model diagramController ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> backAction [
 	nextButton disable.
 	backButton disable.
@@ -80,12 +82,12 @@ OPFsmSimulator >> backAction [
 	recognizer back
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> backButton [
 	^ backButton
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmSimulator >> connectPresenters [
 
 	super connectPresenters.
@@ -128,14 +130,14 @@ OPFsmSimulator >> connectPresenters [
 		disable
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmSimulator >> initialize [
 	recognizer := OPFsmRecognizer new.
 	self watchRecognizer: recognizer.
 	super initialize
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmSimulator >> initializePresenters [
 
 	inputLabel := self newLabel.
@@ -151,19 +153,19 @@ OPFsmSimulator >> initializePresenters [
 	runButton := self newButton
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmSimulator >> initializeWindow: aWindow [
 
 	aWindow initialExtent: 400 @ 300.
 	aWindow title: 'Finite State Machine Simulator'
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> input [
 	^ input
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> inputData [
 	"^self input text"
 
@@ -172,17 +174,17 @@ OPFsmSimulator >> inputData [
 		ifNotEmpty: [ :sep | ^ ((self input text splitOn: sep) collect: #trim) removeAllSuchThat: #isEmpty ]
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> inputLabel [
 	^ inputLabel
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> letterPanel [
 	^ letterPanel
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> nextAction [
 	nextButton disable.
 	backButton disable.
@@ -190,19 +192,19 @@ OPFsmSimulator >> nextAction [
 	recognizer next
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> nextButton [
 	^ nextButton
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmSimulator >> openOn: aDiagramController [
 
 	diagramController := aDiagramController.
 	self open
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> preconditions [
 	diagramController model states
 		detect: #isInitial
@@ -214,18 +216,18 @@ OPFsmSimulator >> preconditions [
 	^ true
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> resetAction [
 	diagramController model elements
 		do: [ :each | OPFsmFigureHighlighter unhighlight: (diagramController roassalShapeForModel: each) ]
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> resetButton [
 	^ resetButton
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> runAction [
 	nextButton disable.
 	backButton disable.
@@ -233,22 +235,22 @@ OPFsmSimulator >> runAction [
 	recognizer nextUpToEnd
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> runButton [
 	^ runButton
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> separatorInput [
 	^ separatorInput
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> separatorLabel [
 	^ separatorLabel
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> startAction [
 	self preconditions
 		ifFalse: [ ^ self ].
@@ -267,12 +269,12 @@ OPFsmSimulator >> startAction [
 	letterPanel data: self inputData
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> startButton [
 	^ startButton
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 OPFsmSimulator >> stopAction [
 	input enable.
 	separatorInput enable.
@@ -284,12 +286,12 @@ OPFsmSimulator >> stopAction [
 	letterPanel data: ''
 ]
 
-{ #category : #'accessing - spec fields' }
+{ #category : 'accessing - spec fields' }
 OPFsmSimulator >> stopButton [
 	^ stopButton
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 OPFsmSimulator >> watchRecognizer: aRecognizer [
 
 	aRecognizer when: OPFsmRecognizerEvent do: [ :ann | 

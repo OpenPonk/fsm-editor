@@ -3,27 +3,29 @@ A DCFsm is the class representing FSM diagram.
 
 "
 Class {
-	#name : #OPFsm,
-	#superclass : #OPModelObject,
-	#category : #'OpenPonk-FSM-Models'
+	#name : 'OPFsm',
+	#superclass : 'OPModelObject',
+	#category : 'OpenPonk-FSM-Models',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Models'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsm >> isState [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsm >> isTransition [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsm >> states [
 	^ elements select: [ :each | each isState ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsm >> transitions [
 	^ elements select: [ :each | each isTransition ]
 ]

@@ -6,7 +6,9 @@ I am fired when a recognizer has left a place (state or transition).
 DCFsmRecognizer
 "
 Class {
-	#name : #OPFsmRecognizerLeave,
-	#superclass : #OPFsmRecognizerEvent,
-	#category : 'OpenPonk-FSM-Simulations'
+	#name : 'OPFsmRecognizerLeave',
+	#superclass : 'OPFsmRecognizerEvent',
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }

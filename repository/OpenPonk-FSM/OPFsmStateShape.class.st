@@ -9,16 +9,18 @@ Give option to switch between normal and final state.
 none
 "
 Class {
-	#name : #OPFsmStateShape,
-	#superclass : #OPFsmAbstractStateShape,
+	#name : 'OPFsmStateShape',
+	#superclass : 'OPFsmAbstractStateShape',
 	#instVars : [
 		'label',
 		'innerCircle'
 	],
-	#category : #'OpenPonk-FSM-Shapes'
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmStateShape >> renderBasicShape [
 
 	^ RSCircle new
@@ -31,7 +33,7 @@ OPFsmStateShape >> renderBasicShape [
 		  yourself
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 OPFsmStateShape >> renderShapeDetails [
 
 	super renderShapeDetails.
@@ -59,7 +61,7 @@ OPFsmStateShape >> renderShapeDetails [
 		for: self
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 OPFsmStateShape >> selectableInteraction [
 
 	^ super selectableInteraction
@@ -67,7 +69,7 @@ OPFsmStateShape >> selectableInteraction [
 		  yourself
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 OPFsmStateShape >> updateRenderFromModel [
 
 	label text: self modelElement name.

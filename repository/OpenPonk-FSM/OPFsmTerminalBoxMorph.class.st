@@ -6,41 +6,43 @@ I am a box containing a terminal symbol of the input.
 DCFsmTerminalPanel
 "
 Class {
-	#name : #OPFsmTerminalBoxMorph,
-	#superclass : #BorderedMorph,
+	#name : 'OPFsmTerminalBoxMorph',
+	#superclass : 'BorderedMorph',
 	#instVars : [
 		'colors'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> defaultBorderColor [
 	^ Color black
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> defaultBorderWidth [
 	^ 1
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> defaultBounds [
 	^ 0 @ 0 corner: 25 @ 25
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> defaultColor [
 	^ Smalltalk ui theme windowColor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> failure [
 	self borderColor: Color red.
 	self color: (colors at: #failure)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> initialize [
 	super initialize.
 	self initializeColorScheme.
@@ -50,7 +52,7 @@ OPFsmTerminalBoxMorph >> initialize [
 		cellInset: 5.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTerminalBoxMorph >> initializeColorScheme [
 
 	colors := { 
@@ -66,30 +68,30 @@ OPFsmTerminalBoxMorph >> initializeColorScheme [
 			          (#success -> Color paleGreen muchDarker) } asDictionary ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> morphForTerminal: aSymbol [
 	^ aSymbol asMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> normal [
 	self borderColor: Color black.
 	self color: (colors at: #normal)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> processed [
 	self borderColor: Color orange.
 	self color: (colors at: #processed)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> success [
 	self borderColor: Color green muchDarker.
 	self color: (colors at: #success)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalBoxMorph >> terminal: aSymbol [
 	self submorphsDo: #delete.
 	self addMorph: (self morphForTerminal: aSymbol).

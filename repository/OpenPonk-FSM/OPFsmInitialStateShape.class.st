@@ -2,12 +2,14 @@
 I am a figure for FSM initial state.
 "
 Class {
-	#name : #OPFsmInitialStateShape,
-	#superclass : #OPFsmAbstractStateShape,
-	#category : #'OpenPonk-FSM-Shapes'
+	#name : 'OPFsmInitialStateShape',
+	#superclass : 'OPFsmAbstractStateShape',
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmInitialStateShape >> renderBasicShape [
 
 	^ RSCircle new
@@ -15,7 +17,7 @@ OPFsmInitialStateShape >> renderBasicShape [
 		  color: Color black
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 OPFsmInitialStateShape >> selectableInteraction [
 
 	^ super selectableInteraction

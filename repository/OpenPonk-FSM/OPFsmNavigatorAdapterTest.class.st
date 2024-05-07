@@ -1,6 +1,6 @@
 Class {
-	#name : #OPFsmNavigatorAdapterTest,
-	#superclass : #OPNavigatorAdaptersTest,
+	#name : 'OPFsmNavigatorAdapterTest',
+	#superclass : 'OPNavigatorAdaptersTest',
 	#instVars : [
 		'adapter',
 		'fsm',
@@ -10,25 +10,27 @@ Class {
 		'firstTransition',
 		'secondTransition'
 	],
-	#category : #'OpenPonk-FSM-Adapters'
+	#category : 'OpenPonk-FSM-Adapters',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Adapters'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmNavigatorAdapterTest >> adapterClass [
 	^ OPFsmNavigatorAdapter
 ]
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 OPFsmNavigatorAdapterTest >> childrenFor: anObject equals: aCollection [
 	^ self assertCollection: (adapter childrenFor: anObject) hasSameElements: aCollection
 ]
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 OPFsmNavigatorAdapterTest >> displayFor: anObject equals: aString [
 	^ self assert: (adapter displayFor: anObject) equals: aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmNavigatorAdapterTest >> setUp [
 	super setUp.
 	adapter := self adapterClass new.
@@ -47,7 +49,7 @@ OPFsmNavigatorAdapterTest >> setUp [
 		add: secondTransition
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmNavigatorAdapterTest >> testChildren [
 	self
 		childrenFor: fsm
@@ -60,7 +62,7 @@ OPFsmNavigatorAdapterTest >> testChildren [
 			secondTransition}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmNavigatorAdapterTest >> testDisplay [
 	self displayFor: fsm equals: fsm name , ' (Diagram)'.
 	self displayFor: initialState equals: initialState name , ' (Initial State)'.

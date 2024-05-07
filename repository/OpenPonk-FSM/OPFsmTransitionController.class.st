@@ -3,18 +3,20 @@ A DCFsmTransitionController is a controller for a transition in FSM.
 
 "
 Class {
-	#name : #OPFsmTransitionController,
-	#superclass : #OPDirectionalRelationshipController,
-	#category : #'OpenPonk-FSM-Controllers'
+	#name : 'OPFsmTransitionController',
+	#superclass : 'OPDirectionalRelationshipController',
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmTransitionController >> diagramElementClass [
 
 	^ OPFsmTransitionShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransitionController >> ensureSourceAndTargetIn: aDiagramController [
 
 	source ifNil: [ 
@@ -27,36 +29,37 @@ OPFsmTransitionController >> ensureSourceAndTargetIn: aDiagramController [
 				 model target) ]
 ]
 
-{ #category : #announcements }
+{ #category : 'announcements' }
 OPFsmTransitionController >> internalSubscribeTo: aModel [
+
 	super internalSubscribeTo: aModel.
-	aModel when: OPElementRemoved do: [ :e | self removeController ]
+	aModel when: OPElementRemoved send: #removeController to: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmTransitionController >> isHideable [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransitionController >> modelClass [
 	^ OPFsmTransition
 ]
 
-{ #category : #destruction }
+{ #category : 'destruction' }
 OPFsmTransitionController >> removeModel [
 	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmTransitionController >> showInDiagram: aDiagramController [
 
 	self ensureSourceAndTargetIn: aDiagramController.
 	^ super showInDiagram: aDiagramController
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmTransitionController >> showWithoutDependentInDiagram: aDiagramController [
 
 	self ensureSourceAndTargetIn: aDiagramController.

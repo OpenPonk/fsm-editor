@@ -1,10 +1,12 @@
 Class {
-	#name : #OPFsmGraphML,
-	#superclass : #Object,
-	#category : 'OpenPonk-FSM-Serialization'
+	#name : 'OPFsmGraphML',
+	#superclass : 'Object',
+	#category : 'OpenPonk-FSM-Serialization',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Serialization'
 }
 
-{ #category : #export }
+{ #category : 'export' }
 OPFsmGraphML >> export: aModel [
 	^ (MustacheTemplate on: self template)
 		value:
@@ -20,7 +22,7 @@ OPFsmGraphML >> export: aModel [
 								with: #graphmlType -> each graphmlType ]))} asDictionary
 ]
 
-{ #category : #import }
+{ #category : 'import' }
 OPFsmGraphML >> import: aXml [
 	| model doc graph graphData node nodeData edge edgeData nodes |
 	doc := XMLDOMParser parse: aXml.
@@ -60,7 +62,7 @@ OPFsmGraphML >> import: aXml [
 	^ model
 ]
 
-{ #category : #import }
+{ #category : 'import' }
 OPFsmGraphML >> nodeForType: aType [
 	aType = #initial
 		ifTrue: [ ^ OPFsmInitialState new ].
@@ -71,7 +73,7 @@ OPFsmGraphML >> nodeForType: aType [
 	^ OPFsmState new
 ]
 
-{ #category : #export }
+{ #category : 'export' }
 OPFsmGraphML >> template [
 	<script: '(XMLDOMParser parse: self new template) inspect'>
 	^ '<?xml version="1.0" encoding="UTF-8"?>

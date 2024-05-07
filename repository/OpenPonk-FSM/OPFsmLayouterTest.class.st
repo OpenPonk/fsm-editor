@@ -1,13 +1,15 @@
 Class {
-	#name : #OPFsmLayouterTest,
-	#superclass : #TestCase,
+	#name : 'OPFsmLayouterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'diagramController'
 	],
-	#category : #'OpenPonk-FSM-Tests'
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 OPFsmLayouterTest >> setUp [
 
 	| stateController1 stateController2 transitionController canvasPresenter model stateModel1 stateModel2 transitionModel |
@@ -36,7 +38,7 @@ OPFsmLayouterTest >> setUp [
 	diagramController showAllElements
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmLayouterTest >> testBasicApplyLayout [
 
 	^ OPFsmLayouter new

@@ -2,42 +2,44 @@
 I am descriptior for FSM plugin.
 "
 Class {
-	#name : #OPFsmPlugin,
-	#superclass : #OPPlugin,
-	#category : #'OpenPonk-FSM-Plugin'
+	#name : 'OPFsmPlugin',
+	#superclass : 'OPPlugin',
+	#category : 'OpenPonk-FSM-Plugin',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Plugin'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmPlugin >> diagramControllerClass [
 	^ OPFsmController
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmPlugin >> icon [
 	^ OPCoreIcons opFsmDiagramIcon
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmPlugin >> layouterClass [
 	^ OPFsmLayouter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmPlugin >> modelClass [
 	^ OPFsm
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmPlugin >> modelSerializerClass [
 	^ OPFsmModelSerializer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmPlugin >> name [
 	^ 'FSM Diagram'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmPlugin >> supportsHidingElements [
 	^ true
 ]

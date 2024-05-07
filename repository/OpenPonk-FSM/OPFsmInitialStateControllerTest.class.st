@@ -1,26 +1,28 @@
 Class {
-	#name : #OPFsmInitialStateControllerTest,
-	#superclass : #OPFsmVertexControllerTest,
-	#category : #'OpenPonk-FSM-Tests'
+	#name : 'OPFsmInitialStateControllerTest',
+	#superclass : 'OPFsmVertexControllerTest',
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmInitialStateControllerTest >> controllerClass [
 	^ OPFsmInitialStateController
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmInitialStateControllerTest >> diagramElementClass [
 
 	^ OPFsmInitialStateShape
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 OPFsmInitialStateControllerTest >> modelClass [
 	^ OPFsmInitialState
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmInitialStateControllerTest >> testCreateFigure [
 
 	super testCreateFigure.

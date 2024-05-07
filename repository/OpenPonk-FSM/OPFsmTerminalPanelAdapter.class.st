@@ -1,19 +1,21 @@
 Class {
-	#name : #OPFsmTerminalPanelAdapter,
-	#superclass : #SpAbstractMorphicAdapter,
+	#name : 'OPFsmTerminalPanelAdapter',
+	#superclass : 'SpAbstractMorphicAdapter',
 	#instVars : [
 		'morph'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalPanelAdapter class >> adaptingName [
 
 	^ self name copyReplaceAll: 'Morphic' with: ''
 ]
 
-{ #category : #factory }
+{ #category : 'factory' }
 OPFsmTerminalPanelAdapter >> buildWidget [
 
 	morph := OPFsmTerminalPanelMorph new

@@ -1,14 +1,16 @@
 Class {
-	#name : #OPFsmTerminalRecognizerStateChanged,
-	#superclass : #Announcement,
+	#name : 'OPFsmTerminalRecognizerStateChanged',
+	#superclass : 'Announcement',
 	#instVars : [
 		'inputPosition',
 		'inputState'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmTerminalRecognizerStateChanged class >> at: anInteger to: aString [
 
 	^ self new
@@ -17,25 +19,25 @@ OPFsmTerminalRecognizerStateChanged class >> at: anInteger to: aString [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalRecognizerStateChanged >> inputPosition [
 
 	^ inputPosition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalRecognizerStateChanged >> inputPosition: anInteger [
 
 	inputPosition := anInteger
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalRecognizerStateChanged >> inputState [
 
 	^ inputState
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalRecognizerStateChanged >> inputState: aString [
 
 	inputState := aString

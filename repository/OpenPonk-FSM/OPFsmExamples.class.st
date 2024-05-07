@@ -1,10 +1,12 @@
 Class {
-	#name : #OPFsmExamples,
-	#superclass : #Object,
-	#category : #'OpenPonk-FSM-Examples'
+	#name : 'OPFsmExamples',
+	#superclass : 'Object',
+	#category : 'OpenPonk-FSM-Examples',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 OPFsmExamples class >> exampleDecimal [
 
 	| project fsm initial z b c d k isDigit |
@@ -46,7 +48,7 @@ OPFsmExamples class >> exampleDecimal [
 	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 OPFsmExamples class >> exampleDivisibility [
 
 	| project fsm initial zero one two |
@@ -76,7 +78,7 @@ OPFsmExamples class >> exampleDivisibility [
 	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 OPFsmExamples class >> exampleEmpty [
 
 	| project fsm |
@@ -86,7 +88,7 @@ OPFsmExamples class >> exampleEmpty [
 	(OPWorkbench openProject: project) showAllElementsInAllDiagrams
 ]
 
-{ #category : #menu }
+{ #category : 'menu' }
 OPFsmExamples class >> menuCommandOn: aBuilder [
 
 	<worldMenu>

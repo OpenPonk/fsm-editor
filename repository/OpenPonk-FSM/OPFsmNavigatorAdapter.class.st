@@ -6,18 +6,20 @@ I implement specific mappings for FSM.
 DCNavigator
 "
 Class {
-	#name : #OPFsmNavigatorAdapter,
-	#superclass : #OPNavigatorAdapter,
-	#category : #'OpenPonk-FSM-Adapters'
+	#name : 'OPFsmNavigatorAdapter',
+	#superclass : 'OPNavigatorAdapter',
+	#category : 'OpenPonk-FSM-Adapters',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Adapters'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmNavigatorAdapter class >> priority [
 
 	^ 10
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
 	^ {(OPFsm -> #states).
 	(OPFsmVertex
@@ -28,7 +30,7 @@ OPFsmNavigatorAdapter >> childrenMapping [
 	(OPFsmTransition -> #())}
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> displayMapping [
 	^ {(OPFsm -> 'Diagram').
 	(OPFsmInitialState -> 'Initial State').
@@ -41,7 +43,7 @@ OPFsmNavigatorAdapter >> displayMapping [
 	(OPFsmIncomingTransition -> 'Incoming transition')}
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmNavigatorAdapter >> hasMappingFor: anObject in: aModel [
 
 	^ { 
@@ -51,7 +53,7 @@ OPFsmNavigatorAdapter >> hasMappingFor: anObject in: aModel [
 		  OPFsmVertex } anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> iconMapping [
 	^ {(OPFsm -> OPCoreIcons opFsmDiagramIcon).
 	(OPFsmInitialState -> OPCoreIcons opFsmInitialStateIcon).
@@ -65,14 +67,14 @@ OPFsmNavigatorAdapter >> iconMapping [
 				ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ])}
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPFsmNavigatorAdapter >> sort: modelObjects [
 	^ modelObjects
 		sorted:
 			[ :a :b | a name isNotNil and: [ b name isNil or: [ a name < b name ] ] ]
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> typesByDependency [
 	^ {OPFsm.
 	OPFsmVertex.

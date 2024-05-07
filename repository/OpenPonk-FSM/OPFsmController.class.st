@@ -3,15 +3,17 @@ A DCFsmController is a diagram controller for FSM.
 
 "
 Class {
-	#name : #OPFsmController,
-	#superclass : #OPDiagramController,
+	#name : 'OPFsmController',
+	#superclass : 'OPDiagramController',
 	#instVars : [
 		'persistenceManager'
 	],
-	#category : #'OpenPonk-FSM-Controllers'
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #userinterface }
+{ #category : 'userinterface' }
 OPFsmController >> applyLayout: anAlgorithm [
 
 	| figures edges |
@@ -23,18 +25,18 @@ OPFsmController >> applyLayout: anAlgorithm [
 	anAlgorithm on: figures asGroup edges: edges asGroup
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmController >> canBeTargetFor: aController [
 	^ (super canBeTargetFor: aController)
 		or: [ aController isKindOf: OPFsmVertexController ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmController >> commonModelClassPrefix [
 	^ 'OPFsm'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmController >> controllerFactory [
 	^ super controllerFactory
 		register: OPFsmInitialStateController forModel: OPFsmInitialState;
@@ -44,12 +46,12 @@ OPFsmController >> controllerFactory [
 			forModel: OPFsmIncomingTransition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmController >> elementsToShowInside [
 	^ model elements
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Initial state'
@@ -66,7 +68,7 @@ OPFsmController >> initializePalette: aPalette [
 			icon: OPCoreIcons opFsmTransitionIcon
 ]
 
-{ #category : #'controllers management' }
+{ #category : 'controllers management' }
 OPFsmController >> newControllerFor: aModel [
 	"IncomingTransition identifies itself as transition, but is not"
 

@@ -1,1 +1,1 @@
-Package { #name : #'OpenPonk-FSM' }
+Package { #name : 'OpenPonk-FSM' }

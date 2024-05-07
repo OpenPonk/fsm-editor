@@ -3,64 +3,66 @@ A DCFsmVertex is the class representing a vertex in FSM. Also parent class of al
 
 "
 Class {
-	#name : #OPFsmVertex,
-	#superclass : #OPModelObject,
-	#category : #'OpenPonk-FSM-Models'
+	#name : 'OPFsmVertex',
+	#superclass : 'OPModelObject',
+	#category : 'OpenPonk-FSM-Models',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Models'
 }
 
-{ #category : #associating }
+{ #category : 'associating' }
 OPFsmVertex >> -> aVertex [
 	^ OPFsmTransition from: self to: aVertex
 ]
 
-{ #category : #'DynaCASE-FSM-GraphML-accessing' }
+{ #category : 'DynaCASE-FSM-GraphML-accessing' }
 OPFsmVertex >> graphmlType [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmVertex >> incoming [
 	owner ifNil: [ ^ #() ].
 	^ owner transitions select: [ :each | each target = self ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertex >> isFinal [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertex >> isInitial [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertex >> isNormal [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertex >> isState [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertex >> isTransition [
 	^ false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmVertex >> outgoing [
 	owner ifNil: [ ^ #() ].
 	^ owner transitions select: [ :each | each source = self ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmVertex >> relatedElements [
 	^ (self incoming , self outgoing) asSet asOrderedCollection
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 OPFsmVertex >> removedFrom: aDiagram [
 	self
 		removedFrom: aDiagram

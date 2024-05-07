@@ -2,21 +2,23 @@
 I am a base class for FSM vertex figures and I provide basic adornment behavior.
 "
 Class {
-	#name : #OPFsmAbstractStateShape,
-	#superclass : #OPBoundNode,
+	#name : 'OPFsmAbstractStateShape',
+	#superclass : 'OPBoundNode',
 	#instVars : [
 		'adornmentCreationBlock'
 	],
-	#category : #'OpenPonk-FSM-Shapes'
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmAbstractStateShape >> adornmentCreationBlock: aBlock [
 
 	adornmentCreationBlock := aBlock
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 OPFsmAbstractStateShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightAdornments: [ :builder |
@@ -30,7 +32,7 @@ OPFsmAbstractStateShape >> selectableInteraction [
 		  adornmentCreationBlock value: builder ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 OPFsmAbstractStateShape >> shouldBePositionableByUser [
 
 	^ true

@@ -1,13 +1,15 @@
 Class {
-	#name : #OPFsmTerminalDataChanged,
-	#superclass : #Announcement,
+	#name : 'OPFsmTerminalDataChanged',
+	#superclass : 'Announcement',
 	#instVars : [
 		'data'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmTerminalDataChanged class >> data: aString [
 
 	^ self new
@@ -15,13 +17,13 @@ OPFsmTerminalDataChanged class >> data: aString [
 		  yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalDataChanged >> data [
 
 	^ data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTerminalDataChanged >> data: aString [
 
 	data := aString

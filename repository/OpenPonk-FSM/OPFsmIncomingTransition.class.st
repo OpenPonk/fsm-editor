@@ -1,73 +1,75 @@
 Class {
-	#name : #OPFsmIncomingTransition,
-	#superclass : #Object,
+	#name : 'OPFsmIncomingTransition',
+	#superclass : 'Object',
 	#instVars : [
 		'transition'
 	],
-	#category : #'OpenPonk-FSM-Adapters'
+	#category : 'OpenPonk-FSM-Adapters',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Adapters'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmIncomingTransition class >> of: aTransition [
 	^ self ofTransition: aTransition
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmIncomingTransition class >> ofTransition: aTransition [
 	^ self new
 		transition: aTransition;
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 OPFsmIncomingTransition >> = otherTransition [
 	^ self represents: otherTransition
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 OPFsmIncomingTransition >> asTransition [
 	^ transition
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 OPFsmIncomingTransition >> changed [
 	^ transition changed
 ]
 
-{ #category : #'reflective operations' }
+{ #category : 'reflective operations' }
 OPFsmIncomingTransition >> doesNotUnderstand: aMessage [
 	^ aMessage sendTo: transition
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 OPFsmIncomingTransition >> hash [
 	^ transition hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmIncomingTransition >> isTransition [
 
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 OPFsmIncomingTransition >> printOn: aStream [
 	^ transition printOn: aStream
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 OPFsmIncomingTransition >> represents: otherTransition [
 
 	^ super = otherTransition or: [ 
 		  transition == otherTransition or: [ transition = otherTransition ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmIncomingTransition >> transition: aTransition [
 	transition := aTransition
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 OPFsmIncomingTransition >> when: anAnnouncementClass send: aSelector to: anObject [
 	^ transition when: anAnnouncementClass send: aSelector to: anObject
 ]

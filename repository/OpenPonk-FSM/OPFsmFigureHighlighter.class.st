@@ -10,12 +10,14 @@ Hightlight and unhighlight fsm figures.
 FSM Figures.
 "
 Class {
-	#name : #OPFsmFigureHighlighter,
-	#superclass : #Object,
-	#category : #'OpenPonk-FSM-Shapes'
+	#name : 'OPFsmFigureHighlighter',
+	#superclass : 'Object',
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #'api - highlight' }
+{ #category : 'api - highlight' }
 OPFsmFigureHighlighter class >> highlight: aShapedObject with: aColor [
 	aShapedObject isNode
 		ifTrue: [ self highlightNode: aShapedObject with: aColor ].
@@ -23,7 +25,7 @@ OPFsmFigureHighlighter class >> highlight: aShapedObject with: aColor [
 		ifTrue: [ self highlightLine: aShapedObject with: aColor ]
 ]
 
-{ #category : #'api - highlight' }
+{ #category : 'api - highlight' }
 OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
 
 	self unhighlightNode: aLine.
@@ -32,7 +34,7 @@ OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
 	aLine signalUpdate
 ]
 
-{ #category : #'api - highlight' }
+{ #category : 'api - highlight' }
 OPFsmFigureHighlighter class >> highlightNode: aNode with: aColor [
 
 	self unhighlightNode: aNode.
@@ -41,7 +43,7 @@ OPFsmFigureHighlighter class >> highlightNode: aNode with: aColor [
 	aNode signalUpdate
 ]
 
-{ #category : #'api - unhighlight' }
+{ #category : 'api - unhighlight' }
 OPFsmFigureHighlighter class >> unhighlight: aShapedObject [
 	aShapedObject isNode
 		ifTrue: [ self unhighlightNode: aShapedObject ].
@@ -49,7 +51,7 @@ OPFsmFigureHighlighter class >> unhighlight: aShapedObject [
 		ifTrue: [ self unhighlightLine: aShapedObject ]
 ]
 
-{ #category : #'api - unhighlight' }
+{ #category : 'api - unhighlight' }
 OPFsmFigureHighlighter class >> unhighlightLine: aLine [
 
 	aLine shape color: (aLine propertyAt: self name ifAbsent: [ ^ self ]).
@@ -57,7 +59,7 @@ OPFsmFigureHighlighter class >> unhighlightLine: aLine [
 	aLine signalUpdate
 ]
 
-{ #category : #'api - unhighlight' }
+{ #category : 'api - unhighlight' }
 OPFsmFigureHighlighter class >> unhighlightNode: aNode [
 
 	aNode shape borderColor:

@@ -3,23 +3,25 @@ A DCFsmInitialStateController is a controller for the initial state in FSM.
 
 "
 Class {
-	#name : #OPFsmInitialStateController,
-	#superclass : #OPFsmVertexController,
-	#category : #'OpenPonk-FSM-Controllers'
+	#name : 'OPFsmInitialStateController',
+	#superclass : 'OPFsmVertexController',
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmInitialStateController >> canBeTargetFor: aController [
 	^ false
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmInitialStateController >> diagramElementClass [
 
 	^ OPFsmInitialStateShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmInitialStateController >> modelClass [
 	^ OPFsmInitialState
 ]

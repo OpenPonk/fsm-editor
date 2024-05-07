@@ -3,22 +3,24 @@ A DCFsmVertexController is a controller for a vertex in FSM.
 
 "
 Class {
-	#name : #OPFsmVertexController,
-	#superclass : #OPElementController,
-	#category : #'OpenPonk-FSM-Controllers'
+	#name : 'OPFsmVertexController',
+	#superclass : 'OPElementController',
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertexController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and: [ aController modelClass = OPFsmTransition ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertexController >> canBeTargetFor: aController [
 	^ self canBeSourceFor: aController
 ]
 
-{ #category : #figures }
+{ #category : 'figures' }
 OPFsmVertexController >> createTransitionAdornmentBy: builder [
 
 	builder
@@ -36,7 +38,7 @@ OPFsmVertexController >> createTransitionAdornmentBy: builder [
 			tool selectedControllers: { self } ]
 ]
 
-{ #category : #figures }
+{ #category : 'figures' }
 OPFsmVertexController >> createVertexAdornmentBy: builder [
 
 	builder
@@ -64,12 +66,12 @@ OPFsmVertexController >> createVertexAdornmentBy: builder [
 			self diagramController editor palette selectTool: tool ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmVertexController >> dependentElements [
 	^ (model incoming , model outgoing) asSet
 ]
 
-{ #category : #figures }
+{ #category : 'figures' }
 OPFsmVertexController >> hookDiagramElement [
 
 	super hookDiagramElement.
@@ -80,23 +82,24 @@ OPFsmVertexController >> hookDiagramElement [
 			createTransitionAdornmentBy: builder ]
 ]
 
-{ #category : #announcements }
+{ #category : 'announcements' }
 OPFsmVertexController >> internalSubscribeTo: aModel [
+
 	super internalSubscribeTo: aModel.
-	aModel when: OPElementRemoved do: [ :e | self removeController ]
+	aModel when: OPElementRemoved send: #removeController to: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertexController >> isHideable [
 	^ true
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 OPFsmVertexController >> modelAsParent [
 	^ self model owner
 ]
 
-{ #category : #destruction }
+{ #category : 'destruction' }
 OPFsmVertexController >> removeModel [
 	self model announcer unsubscribe: self.
 	self diagramController model remove: self model

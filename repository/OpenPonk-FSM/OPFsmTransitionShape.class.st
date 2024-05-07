@@ -1,17 +1,19 @@
 Class {
-	#name : #OPFsmTransitionShape,
-	#superclass : #OPEdge,
-	#category : #'OpenPonk-FSM-Shapes'
+	#name : 'OPFsmTransitionShape',
+	#superclass : 'OPEdge',
+	#category : 'OpenPonk-FSM-Shapes',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Shapes'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTransitionShape >> createOwnedElementsWithoutController [
 
 	self ownedElements ifNotEmpty: [ ^ self ].
 	OPFsmTransitionLabel in: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmTransitionShape >> renderBasicShape [
 
 	^ (self source = self target

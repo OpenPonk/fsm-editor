@@ -3,12 +3,14 @@ A DCFsmStateController is a controller for a state in FSM.
 
 "
 Class {
-	#name : #OPFsmStateController,
-	#superclass : #OPFsmVertexController,
-	#category : #'OpenPonk-FSM-Controllers'
+	#name : 'OPFsmStateController',
+	#superclass : 'OPFsmVertexController',
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 OPFsmStateController >> buildEditorForm: aForm [
 	super buildEditorForm: aForm.
 	(aForm addCheckbox: 'Final')
@@ -18,13 +20,13 @@ OPFsmStateController >> buildEditorForm: aForm [
 			self refreshFigure ]
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmStateController >> diagramElementClass [
 
 	^ OPFsmStateShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmStateController >> modelClass [
 	^ OPFsmState
 ]

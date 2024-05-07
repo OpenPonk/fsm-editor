@@ -1,22 +1,24 @@
 Class {
-	#name : #OPFsmVertexControllerTest,
-	#superclass : #OPControllerOfFsmTest,
-	#category : #'OpenPonk-FSM-Tests'
+	#name : 'OPFsmVertexControllerTest',
+	#superclass : 'OPControllerOfFsmTest',
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmVertexControllerTest class >> isAbstract [
 	^ self = OPFsmVertexControllerTest
 ]
 
-{ #category : #'testing - instance creation' }
+{ #category : 'testing - instance creation' }
 OPFsmVertexControllerTest >> createController [
 	^ super createController
 		model: self modelClass new;
 		yourself
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmVertexControllerTest >> testCreateFigure [
 
 	controller createModelIn: diagramController model.
@@ -30,7 +32,7 @@ OPFsmVertexControllerTest >> testCreateFigure [
 		equals: OPFsmInitialStateShape
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmVertexControllerTest >> testCreateModel [
 	self assert: (controller createModelIn: diagramController model) class equals: self modelClass
 ]

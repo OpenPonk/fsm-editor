@@ -3,8 +3,8 @@ A DCFsmTest is a test that consists of creating a diagram and then testing the n
 
 "
 Class {
-	#name : #OPFsmTest,
-	#superclass : #TestCase,
+	#name : 'OPFsmTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'diagram',
 		'initial',
@@ -14,10 +14,12 @@ Class {
 		'secondTransition',
 		'selfTransition'
 	],
-	#category : 'OpenPonk-FSM-Tests'
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmTest >> setUp [
 	diagram := OPFsm named: 'Diagram'.
 	initial := OPFsmInitialState named: 'initial'.
@@ -28,7 +30,7 @@ OPFsmTest >> setUp [
 	selfTransition := OPFsmTransition from: state to: state named: 'self'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTest >> testAdd [
 	self assert: diagram elements isEmpty.
 	diagram add: initial.
@@ -41,7 +43,7 @@ OPFsmTest >> testAdd [
 	self assertCollection: state incoming hasSameElements: {firstTransition}
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTest >> testRemoveState [
 	diagram add: initial.
 	diagram add: state.
@@ -58,7 +60,7 @@ OPFsmTest >> testRemoveState [
 	self assertCollection: diagram elements hasSameElements: (Array with: initial with: final)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTest >> testRemoveState2 [
 	diagram add: state.
 	diagram add: selfTransition.
@@ -72,7 +74,7 @@ OPFsmTest >> testRemoveState2 [
 	self assert: diagram elements isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTest >> testRemoveTransition [
 	diagram add: initial.
 	diagram add: state.
@@ -86,7 +88,7 @@ OPFsmTest >> testRemoveTransition [
 	self assert: state incoming isEmpty
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTest >> testTransition [
 	diagram add: initial.
 	diagram add: state.

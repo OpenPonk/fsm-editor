@@ -1,35 +1,37 @@
 Class {
-	#name : #OPFsmTransitionControllerTest,
-	#superclass : #OPControllerOfFsmTest,
+	#name : 'OPFsmTransitionControllerTest',
+	#superclass : 'OPControllerOfFsmTest',
 	#instVars : [
 		'fromCtrl',
 		'toCtrl'
 	],
-	#category : #'OpenPonk-FSM-Tests'
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransitionControllerTest >> controllerClass [
 	^ OPFsmTransitionController
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmTransitionControllerTest >> diagramElementClass [
 
 	^ OPFsmTransitionShape
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 OPFsmTransitionControllerTest >> fromClass [
 	^ OPFsmInitialStateController
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransitionControllerTest >> modelClass [
 	^ OPFsmTransition
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 OPFsmTransitionControllerTest >> setUp [
 
 	super setUp.
@@ -48,7 +50,7 @@ OPFsmTransitionControllerTest >> setUp [
 		renderDiagramElement
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTransitionControllerTest >> testCreateDiagramElement [
 
 	controller model: model.
@@ -58,7 +60,7 @@ OPFsmTransitionControllerTest >> testCreateDiagramElement [
 	super testCreateDiagramElement
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTransitionControllerTest >> testCreateFigure [
 
 	| figure |
@@ -81,7 +83,7 @@ OPFsmTransitionControllerTest >> testCreateFigure [
 	self assert: figure border dashArray isNil
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTransitionControllerTest >> testCreateModel [
 	| createdModel |
 	controller source: fromCtrl.
@@ -94,7 +96,7 @@ OPFsmTransitionControllerTest >> testCreateModel [
 	self assert: createdModel target equals: toCtrl model
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmTransitionControllerTest >> testFigureRefresh [
 
 	| label |
@@ -114,7 +116,7 @@ OPFsmTransitionControllerTest >> testFigureRefresh [
 	self assert: label text equals: 'new name'
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 OPFsmTransitionControllerTest >> toClass [
 	^ OPFsmFinalStateController
 ]

@@ -1,26 +1,28 @@
 Class {
-	#name : #OPFsmStateControllerTest,
-	#superclass : #OPFsmVertexControllerTest,
-	#category : #'OpenPonk-FSM-Tests'
+	#name : 'OPFsmStateControllerTest',
+	#superclass : 'OPFsmVertexControllerTest',
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmStateControllerTest >> controllerClass [
 	^ OPFsmStateController
 ]
 
-{ #category : #construction }
+{ #category : 'construction' }
 OPFsmStateControllerTest >> diagramElementClass [
 
 	^ OPFsmStateShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmStateControllerTest >> modelClass [
 	^ OPFsmState
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmStateControllerTest >> testCreateFigure [
 
 	controller createModelIn: diagramController model.
@@ -36,7 +38,7 @@ OPFsmStateControllerTest >> testCreateFigure [
 	self assert: controller roassalShape extent >= (50 @ 50)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmStateControllerTest >> testFigureRefresh [
 
 	controller createModelIn: diagramController model.

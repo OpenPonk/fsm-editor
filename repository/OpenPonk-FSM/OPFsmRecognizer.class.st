@@ -11,8 +11,8 @@ Firing events on state movements.
 none
 "
 Class {
-	#name : #OPFsmRecognizer,
-	#superclass : #OPAnnouncableObject,
+	#name : 'OPFsmRecognizer',
+	#superclass : 'OPAnnouncableObject',
 	#instVars : [
 		'model',
 		'input',
@@ -21,10 +21,12 @@ Class {
 		'current',
 		'canContinue'
 	],
-	#category : #'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #stepping }
+{ #category : 'stepping' }
 OPFsmRecognizer >> back [
 	path ifEmpty: [ ^ self ].
 	canContinue := true.
@@ -33,7 +35,7 @@ OPFsmRecognizer >> back [
 		ifTrue: [ input push: consumed pop ]
 ]
 
-{ #category : #terminators }
+{ #category : 'terminators' }
 OPFsmRecognizer >> beComplete [
 	input isEmpty & current isFinal
 		ifTrue: [ self beSuccess ]
@@ -41,46 +43,46 @@ OPFsmRecognizer >> beComplete [
 	canContinue := false
 ]
 
-{ #category : #terminators }
+{ #category : 'terminators' }
 OPFsmRecognizer >> beFailure [
 	self announce: (OPFsmRecognizerFailure place: current)
 ]
 
-{ #category : #terminators }
+{ #category : 'terminators' }
 OPFsmRecognizer >> beSuccess [
 	self announce: (OPFsmRecognizerSuccess place: current)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPFsmRecognizer >> goTo: aPlace [
 	current ifNotNil: [ self announce: (OPFsmRecognizerLeave place: current) ].
 	current := aPlace.
 	self announce: (OPFsmRecognizerEnter place: current)
 ]
 
-{ #category : #stepping }
+{ #category : 'stepping' }
 OPFsmRecognizer >> input: aCollection startingAt: aState [
 	self reset.
 	aCollection reverseDo: [ :each | input push: each ].
 	self goTo: aState outgoing anyOne target	"skip the initial state"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmRecognizer >> inputPosition [
 	^ consumed size + 1
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmRecognizer >> isInputEmpty [
 	^ current isState & input isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmRecognizer >> isPathEmpty [
 	^ path isEmpty
 ]
 
-{ #category : #stepping }
+{ #category : 'stepping' }
 OPFsmRecognizer >> next [
 	| transition |
 	canContinue
@@ -96,7 +98,7 @@ OPFsmRecognizer >> next [
 	self goTo: transition
 ]
 
-{ #category : #stepping }
+{ #category : 'stepping' }
 OPFsmRecognizer >> nextUpToEnd [
 
 	[ canContinue ] whileTrue: [ 
@@ -105,7 +107,7 @@ OPFsmRecognizer >> nextUpToEnd [
 		self currentWorld doOneCycle ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmRecognizer >> reset [
 	path := Stack new.
 	consumed := Stack new.
@@ -113,7 +115,7 @@ OPFsmRecognizer >> reset [
 	canContinue := true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPFsmRecognizer >> transitionFrom: aState using: aSymbol [
 	^ aState outgoing detect: [ :each | each matches: aSymbol asString ] ifNone: [ nil ]
 ]

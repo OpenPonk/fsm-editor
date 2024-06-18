@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfFsmEditor }
+Package { #name : 'BaselineOfFsmEditor' }

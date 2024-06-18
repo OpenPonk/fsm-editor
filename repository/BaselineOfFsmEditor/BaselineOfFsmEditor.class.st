@@ -1,10 +1,11 @@
 Class {
-	#name : #BaselineOfFsmEditor,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfFsmEditor
+	#name : 'BaselineOfFsmEditor',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfFsmEditor',
+	#package : 'BaselineOfFsmEditor'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfFsmEditor >> baseline: spec [
 
 	<baseline>

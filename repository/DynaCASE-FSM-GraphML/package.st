@@ -1,1 +1,1 @@
-Package { #name : #'DynaCASE-FSM-GraphML' }
+Package { #name : 'DynaCASE-FSM-GraphML' }

@@ -1,15 +1,16 @@
 Class {
-	#name : #DCFsmGraphML,
-	#superclass : #Object,
-	#category : 'DynaCASE-FSM-GraphML'
+	#name : 'DCFsmGraphML',
+	#superclass : 'Object',
+	#category : 'DynaCASE-FSM-GraphML',
+	#package : 'DynaCASE-FSM-GraphML'
 }
 
-{ #category : #export }
+{ #category : 'export' }
 DCFsmGraphML >> export: aModel [
 	^ self export: aModel withLayout: Dictionary new
 ]
 
-{ #category : #export }
+{ #category : 'export' }
 DCFsmGraphML >> export: aModel withLayout: aLayout [
 	^ (MustacheTemplate on: (self template copyReplaceAll: String cr with: String lf))
 		value:
@@ -26,7 +27,7 @@ DCFsmGraphML >> export: aModel withLayout: aLayout [
 				asDictionary
 ]
 
-{ #category : #import }
+{ #category : 'import' }
 DCFsmGraphML >> import: aXml [
 	| model doc graph layout graphData node nodeData edge edgeData nodes |
 	layout := Dictionary new.
@@ -63,7 +64,7 @@ DCFsmGraphML >> import: aXml [
 	(#layout -> layout)} asDictionary
 ]
 
-{ #category : #import }
+{ #category : 'import' }
 DCFsmGraphML >> nodeForType: aType [
 	aType = #initial
 		ifTrue: [ ^ DCFsmInitialState new ].
@@ -74,7 +75,7 @@ DCFsmGraphML >> nodeForType: aType [
 	^ DCFsmState new
 ]
 
-{ #category : #export }
+{ #category : 'export' }
 DCFsmGraphML >> template [
 	<script: '(XMLDOMParser parse: self new template) inspect'>
 	^ '<?xml version="1.0" encoding="UTF-8"?>

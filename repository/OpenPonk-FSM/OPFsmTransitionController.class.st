@@ -16,19 +16,6 @@ OPFsmTransitionController >> diagramElementClass [
 	^ OPFsmTransitionShape
 ]
 
-{ #category : 'accessing' }
-OPFsmTransitionController >> ensureSourceAndTargetIn: aDiagramController [
-
-	source ifNil: [ 
-		self source:
-			(aDiagramController showWithoutDependentInDiagramModel:
-				 model source) ].
-	target ifNil: [ 
-		self target:
-			(aDiagramController showWithoutDependentInDiagramModel:
-				 model target) ]
-]
-
 { #category : 'announcements' }
 OPFsmTransitionController >> internalSubscribeTo: aModel [
 
@@ -50,18 +37,4 @@ OPFsmTransitionController >> modelClass [
 OPFsmTransitionController >> removeModel [
 	self model announcer unsubscribe: self.
 	self diagramController model remove: self model
-]
-
-{ #category : 'construction' }
-OPFsmTransitionController >> showInDiagram: aDiagramController [
-
-	self ensureSourceAndTargetIn: aDiagramController.
-	^ super showInDiagram: aDiagramController
-]
-
-{ #category : 'construction' }
-OPFsmTransitionController >> showWithoutDependentInDiagram: aDiagramController [
-
-	self ensureSourceAndTargetIn: aDiagramController.
-	^ super showWithoutDependentInDiagram: aDiagramController
 ]

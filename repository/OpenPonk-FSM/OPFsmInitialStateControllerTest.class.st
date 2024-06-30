@@ -23,9 +23,9 @@ OPFsmInitialStateControllerTest >> modelClass [
 ]
 
 { #category : 'tests' }
-OPFsmInitialStateControllerTest >> testCreateFigure [
+OPFsmInitialStateControllerTest >> testCreateUsingAddAsTarget [
 
-	super testCreateFigure.
+	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircularShape).
 	self assert: controller roassalShape color equals: Color black.
 	self assert: controller roassalShape extent equals: 14 @ 14

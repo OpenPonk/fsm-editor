@@ -23,16 +23,9 @@ OPFsmStateControllerTest >> modelClass [
 ]
 
 { #category : 'tests' }
-OPFsmStateControllerTest >> testCreateFigure [
+OPFsmStateControllerTest >> testCreateUsingAddAsTarget [
 
-	controller createModelIn: diagramController model.
-	diagramController addController: controller.
-	self assert: diagramController canvas nodes isEmpty.
-	controller
-		createDiagramElement;
-		renderDiagramElement.
-	self assert: diagramController canvas nodes isNotEmpty.
-	self assert: controller diagramElement class equals: OPFsmStateShape.
+	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircularShape).
 	self assert: controller roassalShape color equals: Color white.
 	self assert: controller roassalShape extent >= (50 @ 50)

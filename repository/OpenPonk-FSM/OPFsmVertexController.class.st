@@ -94,11 +94,6 @@ OPFsmVertexController >> isHideable [
 	^ true
 ]
 
-{ #category : 'adding' }
-OPFsmVertexController >> modelAsParent [
-	^ self model owner
-]
-
 { #category : 'destruction' }
 OPFsmVertexController >> removeModel [
 	self model announcer unsubscribe: self.

@@ -1,6 +1,6 @@
 Class {
 	#name : 'OPControllerOfFsmTest',
-	#superclass : 'OPElementControllerTest',
+	#superclass : 'OPAbstractElementControllerTest',
 	#category : 'OpenPonk-FSM-Tests',
 	#package : 'OpenPonk-FSM',
 	#tag : 'Tests'
@@ -15,11 +15,6 @@ OPControllerOfFsmTest class >> isAbstract [
 ]
 
 { #category : 'accessing' }
-OPControllerOfFsmTest >> controllerClass [
-	^ self subclassResponsibility
-]
-
-{ #category : 'accessing' }
 OPControllerOfFsmTest >> diagramControllerClass [
 
 	^ OPFsmController
@@ -28,14 +23,4 @@ OPControllerOfFsmTest >> diagramControllerClass [
 { #category : 'accessing' }
 OPControllerOfFsmTest >> diagramModelClass [
 	^ OPFsm
-]
-
-{ #category : 'accessing' }
-OPControllerOfFsmTest >> modelClass [
-	^ self subclassResponsibility
-]
-
-{ #category : 'tests' }
-OPControllerOfFsmTest >> testModelClass [
-	self assert: controller modelClass equals: self modelClass
 ]

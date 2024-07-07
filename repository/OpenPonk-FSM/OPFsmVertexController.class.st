@@ -96,6 +96,8 @@ OPFsmVertexController >> isHideable [
 
 { #category : 'destruction' }
 OPFsmVertexController >> removeModel [
+
 	self model announcer unsubscribe: self.
-	self diagramController model remove: self model
+	self diagramController model remove: self model.
+	super removeModel
 ]

@@ -35,6 +35,8 @@ OPFsmTransitionController >> modelClass [
 
 { #category : 'destruction' }
 OPFsmTransitionController >> removeModel [
+
 	self model announcer unsubscribe: self.
-	self diagramController model remove: self model
+	self diagramController model remove: self model.
+	super removeModel
 ]

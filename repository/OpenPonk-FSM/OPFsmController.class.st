@@ -38,12 +38,11 @@ OPFsmController >> commonModelClassPrefix [
 
 { #category : 'accessing' }
 OPFsmController >> controllerFactory [
+
 	^ super controllerFactory
-		register: OPFsmInitialStateController forModel: OPFsmInitialState;
-		register: OPFsmStateController forModel: OPFsmState;
-		register: OPFsmTransitionController forModel: OPFsmTransition;
-		register: OPFsmTransitionController
-			forModel: OPFsmIncomingTransition
+		  register: OPFsmInitialStateController forModel: OPFsmInitialState;
+		  register: OPFsmStateController forModel: OPFsmState;
+		  register: OPFsmTransitionController forModel: OPFsmTransition
 ]
 
 { #category : 'accessing' }

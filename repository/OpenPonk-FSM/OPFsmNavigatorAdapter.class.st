@@ -21,50 +21,46 @@ OPFsmNavigatorAdapter class >> priority [
 
 { #category : 'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
-	^ {(OPFsm -> #states).
-	(OPFsmVertex
-		-> [ :o | 
-			o outgoing
-				, (o incoming collect: [ :each | OPFsmIncomingTransition of: each ]) ]).
-	(OPFsmIncomingTransition -> #()).
-	(OPFsmTransition -> #())}
+
+	^ {
+		  (OPFsm -> #states).
+		  (OPFsmVertex -> [ :o | o incoming , o outgoing ]).
+		  (OPFsmTransition -> #(  )) }
 ]
 
 { #category : 'widget API' }
 OPFsmNavigatorAdapter >> displayMapping [
-	^ {(OPFsm -> 'Diagram').
-	(OPFsmInitialState -> 'Initial State').
-	(OPFsmState
-		-> [ :o | 
-			o isNormal
-				ifTrue: [ 'State' ]
-				ifFalse: [ 'Final State' ] ]).
-	(OPFsmTransition -> 'Transition').
-	(OPFsmIncomingTransition -> 'Incoming transition')}
+
+	^ {
+		  (OPFsm -> 'Diagram').
+		  (OPFsmInitialState -> 'Initial State').
+		  (OPFsmState -> [ :o |
+		   o isNormal
+			   ifTrue: [ 'State' ]
+			   ifFalse: [ 'Final State' ] ]).
+		  (OPFsmTransition -> 'Transition') }
 ]
 
 { #category : 'testing' }
 OPFsmNavigatorAdapter >> hasMappingFor: anObject in: aModel [
 
-	^ { 
+	^ {
 		  OPFsm.
 		  OPFsmTransition.
-		  OPFsmIncomingTransition.
 		  OPFsmVertex } anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
 { #category : 'widget API' }
 OPFsmNavigatorAdapter >> iconMapping [
-	^ {(OPFsm -> OPCoreIcons opFsmDiagramIcon).
-	(OPFsmInitialState -> OPCoreIcons opFsmInitialStateIcon).
-	(OPFsmIncomingTransition
-		-> OPCoreIcons opFsmFlippedTransitionIcon).
-	(OPFsmTransition -> OPCoreIcons opFsmTransitionIcon).
-	(OPFsmState
-		-> [ :o | 
-			o isNormal
-				ifTrue: [ OPCoreIcons opFsmRegularStateIcon ]
-				ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ])}
+
+	^ {
+		  (OPFsm -> OPCoreIcons opFsmDiagramIcon).
+		  (OPFsmInitialState -> OPCoreIcons opFsmInitialStateIcon).
+		  (OPFsmTransition -> OPCoreIcons opFsmTransitionIcon).
+		  (OPFsmState -> [ :o |
+		   o isNormal
+			   ifTrue: [ OPCoreIcons opFsmRegularStateIcon ]
+			   ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ]) }
 ]
 
 { #category : 'private' }
@@ -76,8 +72,9 @@ OPFsmNavigatorAdapter >> sort: modelObjects [
 
 { #category : 'widget API' }
 OPFsmNavigatorAdapter >> typesByDependency [
-	^ {OPFsm.
-	OPFsmVertex.
-	OPFsmTransition.
-	OPFsmIncomingTransition}
+
+	^ {
+		  OPFsm.
+		  OPFsmVertex.
+		  OPFsmTransition }
 ]

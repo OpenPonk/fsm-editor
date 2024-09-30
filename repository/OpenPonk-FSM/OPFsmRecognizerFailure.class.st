@@ -6,7 +6,9 @@ I am fired when recognizer is unable to progress due to unrecognized input.
 DCFsmRecognizer
 "
 Class {
-	#name : #OPFsmRecognizerFailure,
-	#superclass : #OPFsmRecognizerEvent,
-	#category : 'OpenPonk-FSM-Simulations'
+	#name : 'OPFsmRecognizerFailure',
+	#superclass : 'OPFsmRecognizerEvent',
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }

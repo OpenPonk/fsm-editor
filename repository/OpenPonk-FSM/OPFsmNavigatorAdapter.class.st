@@ -6,68 +6,75 @@ I implement specific mappings for FSM.
 DCNavigator
 "
 Class {
-	#name : #OPFsmNavigatorAdapter,
-	#superclass : #OPNavigatorAdapter,
-	#category : #'OpenPonk-FSM-Adapters'
+	#name : 'OPFsmNavigatorAdapter',
+	#superclass : 'OPNavigatorAdapter',
+	#category : 'OpenPonk-FSM-Adapters',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Adapters'
 }
 
-{ #category : #'widget API' }
+{ #category : 'accessing' }
+OPFsmNavigatorAdapter class >> priority [
+
+	^ 10
+]
+
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> childrenMapping [
-	^ {(OPFsm -> #states).
-	(OPFsmVertex
-		-> [ :o | 
-			o outgoing
-				, (o incoming collect: [ :each | OPFsmIncomingTransition of: each ]) ]).
-	(OPFsmIncomingTransition -> #()).
-	(OPFsmTransition -> #())}
+
+	^ {
+		  (OPFsm -> #states).
+		  (OPFsmVertex -> [ :o | o incoming , o outgoing ]).
+		  (OPFsmTransition -> #(  )) }
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> displayMapping [
-	^ {(OPFsm -> 'Diagram').
-	(OPFsmInitialState -> 'Initial State').
-	(OPFsmState
-		-> [ :o | 
-			o isNormal
-				ifTrue: [ 'State' ]
-				ifFalse: [ 'Final State' ] ]).
-	(OPFsmTransition -> 'Transition').
-	(OPFsmIncomingTransition -> 'Incoming transition')}
+
+	^ {
+		  (OPFsm -> 'Diagram').
+		  (OPFsmInitialState -> 'Initial State').
+		  (OPFsmState -> [ :o |
+		   o isNormal
+			   ifTrue: [ 'State' ]
+			   ifFalse: [ 'Final State' ] ]).
+		  (OPFsmTransition -> 'Transition') }
 ]
 
-{ #category : #testing }
-OPFsmNavigatorAdapter >> hasMappingFor: anObject [
-	^ {OPFsm.
-	OPFsmTransition.
-	OPFsmIncomingTransition.
-	OPFsmVertex} anySatisfy: [ :any | anObject isKindOf: any ]
+{ #category : 'testing' }
+OPFsmNavigatorAdapter >> hasMappingFor: anObject in: aModel [
+
+	^ {
+		  OPFsm.
+		  OPFsmTransition.
+		  OPFsmVertex } anySatisfy: [ :any | anObject isKindOf: any ]
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> iconMapping [
-	^ {(OPFsm -> OPIcons current dcFsmDiagramIcon).
-	(OPFsmInitialState -> OPIcons current dcFsmInitialStateIcon).
-	(OPFsmIncomingTransition
-		-> OPIcons current dcFsmFlippedTransitionIcon).
-	(OPFsmTransition -> OPIcons current dcFsmTransitionIcon).
-	(OPFsmState
-		-> [ :o | 
-			o isNormal
-				ifTrue: [ OPIcons current dcFsmRegularStateIcon ]
-				ifFalse: [ OPIcons current dcFsmFinalStateIcon ] ])}
+
+	^ {
+		  (OPFsm -> OPCoreIcons opFsmDiagramIcon).
+		  (OPFsmInitialState -> OPCoreIcons opFsmInitialStateIcon).
+		  (OPFsmTransition -> OPCoreIcons opFsmTransitionIcon).
+		  (OPFsmState -> [ :o |
+		   o isNormal
+			   ifTrue: [ OPCoreIcons opFsmRegularStateIcon ]
+			   ifFalse: [ OPCoreIcons opFsmFinalStateIcon ] ]) }
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 OPFsmNavigatorAdapter >> sort: modelObjects [
 	^ modelObjects
 		sorted:
 			[ :a :b | a name isNotNil and: [ b name isNil or: [ a name < b name ] ] ]
 ]
 
-{ #category : #'widget API' }
+{ #category : 'widget API' }
 OPFsmNavigatorAdapter >> typesByDependency [
-	^ {OPFsm.
-	OPFsmVertex.
-	OPFsmTransition.
-	OPFsmIncomingTransition}
+
+	^ {
+		  OPFsm.
+		  OPFsmVertex.
+		  OPFsmTransition }
 ]

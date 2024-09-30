@@ -1,38 +1,48 @@
 Class {
-	#name : #OPFsmStateControllerTest,
-	#superclass : #OPFsmVertexControllerTest,
-	#category : 'OpenPonk-FSM-Tests'
+	#name : 'OPFsmStateControllerTest',
+	#superclass : 'OPFsmVertexControllerTest',
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmStateControllerTest >> controllerClass [
 	^ OPFsmStateController
 ]
 
-{ #category : #accessing }
+{ #category : 'construction' }
+OPFsmStateControllerTest >> diagramElementClass [
+
+	^ OPFsmStateShape
+]
+
+{ #category : 'accessing' }
 OPFsmStateControllerTest >> modelClass [
 	^ OPFsmState
 ]
 
-{ #category : #tests }
-OPFsmStateControllerTest >> testCreateFigure [
-	controller createModelIn: diagramController model.
-	diagramController addController: controller.
-	controller renderFigureIn: diagramController view.
-	self assert: diagramController view elements size equals: 2.
-	self assert: controller figure class equals: OPFsmStateFigure.
-	self assert: controller figure shape class equals: RTRoundedBox.
-	self assert: controller figure color equals: Color white.
-	self assert: controller figure extent equals: 50 @ 50
+{ #category : 'tests' }
+OPFsmStateControllerTest >> testCreateUsingAddAsTarget [
+
+	super testCreateUsingAddAsTarget.
+	self assert: (controller roassalShape isKindOf: RSCircularShape).
+	self assert: controller roassalShape color equals: Color white.
+	self assert: controller roassalShape extent >= (50 @ 50)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OPFsmStateControllerTest >> testFigureRefresh [
+
 	controller createModelIn: diagramController model.
 	diagramController addController: controller.
-	controller renderFigureIn: diagramController view.
-	self assert: controller figure model name equals: ''.
+	controller
+		createDiagramElement;
+		renderDiagramElement.
+	self assert: controller diagramElement modelElement name equals: ''.
 	controller model name: 'new name'.
-	controller refreshFigure.
-	self assert: controller figure ownedElements first trachelShape text equals: 'new name'
+	controller diagramElement modelChanged.
+	self assert:
+		(controller diagramElement canvas nodes anySatisfy: [ :any | 
+			 (any isKindOf: RSLabel) and: [ any text = 'new name' ] ])
 ]

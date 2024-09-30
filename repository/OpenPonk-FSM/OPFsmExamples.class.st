@@ -1,15 +1,26 @@
 Class {
-	#name : #OPFsmExamples,
-	#superclass : #Object,
-	#category : 'OpenPonk-FSM-Examples'
+	#name : 'OPFsmExamples',
+	#superclass : 'Object',
+	#category : 'OpenPonk-FSM-Examples',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Examples'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
+OPFsmExamples class >> emptyModel [
+
+	<script: 'self emptyModel inspect'>
+	^ OPFsm new
+		  name: 'New StateMachine Diagram';
+		  yourself
+]
+
+{ #category : 'examples' }
 OPFsmExamples class >> exampleDecimal [
-	| project fsm initial z b c d k isDigit |
-	project := OPProject named: 'FSM Example'.
+
+	<script: 'self exampleDecimal inspect'>
+	| fsm initial z b c d k isDigit |
 	fsm := OPFsm named: 'Decimal number'.
-	project addModel: fsm.
 	initial := OPFsmInitialState new.
 	z := OPFsmState named: 'Z'.
 	b := OPFsmState named: 'B'.
@@ -24,9 +35,8 @@ OPFsmExamples class >> exampleDecimal [
 		add: d;
 		add: k.
 
-	fsm
-		addAll:
-			{(initial -> z).
+	fsm addAll: {
+			(initial -> z).
 			(z -> b name: '+').
 			(z -> b name: '-').
 			(z -> c name: 'd').
@@ -36,20 +46,21 @@ OPFsmExamples class >> exampleDecimal [
 			(c -> c name: 'd').
 			(b -> d name: '.').
 			(d -> k name: 'd').
-			(k -> k name: 'd')}.
+			(k -> k name: 'd') }.
 
 	isDigit := [ :aValue | '^[0-9]$' asRegex matches: aValue ].
-	fsm transitions select: [ :each | each name = 'd' ] thenDo: [ :each | each matchBlock: isDigit ].
-
-	OPWorkbench openProject: project
+	fsm transitions
+		select: [ :each | each name = 'd' ]
+		thenDo: [ :each | each matchBlock: isDigit ].
+	^ fsm
 ]
 
-{ #category : #examples }
+{ #category : 'examples' }
 OPFsmExamples class >> exampleDivisibility [
-	| project fsm initial zero one two |
-	project := OPProject named: 'FSM Example'.
+
+	<script: 'self exampleDivisibility inspect'>
+	| fsm initial zero one two |
 	fsm := OPFsm named: 'Divisibility By Three'.
-	project addModel: fsm.
 	initial := OPFsmInitialState new.
 	zero := OPFsmState named: '%3=0'.
 	zero beFinal.
@@ -61,46 +72,67 @@ OPFsmExamples class >> exampleDivisibility [
 		add: one;
 		add: two.
 
-	fsm
-		addAll:
-			{(initial -> zero).
+	fsm addAll: {
+			(initial -> zero).
 			(zero -> zero name: '0').
 			(zero -> one name: '1').
 			(one -> zero name: '1').
 			(one -> two name: '0').
 			(two -> one name: '0').
-			(two -> two name: '1')}.
+			(two -> two name: '1') }.
 
-	OPWorkbench openProject: project
+	^ fsm
 ]
 
-{ #category : #examples }
-OPFsmExamples class >> exampleEmpty [
-	| project fsm |
-	project := OPProject new name: 'New StateMachine'.
-	fsm := OPFsm new name: 'New StateMachine Diagram'.
-	project addModel: fsm.
-	OPWorkbench openProject: project
-]
-
-{ #category : #menu }
+{ #category : 'menu' }
 OPFsmExamples class >> menuCommandOn: aBuilder [
 
 	<worldMenu>
-	(aBuilder item: #'DC Finite State Machine')
-		icon: OPIcons current dcFsmDiagramIcon;
-		action: [ self exampleEmpty ];
+	(aBuilder item: #OPFSM)
+		label: 'Finite State Machine';
+		icon: OPCoreIcons opFsmDiagramIcon;
+		action: [ self openExampleEmptyModel ];
 		parent: #MostUsedTools;
 		order: 220;
 		with: [ 
 			(aBuilder item: #'FSM Example')
-				parent: #'DC Finite State Machine';
+				parent: #OPFSM;
 				label: 'FSM Example Divisibility';
-				icon: OPIcons current dcFsmDiagramIcon;
-				action: [ self exampleDivisibility ].
+				icon: OPCoreIcons opFsmDiagramIcon;
+				action: [ self openExampleDivisibility ].
 			(aBuilder item: #'FSM Example 2')
-				parent: #'DC Finite State Machine';
+				parent: #OPFSM;
 				label: 'FSM Example Decimal';
-				icon: OPIcons current dcFsmDiagramIcon;
-				action: [ self exampleDecimal ] ]
+				icon: OPCoreIcons opFsmDiagramIcon;
+				action: [ self openExampleDecimal ] ]
+]
+
+{ #category : 'examples' }
+OPFsmExamples class >> openExample: aModel [
+
+	| project |
+	project := OPProject named: 'FSM Example'.
+	project addModel: aModel.
+	^ (OPWorkbench openProject: project) showAllElementsInAllDiagrams
+]
+
+{ #category : 'examples' }
+OPFsmExamples class >> openExampleDecimal [
+
+	<example>
+	self openExample: self exampleDecimal
+]
+
+{ #category : 'examples' }
+OPFsmExamples class >> openExampleDivisibility [
+
+	<example>
+	self openExample: self exampleDivisibility
+]
+
+{ #category : 'examples' }
+OPFsmExamples class >> openExampleEmptyModel [
+
+	<example>
+	self openExample: self emptyModel
 ]

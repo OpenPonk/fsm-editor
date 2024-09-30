@@ -6,27 +6,29 @@ I am a root class for all events fired by DCFsmRecognizer.
 DCFsmRecognizer
 "
 Class {
-	#name : #OPFsmRecognizerEvent,
-	#superclass : #Announcement,
+	#name : 'OPFsmRecognizerEvent',
+	#superclass : 'Announcement',
 	#instVars : [
 		'place'
 	],
-	#category : 'OpenPonk-FSM-Simulations'
+	#category : 'OpenPonk-FSM-Simulations',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Simulations'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmRecognizerEvent class >> place: aPlace [
 	^ self new
 		place: aPlace;
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmRecognizerEvent >> place [
 	^ place
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmRecognizerEvent >> place: aStateOrTransition [
 	place := aStateOrTransition
 ]

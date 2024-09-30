@@ -3,17 +3,19 @@ A DCFsmInitialState is the class representing initial state in FSM.
 
 "
 Class {
-	#name : #OPFsmInitialState,
-	#superclass : #OPFsmVertex,
-	#category : 'OpenPonk-FSM-Models'
+	#name : 'OPFsmInitialState',
+	#superclass : 'OPFsmVertex',
+	#category : 'OpenPonk-FSM-Models',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Models'
 }
 
-{ #category : #'DynaCASE-FSM-GraphML-accessing' }
+{ #category : 'DynaCASE-FSM-GraphML-accessing' }
 OPFsmInitialState >> graphmlType [
 	^ #initial
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmInitialState >> isInitial [
 	^ true
 ]

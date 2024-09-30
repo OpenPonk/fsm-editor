@@ -1,10 +1,12 @@
 Class {
-	#name : #OPControllerOfFsmTest,
-	#superclass : #OPControllerTest,
-	#category : 'OpenPonk-FSM-Tests'
+	#name : 'OPControllerOfFsmTest',
+	#superclass : 'OPAbstractElementControllerTest',
+	#category : 'OpenPonk-FSM-Tests',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPControllerOfFsmTest class >> isAbstract [
 	"Override to true if a TestCase subclass is Abstract and should not have
 	TestCase instances built from it"
@@ -12,27 +14,13 @@ OPControllerOfFsmTest class >> isAbstract [
 	^ self name = #OPControllerOfFsmTest
 ]
 
-{ #category : #accessing }
-OPControllerOfFsmTest >> controllerClass [
-	^ self subclassResponsibility
+{ #category : 'accessing' }
+OPControllerOfFsmTest >> diagramControllerClass [
+
+	^ OPFsmController
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPControllerOfFsmTest >> diagramModelClass [
 	^ OPFsm
-]
-
-{ #category : #accessing }
-OPControllerOfFsmTest >> modelClass [
-	^ self subclassResponsibility
-]
-
-{ #category : #tests }
-OPControllerOfFsmTest >> testClassSideModelClass [
-	self assert: self controllerClass modelClass equals: self modelClass
-]
-
-{ #category : #tests }
-OPControllerOfFsmTest >> testModelClass [
-	self assert: controller modelClass equals: self modelClass
 ]

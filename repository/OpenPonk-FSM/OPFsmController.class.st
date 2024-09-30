@@ -3,74 +3,71 @@ A DCFsmController is a diagram controller for FSM.
 
 "
 Class {
-	#name : #OPFsmController,
-	#superclass : #OPDiagramController,
+	#name : 'OPFsmController',
+	#superclass : 'OPDiagramController',
 	#instVars : [
 		'persistenceManager'
 	],
-	#category : #'OpenPonk-FSM-Controllers'
+	#category : 'OpenPonk-FSM-Controllers',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Controllers'
 }
 
-{ #category : #userinterface }
+{ #category : 'userinterface' }
 OPFsmController >> applyLayout: anAlgorithm [
+
 	| figures edges |
 	figures := self controllers
-		select: [ :each | each isKindOf: OPFsmVertexController ]
-		thenCollect: #figure.
-	edges := (figures flatCollect: #connectedEdges) reject: [ :each | each from = each to ].
-	anAlgorithm on: figures edges: edges.
-	self view canvas camera focusOnCenter
+		           select: [ :each | each isKindOf: OPFsmVertexController ]
+		           thenCollect: #figure.
+	edges := (figures flatCollect: #connectedLines) reject: [ :each |
+		         each from = each to ].
+	anAlgorithm on: figures asGroup edges: edges asGroup
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmController >> canBeTargetFor: aController [
 	^ (super canBeTargetFor: aController)
 		or: [ aController isKindOf: OPFsmVertexController ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OPFsmController >> commonModelClassPrefix [
 	^ 'OPFsm'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmController >> controllerFactory [
+
 	^ super controllerFactory
-		register: OPFsmInitialStateController forModel: OPFsmInitialState;
-		register: OPFsmStateController forModel: OPFsmState;
-		register: OPFsmTransitionController forModel: OPFsmTransition;
-		register: OPFsmTransitionController
-			forModel: OPFsmIncomingTransition
+		  register: OPFsmInitialStateController forModel: OPFsmInitialState;
+		  register: OPFsmStateController forModel: OPFsmState;
+		  register: OPFsmTransitionController forModel: OPFsmTransition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmController >> elementsToShowInside [
 	^ model elements
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Initial state'
 			factory: [ OPFsmInitialStateController new ]
-			icon: OPIcons current dcFsmInitialStateIcon;
+			icon: OPCoreIcons opFsmInitialStateIcon;
 		newSeparator;
-		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPIcons current dcFsmRegularStateIcon;
+		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPCoreIcons opFsmRegularStateIcon;
 		newCreationTool: 'Final state'
 			factory: [ OPFsmFinalStateController new ]
-			icon: OPIcons current dcFsmFinalStateIcon;
+			icon: OPCoreIcons opFsmFinalStateIcon;
 		newSeparator;
 		newConnectionCreationTool: 'Transition'
 			factory: [ OPFsmTransitionController new ]
-			icon: OPIcons current dcFsmTransitionIcon
+			icon: OPCoreIcons opFsmTransitionIcon
 ]
 
-{ #category : #accessing }
-OPFsmController >> modelClass [
-	^ OPFsm
-]
-
-{ #category : #'controllers management' }
+{ #category : 'controllers management' }
 OPFsmController >> newControllerFor: aModel [
 	"IncomingTransition identifies itself as transition, but is not"
 

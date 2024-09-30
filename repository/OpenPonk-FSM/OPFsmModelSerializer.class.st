@@ -1,45 +1,51 @@
 Class {
-	#name : #OPFsmModelSerializer,
-	#superclass : #OPModelSerializer,
-	#category : #'OpenPonk-FSM-Serialization'
+	#name : 'OPFsmModelSerializer',
+	#superclass : 'OPModelSerializer',
+	#category : 'OpenPonk-FSM-Serialization',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Serialization'
 }
 
-{ #category : #accessing }
-OPFsmModelSerializer >> formatName [
-	^ 'ston'
+{ #category : 'as yet unclassified' }
+OPFsmModelSerializer class >> exportVersion [
+
+	^ 1
 ]
 
-{ #category : #'serialize/materialize' }
-OPFsmModelSerializer >> materializeDiagramFrom: aString [
-	^ STON fromString: aString
+{ #category : 'as yet unclassified' }
+OPFsmModelSerializer class >> fileExtension [
+
+	^ #xml
 ]
 
-{ #category : #'serialize/materialize' }
+{ #category : 'as yet unclassified' }
+OPFsmModelSerializer class >> formatName [
+
+	^ #graphml
+]
+
+{ #category : 'accessing' }
+OPFsmModelSerializer class >> minImportVersion [
+
+	^ 1
+]
+
+{ #category : 'serialize/materialize' }
 OPFsmModelSerializer >> materializeModelFrom: aStream [
 	^ self materializeModelFromString: aStream contents
 ]
 
-{ #category : #'serialize/materialize' }
+{ #category : 'serialize/materialize' }
 OPFsmModelSerializer >> materializeModelFromString: aString [
 	^ OPFsmGraphML new import: aString
 ]
 
-{ #category : #accessing }
-OPFsmModelSerializer >> modelExtension [
-	^ 'graphml'
-]
-
-{ #category : #'serialize/materialize' }
-OPFsmModelSerializer >> serializeDiagram: aDiagramMemento [
-	^ STON toStringPretty: aDiagramMemento
-]
-
-{ #category : #'serialize/materialize' }
+{ #category : 'serialize/materialize' }
 OPFsmModelSerializer >> serializeModel: aModel [
 	^ OPFsmGraphML new export: aModel
 ]
 
-{ #category : #accessing }
+{ #category : 'serialize/materialize' }
 OPFsmModelSerializer >> serializeModel: aModel to: aStream [
 	^ aStream << (self serializeModel: aModel)
 ]

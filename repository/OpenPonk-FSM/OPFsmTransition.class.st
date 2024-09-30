@@ -13,17 +13,19 @@ target
 
 "
 Class {
-	#name : #OPFsmTransition,
-	#superclass : #OPModelObject,
+	#name : 'OPFsmTransition',
+	#superclass : 'OPModelObject',
 	#instVars : [
 		'source',
 		'target',
 		'matchBlock'
 	],
-	#category : #'OpenPonk-FSM-Models'
+	#category : 'OpenPonk-FSM-Models',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Models'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmTransition class >> from: aSource to: aTarget [
 	^ self new
 		source: aSource;
@@ -31,7 +33,7 @@ OPFsmTransition class >> from: aSource to: aTarget [
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 OPFsmTransition class >> from: aSource to: aTarget named: aString [
 	^ self new
 		source: aSource;
@@ -40,78 +42,78 @@ OPFsmTransition class >> from: aSource to: aTarget named: aString [
 		yourself
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 OPFsmTransition >> = otherTransition [
 	^ (otherTransition respondsTo: #isTransition)
 		and: [ otherTransition isTransition
 				and: [ otherTransition represents: self ] ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 OPFsmTransition >> asTransition [
 	^ self
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 OPFsmTransition >> detach [
 	super detach.
 	source := nil.
 	target := nil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 OPFsmTransition >> initialize [
 	super initialize.
 	matchBlock := [ :aValue | (self name splitOn: ',') includes: aValue asString ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmTransition >> isState [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmTransition >> isTransition [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> matchBlock [
 	^ matchBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> matchBlock: aOneArgBlock [
 	matchBlock := aOneArgBlock.
 	self changed
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 OPFsmTransition >> matches: aValue [
 	^ matchBlock value: aValue
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 OPFsmTransition >> represents: otherTransition [
 	^ super = otherTransition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> source [
 	^ source
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> source: aVertex [
 	source := aVertex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> target [
 	^ target
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmTransition >> target: aVertex [
 	target := aVertex
 ]

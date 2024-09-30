@@ -1,24 +1,26 @@
 Class {
-	#name : #OPFsmLayouter,
-	#superclass : #OPLayouter,
-	#category : #'OpenPonk-FSM-Plugin'
+	#name : 'OPFsmLayouter',
+	#superclass : 'OPLayouter',
+	#category : 'OpenPonk-FSM-Plugin',
+	#package : 'OpenPonk-FSM',
+	#tag : 'Plugin'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmLayouter >> allEdges [
 	^ diagramController controllers
 		select: [ :ctrl | ctrl isKindOf: OPFsmTransitionController ]
-		thenCollect: #figure
+		thenCollect: #roassalShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 OPFsmLayouter >> allNodes [
 	^ diagramController controllers
 		select: [ :ctrl | ctrl isKindOf: OPFsmVertexController ]
-		thenCollect: #figure
+		thenCollect: #roassalShape
 ]
 
-{ #category : #layouts }
+{ #category : 'layouts' }
 OPFsmLayouter >> defaultLayout [
 	self gridLayout
 ]

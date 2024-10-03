@@ -28,7 +28,7 @@ OPFsmTerminalPanelAdapter >> buildWidget [
 		         yourself.
 	self model
 		whenRecognizerStateChangedDo: [ :event | 
-			morph changeBoxAt: event inputPosition to: event inputState ];
-		whenDataChangedDo: [ :event | morph data: event data ].
+			morph changeBoxAt: event inputPosition to: event inputState ] for: self;
+		whenDataChangedDo: [ :event | morph data: event data ] for: self.
 	^ morph
 ]

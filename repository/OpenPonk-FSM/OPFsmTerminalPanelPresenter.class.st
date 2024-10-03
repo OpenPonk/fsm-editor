@@ -36,13 +36,19 @@ OPFsmTerminalPanelPresenter >> data: aString [
 ]
 
 { #category : 'event handling' }
-OPFsmTerminalPanelPresenter >> whenDataChangedDo: aBlock [
+OPFsmTerminalPanelPresenter >> whenDataChangedDo: aBlock for: aSubscriber [
 
-	self announcer when: OPFsmTerminalDataChanged do: aBlock
+	self announcer
+		when: OPFsmTerminalDataChanged
+		do: aBlock
+		for: aSubscriber
 ]
 
 { #category : 'event handling' }
-OPFsmTerminalPanelPresenter >> whenRecognizerStateChangedDo: aBlock [
+OPFsmTerminalPanelPresenter >> whenRecognizerStateChangedDo: aBlock for: aSubscriber [
 
-	self announcer when: OPFsmTerminalRecognizerStateChanged do: aBlock
+	self announcer
+		when: OPFsmTerminalRecognizerStateChanged
+		do: aBlock
+		for: aSubscriber
 ]

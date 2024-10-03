@@ -294,36 +294,51 @@ OPFsmSimulator >> stopButton [
 { #category : 'events' }
 OPFsmSimulator >> watchRecognizer: aRecognizer [
 
-	aRecognizer when: OPFsmRecognizerEvent do: [ :ann | 
-		aRecognizer isInputEmpty ifFalse: [ 
-			nextButton enable.
-			runButton enable ].
-		aRecognizer isPathEmpty ifFalse: [ backButton enable ].
-		(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState 
-			ifTrue: [ 
+	aRecognizer
+		when: OPFsmRecognizerEvent
+		do: [ :ann |
+			aRecognizer isInputEmpty ifFalse: [
+				nextButton enable.
+				runButton enable ].
+			aRecognizer isPathEmpty ifFalse: [ backButton enable ].
+			(ann isKindOf: OPFsmRecognizerFailure) not & ann place isState
+				ifTrue: [
+					self letterPanel
+						changeBoxAt: aRecognizer inputPosition - 1
+						to: #success ].
+			ann place isTransition ifTrue: [
 				self letterPanel
 					changeBoxAt: aRecognizer inputPosition - 1
-					to: #success ].
-		ann place isTransition ifTrue: [ 
+					to: #processed ] ]
+		for: self.
+	aRecognizer
+		when: OPFsmRecognizerSuccess
+		do: [ :ann |
+			OPFsmFigureHighlighter
+				highlightNode: (diagramController roassalShapeForModel: ann place)
+				with: Color green ]
+		for: self.
+	aRecognizer
+		when: OPFsmRecognizerFailure
+		do: [ :ann |
+			OPFsmFigureHighlighter
+				highlightNode: (diagramController roassalShapeForModel: ann place)
+				with: Color red.
 			self letterPanel
 				changeBoxAt: aRecognizer inputPosition - 1
-				to: #processed ] ].
-	aRecognizer when: OPFsmRecognizerSuccess do: [ :ann | 
-		OPFsmFigureHighlighter
-			highlightNode: (diagramController roassalShapeForModel: ann place)
-			with: Color green ].
-	aRecognizer when: OPFsmRecognizerFailure do: [ :ann | 
-		OPFsmFigureHighlighter
-			highlightNode: (diagramController roassalShapeForModel: ann place)
-			with: Color red.
-		self letterPanel
-			changeBoxAt: aRecognizer inputPosition - 1
-			to: #failure ].
-	aRecognizer when: OPFsmRecognizerLeave do: [ :ann | 
-		OPFsmFigureHighlighter unhighlight:
-			(diagramController roassalShapeForModel: ann place) ].
-	aRecognizer when: OPFsmRecognizerEnter do: [ :ann | 
-		OPFsmFigureHighlighter
-			highlight: (diagramController roassalShapeForModel: ann place)
-			with: Color orange ]
+				to: #failure ]
+		for: self.
+	aRecognizer
+		when: OPFsmRecognizerLeave
+		do: [ :ann |
+			OPFsmFigureHighlighter unhighlight:
+				(diagramController roassalShapeForModel: ann place) ]
+		for: self.
+	aRecognizer
+		when: OPFsmRecognizerEnter
+		do: [ :ann |
+			OPFsmFigureHighlighter
+				highlight: (diagramController roassalShapeForModel: ann place)
+				with: Color orange ]
+		for: self
 ]

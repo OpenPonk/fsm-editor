@@ -10,14 +10,15 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'hooks' }
+{ #category : 'forms' }
 OPFsmStateController >> buildEditorForm: aForm [
+
 	super buildEditorForm: aForm.
 	(aForm addCheckbox: 'Final')
 		state: self model isFinal;
-		whenChangedDo: [ :newValue | 
+		whenChangedDo: [ :newValue |
 			self model isFinal: newValue.
-			self refreshFigure ]
+			self diagramElement modelChanged ]
 ]
 
 { #category : 'construction' }

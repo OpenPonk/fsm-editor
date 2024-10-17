@@ -36,17 +36,17 @@ OPFsmExamples class >> exampleDecimal [
 		add: k.
 
 	fsm addAll: {
-			(initial -> z).
-			(z -> b name: '+').
-			(z -> b name: '-').
-			(z -> c name: 'd').
-			(z -> d name: '.').
-			(b -> c name: 'd').
-			(c -> d name: '.').
-			(c -> c name: 'd').
-			(b -> d name: '.').
-			(d -> k name: 'd').
-			(k -> k name: 'd') }.
+			(initial => z).
+			(z => b name: '+').
+			(z => b name: '-').
+			(z => c name: 'd').
+			(z => d name: '.').
+			(b => c name: 'd').
+			(c => d name: '.').
+			(c => c name: 'd').
+			(b => d name: '.').
+			(d => k name: 'd').
+			(k => k name: 'd') }.
 
 	isDigit := [ :aValue | '^[0-9]$' asRegex matches: aValue ].
 	fsm transitions
@@ -73,13 +73,13 @@ OPFsmExamples class >> exampleDivisibility [
 		add: two.
 
 	fsm addAll: {
-			(initial -> zero).
-			(zero -> zero name: '0').
-			(zero -> one name: '1').
-			(one -> zero name: '1').
-			(one -> two name: '0').
-			(two -> one name: '0').
-			(two -> two name: '1') }.
+			(initial => zero).
+			(zero => zero name: '0').
+			(zero => one name: '1').
+			(one => zero name: '1').
+			(one => two name: '0').
+			(two => one name: '0').
+			(two => two name: '1') }.
 
 	^ fsm
 ]

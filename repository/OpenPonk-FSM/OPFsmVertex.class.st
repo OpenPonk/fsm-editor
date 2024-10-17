@@ -11,7 +11,8 @@ Class {
 }
 
 { #category : 'associating' }
-OPFsmVertex >> -> aVertex [
+OPFsmVertex >> => aVertex [
+
 	^ OPFsmTransition from: self to: aVertex
 ]
 

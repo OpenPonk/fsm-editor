@@ -7,9 +7,9 @@ Class {
 }
 
 { #category : 'as yet unclassified' }
-OPFsmModelDeprecatedSerializer class >> fileExtension [
+OPFsmModelDeprecatedSerializer class >> fileExtensions [
 
-	^ #ston
+	^ #( #ston )
 ]
 
 { #category : 'as yet unclassified' }

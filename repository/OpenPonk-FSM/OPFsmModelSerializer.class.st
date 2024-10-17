@@ -13,9 +13,9 @@ OPFsmModelSerializer class >> exportVersion [
 ]
 
 { #category : 'as yet unclassified' }
-OPFsmModelSerializer class >> fileExtension [
+OPFsmModelSerializer class >> fileExtensions [
 
-	^ #xml
+	^ #( #xml )
 ]
 
 { #category : 'as yet unclassified' }

@@ -156,6 +156,7 @@ OPFsmSimulator >> initializePresenters [
 { #category : 'as yet unclassified' }
 OPFsmSimulator >> initializeWindow: aWindow [
 
+	super initializeWindow: aWindow.
 	aWindow initialExtent: 400 @ 300.
 	aWindow title: 'Finite State Machine Simulator'
 ]
@@ -201,6 +202,7 @@ OPFsmSimulator >> nextButton [
 OPFsmSimulator >> openOn: aDiagramController [
 
 	diagramController := aDiagramController.
+	self application: aDiagramController editor application.
 	self open
 ]
 

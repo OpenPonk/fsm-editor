@@ -20,7 +20,7 @@ OPFsmTransitionController >> diagramElementClass [
 OPFsmTransitionController >> internalSubscribeTo: aModel [
 
 	super internalSubscribeTo: aModel.
-	aModel when: OPElementRemoved send: #removeControllerAndDiagramElement to: self
+	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
 ]
 
 { #category : 'testing' }
@@ -36,7 +36,6 @@ OPFsmTransitionController >> modelClass [
 { #category : 'destruction' }
 OPFsmTransitionController >> removeModel [
 
-	self model announcer unsubscribe: self.
 	self diagramController model remove: self model.
 	super removeModel
 ]

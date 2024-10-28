@@ -86,7 +86,7 @@ OPFsmVertexController >> hookDiagramElement [
 OPFsmVertexController >> internalSubscribeTo: aModel [
 
 	super internalSubscribeTo: aModel.
-	aModel when: OPElementRemoved send: #removeController to: self
+	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
 ]
 
 { #category : 'testing' }
@@ -97,7 +97,15 @@ OPFsmVertexController >> isHideable [
 { #category : 'destruction' }
 OPFsmVertexController >> removeModel [
 
-	self model announcer unsubscribe: self.
 	self diagramController model remove: self model.
 	super removeModel
+]
+
+{ #category : 'figures' }
+OPFsmVertexController >> unhookDiagramElement [
+
+	super unhookDiagramElement.
+
+	(self diagramElement ifNotExists: [ ^ self ])
+		adornmentCreationBlock: [ :builder |  ]
 ]

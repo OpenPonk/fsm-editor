@@ -20,6 +20,14 @@ Class {
 	#tag : 'Shapes'
 }
 
+{ #category : 'removing' }
+OPFsmStateShape >> removeRender [
+
+	super removeRender.
+	label := nil.
+	innerCircle := nil
+]
+
 { #category : 'accessing' }
 OPFsmStateShape >> renderBasicShape [
 

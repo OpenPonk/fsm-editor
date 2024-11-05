@@ -47,7 +47,8 @@ OPFsmController >> controllerFactory [
 
 { #category : 'accessing' }
 OPFsmController >> elementsToShowInside [
-	^ model elements
+
+	^ self model elements
 ]
 
 { #category : 'initialization' }

@@ -90,11 +90,6 @@ OPFsmVertexController >> internalSubscribeTo: aModel [
 	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
 ]
 
-{ #category : 'testing' }
-OPFsmVertexController >> isHideable [
-	^ true
-]
-
 { #category : 'destruction' }
 OPFsmVertexController >> removeModel [
 

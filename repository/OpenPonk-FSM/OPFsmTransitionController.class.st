@@ -23,11 +23,6 @@ OPFsmTransitionController >> internalSubscribeTo: aModel [
 	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
 ]
 
-{ #category : 'testing' }
-OPFsmTransitionController >> isHideable [
-	^ true
-]
-
 { #category : 'accessing' }
 OPFsmTransitionController >> modelClass [
 	^ OPFsmTransition

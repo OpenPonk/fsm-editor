@@ -68,7 +68,8 @@ OPFsmVertexController >> createVertexAdornmentBy: builder [
 
 { #category : 'accessing' }
 OPFsmVertexController >> dependentElements [
-	^ (model incoming , model outgoing) asSet
+
+	^ (self model incoming , self model outgoing) asSet
 ]
 
 { #category : 'figures' }
@@ -87,11 +88,6 @@ OPFsmVertexController >> internalSubscribeTo: aModel [
 
 	super internalSubscribeTo: aModel.
 	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
-]
-
-{ #category : 'testing' }
-OPFsmVertexController >> isHideable [
-	^ true
 ]
 
 { #category : 'destruction' }

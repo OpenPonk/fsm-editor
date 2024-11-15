@@ -21,6 +21,14 @@ Class {
 }
 
 { #category : 'removing' }
+OPFsmStateShape >> attachedShapes [
+
+	^ super attachedShapes , {
+		  label.
+		  innerCircle }
+]
+
+{ #category : 'removing' }
 OPFsmStateShape >> removeRender [
 
 	super removeRender.
@@ -60,13 +68,7 @@ OPFsmStateShape >> renderShapeDetails [
 	RSLocation new stick: innerCircle on: self roassalShape.
 	self canvas
 		add: label;
-		add: innerCircle.
-	self roassalShape
-		when: RSShapeRemovedEvent
-		do: [
-			label remove.
-			innerCircle remove ]
-		for: self
+		add: innerCircle
 ]
 
 { #category : 'hooks' }

@@ -15,10 +15,10 @@ BaselineOfOpenPonkFsmEditor >> baseline: spec [
 			with: [ spec repository: 'github://noha/mustache:a8db6a2' ].
 		spec
 			baseline: 'OpenPonk'
-			with: [ spec repository: 'github://openponk/openponk' ].
+			with: [ spec repository: 'github://openponk/openponk:v4.1.x' ].
 		spec
 			baseline: 'OpenPonkModel'
-			with: [ spec repository: 'github://OpenPonk/openponk-model' ].
+			with: [ spec repository: 'github://OpenPonk/openponk-model:v4.1.x' ].
 		spec
 			package: 'OpenPonk-FSM'
 			with: [

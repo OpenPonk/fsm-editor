@@ -18,7 +18,7 @@ OPFsmStateController >> buildEditorForm: aForm [
 		state: self model isFinal;
 		whenChangedDo: [ :newValue |
 			self model isFinal: newValue.
-			self diagramElement modelChanged ]
+			self modelChanged ]
 ]
 
 { #category : 'construction' }

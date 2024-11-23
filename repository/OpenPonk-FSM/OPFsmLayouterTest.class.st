@@ -14,6 +14,7 @@ OPFsmLayouterTest >> setUp [
 
 	| stateController1 stateController2 transitionController canvasPresenter model stateModel1 stateModel2 transitionModel |
 	diagramController := OPFsmController new.
+	diagramController diagramElement: OPDiagram new.
 	stateController1 := OPFsmStateController new.
 	stateController2 := OPFsmStateController new.
 	transitionController := OPFsmTransitionController new.

@@ -15,9 +15,9 @@ Class {
 		'label',
 		'innerCircle'
 	],
-	#category : 'OpenPonk-FSM-Shapes',
+	#category : 'OpenPonk-FSM-DiagramElements',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Shapes'
+	#tag : 'DiagramElements'
 }
 
 { #category : 'removing' }

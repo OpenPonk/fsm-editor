@@ -12,9 +12,9 @@ FSM Figures.
 Class {
 	#name : 'OPFsmFigureHighlighter',
 	#superclass : 'Object',
-	#category : 'OpenPonk-FSM-Shapes',
+	#category : 'OpenPonk-FSM-DiagramElements',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Shapes'
+	#tag : 'DiagramElements'
 }
 
 { #category : 'api - highlight' }

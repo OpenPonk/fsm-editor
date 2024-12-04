@@ -4,9 +4,9 @@ I am a figure for FSM initial state.
 Class {
 	#name : 'OPFsmInitialStateShape',
 	#superclass : 'OPFsmAbstractStateShape',
-	#category : 'OpenPonk-FSM-Shapes',
+	#category : 'OpenPonk-FSM-DiagramElements',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Shapes'
+	#tag : 'DiagramElements'
 }
 
 { #category : 'instance creation' }

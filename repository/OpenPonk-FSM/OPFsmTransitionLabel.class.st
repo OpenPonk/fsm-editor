@@ -1,9 +1,9 @@
 Class {
 	#name : 'OPFsmTransitionLabel',
 	#superclass : 'OPEdgeLabel',
-	#category : 'OpenPonk-FSM-Shapes',
+	#category : 'OpenPonk-FSM-DiagramElements',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Shapes'
+	#tag : 'DiagramElements'
 }
 
 { #category : 'as yet unclassified' }

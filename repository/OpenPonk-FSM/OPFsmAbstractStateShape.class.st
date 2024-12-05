@@ -7,9 +7,9 @@ Class {
 	#instVars : [
 		'adornmentCreationBlock'
 	],
-	#category : 'OpenPonk-FSM-Shapes',
+	#category : 'OpenPonk-FSM-DiagramElements',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Shapes'
+	#tag : 'DiagramElements'
 }
 
 { #category : 'accessing' }

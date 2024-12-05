@@ -16,13 +16,13 @@ Class {
 { #category : 'userinterface' }
 OPFsmController >> applyLayout: anAlgorithm [
 
-	| figures edges |
-	figures := self controllers
+	| roassalShapes edges |
+	roassalShapes := self controllers
 		           select: [ :each | each isKindOf: OPFsmVertexController ]
-		           thenCollect: #figure.
-	edges := (figures flatCollect: #connectedLines) reject: [ :each |
+		           thenCollect: [ :each | each roassalShape ].
+	edges := (roassalShapes flatCollect: #connectedLines) reject: [ :each |
 		         each from = each to ].
-	anAlgorithm on: figures asGroup edges: edges asGroup
+	anAlgorithm on: roassalShapes asGroup edges: edges asGroup
 ]
 
 { #category : 'testing' }

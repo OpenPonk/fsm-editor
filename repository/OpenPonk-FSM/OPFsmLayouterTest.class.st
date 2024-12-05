@@ -13,14 +13,9 @@ Class {
 OPFsmLayouterTest >> setUp [
 
 	| stateController1 stateController2 transitionController canvasPresenter model stateModel1 stateModel2 transitionModel |
-	diagramController := OPFsmController new.
-	diagramController diagramElement: OPDiagram new.
 	stateController1 := OPFsmStateController new.
 	stateController2 := OPFsmStateController new.
 	transitionController := OPFsmTransitionController new.
-
-	canvasPresenter := OPCanvasPresenter new.
-	canvasPresenter attachController: diagramController.
 
 	model := OPFsm new.
 	stateModel1 := OPFsmState new.
@@ -31,6 +26,11 @@ OPFsmLayouterTest >> setUp [
 		add: stateModel2;
 		add: transitionModel.
 
+	diagramController := OPFsmController new.
+	canvasPresenter := OPCanvasPresenter new.
+	canvasPresenter attachController: diagramController.
+	diagramController diagramElement:
+		(OPOpenPonkDiagram forModelElement: model).
 	diagramController model: model.
 	stateController1 model: stateModel1.
 	stateController2 model: stateModel2.

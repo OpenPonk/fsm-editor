@@ -6,12 +6,12 @@ This is an unoffical updated version of Finite-state machines extension for [Ope
 
 ## Installation
 
-Requires Pharo 7 or 8 image - clean or with loaded OpenPonk.
+Requires Pharo 12 image - clean or with loaded OpenPonk.
 
 In Playground, execute following script:
 ```
 Metacello new
-    baseline: 'FsmEditor';
+    baseline: 'OpenPonkFsmEditor';
     repository: 'github://OpenPonk/fsm-editor/repository';
     load
 ```

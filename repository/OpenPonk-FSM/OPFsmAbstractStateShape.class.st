@@ -31,9 +31,3 @@ OPFsmAbstractStateShape >> selectableInteraction [
 		  builder directionDown.
 		  adornmentCreationBlock value: builder ]
 ]
-
-{ #category : 'rendering' }
-OPFsmAbstractStateShape >> shouldBePositionableByUser [
-
-	^ true
-]

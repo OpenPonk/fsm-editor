@@ -1,6 +1,6 @@
 "
-A DCFsmTest is a test that consists of creating a diagram and then testing the number of elements.
-
+Unit tests for the FSM model lifecycle.
+Verifies the creation, addition, and removal of states and transitions within the diagram.
 "
 Class {
 	#name : 'OPFsmTest',
@@ -19,14 +19,23 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'running' }
 OPFsmTest >> setUp [
+
+	super setUp.
+
 	diagram := OPFsm named: 'Diagram'.
 	initial := OPFsmInitialState named: 'initial'.
 	(final := OPFsmState named: 'final') beFinal.
 	state := OPFsmState named: 'state'.
-	firstTransition := OPFsmTransition from: initial to: state named: 'first'.
-	secondTransition := OPFsmTransition from: state to: final named: 'second'.
+	firstTransition := OPFsmTransition
+		                   from: initial
+		                   to: state
+		                   named: 'first'.
+	secondTransition := OPFsmTransition
+		                    from: state
+		                    to: final
+		                    named: 'second'.
 	selfTransition := OPFsmTransition from: state to: state named: 'self'
 ]
 

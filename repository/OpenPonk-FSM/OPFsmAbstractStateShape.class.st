@@ -18,7 +18,7 @@ OPFsmAbstractStateShape >> adornmentCreationBlock: aBlock [
 	adornmentCreationBlock := aBlock
 ]
 
-{ #category : 'hooks' }
+{ #category : 'interactions' }
 OPFsmAbstractStateShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightAdornments: [ :builder |

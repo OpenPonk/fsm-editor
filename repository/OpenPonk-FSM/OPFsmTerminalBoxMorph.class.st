@@ -16,27 +16,23 @@ Class {
 	#tag : 'Simulations'
 }
 
-{ #category : 'initialization' }
-OPFsmTerminalBoxMorph >> defaultBorderColor [
-	^ Color black
-]
-
-{ #category : 'initialization' }
+{ #category : 'accessing - defaults' }
 OPFsmTerminalBoxMorph >> defaultBorderWidth [
 	^ 1
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing - defaults' }
 OPFsmTerminalBoxMorph >> defaultBounds [
 	^ 0 @ 0 corner: 25 @ 25
 ]
 
-{ #category : 'initialization' }
+{ #category : 'accessing - defaults' }
 OPFsmTerminalBoxMorph >> defaultColor [
-	^ Smalltalk ui theme windowColor
+
+	^ self theme windowColor
 ]
 
-{ #category : 'accessing' }
+{ #category : 'updating' }
 OPFsmTerminalBoxMorph >> failure [
 	self borderColor: Color red.
 	self color: (colors at: #failure)
@@ -55,17 +51,17 @@ OPFsmTerminalBoxMorph >> initialize [
 { #category : 'initialization' }
 OPFsmTerminalBoxMorph >> initializeColorScheme [
 
-	colors := { 
-		          (#normal -> Smalltalk ui theme windowColor).
+	colors := {
+		          (#normal -> self theme windowColor).
 		          (#processed -> Color paleOrange).
 		          (#failure -> Color paleRed).
 		          (#success -> Color paleGreen) } asDictionary.
-	Smalltalk ui theme class = PharoDarkTheme ifTrue: [ 
-		colors := { 
-			          (#normal -> Smalltalk ui theme windowColor).
-			          (#processed -> Color paleOrange muchDarker).
-			          (#failure -> Color paleRed muchDarker).
-			          (#success -> Color paleGreen muchDarker) } asDictionary ]
+	self theme class = PharoDarkTheme ifTrue: [
+			colors := {
+				          (#normal -> self theme windowColor).
+				          (#processed -> Color paleOrange muchDarker).
+				          (#failure -> Color paleRed muchDarker).
+				          (#success -> Color paleGreen muchDarker) } asDictionary ]
 ]
 
 { #category : 'accessing' }
@@ -73,19 +69,19 @@ OPFsmTerminalBoxMorph >> morphForTerminal: aSymbol [
 	^ aSymbol asMorph
 ]
 
-{ #category : 'accessing' }
+{ #category : 'updating' }
 OPFsmTerminalBoxMorph >> normal [
 	self borderColor: Color black.
 	self color: (colors at: #normal)
 ]
 
-{ #category : 'accessing' }
+{ #category : 'updating' }
 OPFsmTerminalBoxMorph >> processed [
 	self borderColor: Color orange.
 	self color: (colors at: #processed)
 ]
 
-{ #category : 'accessing' }
+{ #category : 'updating' }
 OPFsmTerminalBoxMorph >> success [
 	self borderColor: Color green muchDarker.
 	self color: (colors at: #success)

@@ -1,12 +1,6 @@
 "
-!! Responsibility
-
-Represent a FSM state visualization.
-Give option to switch between normal and final state.
-
-!! Collaborators
-
-none
+Diagram element representing an FSM state.
+Manages the rendering details of its underlying Roassal shape, including the display of inner circles for final states.
 "
 Class {
 	#name : 'OPFsmStateShape',
@@ -20,7 +14,7 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'removing' }
+{ #category : 'accessing' }
 OPFsmStateShape >> attachedShapes [
 
 	^ super attachedShapes , {
@@ -36,7 +30,7 @@ OPFsmStateShape >> removeRender [
 	innerCircle := nil
 ]
 
-{ #category : 'accessing' }
+{ #category : 'rendering' }
 OPFsmStateShape >> renderBasicShape [
 
 	^ RSCircle new
@@ -71,7 +65,7 @@ OPFsmStateShape >> renderShapeDetails [
 		add: innerCircle
 ]
 
-{ #category : 'hooks' }
+{ #category : 'interactions' }
 OPFsmStateShape >> selectableInteraction [
 
 	^ super selectableInteraction
@@ -79,7 +73,7 @@ OPFsmStateShape >> selectableInteraction [
 		  yourself
 ]
 
-{ #category : 'updating' }
+{ #category : 'rendering' }
 OPFsmStateShape >> updateRenderFromModel [
 
 	label text: self modelElement name.

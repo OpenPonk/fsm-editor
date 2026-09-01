@@ -1,6 +1,6 @@
 "
-A DCFsmState is the class representing a state in FSM.
-
+Model representing a generic state in an FSM diagram.
+Can act as a normal state or be toggled to a final state.
 "
 Class {
 	#name : 'OPFsmState',
@@ -13,12 +13,12 @@ Class {
 	#tag : 'Models'
 }
 
-{ #category : 'accessing' }
+{ #category : 'actions' }
 OPFsmState >> beFinal [
 	self isFinal: true
 ]
 
-{ #category : 'accessing' }
+{ #category : 'actions' }
 OPFsmState >> beNormal [
 	self isFinal: false
 ]

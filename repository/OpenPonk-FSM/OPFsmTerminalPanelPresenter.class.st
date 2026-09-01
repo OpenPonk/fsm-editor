@@ -1,3 +1,7 @@
+"
+Spec presenter for the FSM simulation terminal panel.
+Manages the data and UI logic for displaying the input sequence during FSM simulation.
+"
 Class {
 	#name : 'OPFsmTerminalPanelPresenter',
 	#superclass : 'SpAbstractWidgetPresenter',

@@ -1,3 +1,6 @@
+"
+Provides example models and diagram setups for FSM (Finite State Machine).
+"
 Class {
 	#name : 'OPFsmExamples',
 	#superclass : 'Object',

@@ -1,3 +1,6 @@
+"
+Announcement triggered when the input data array or string changes within the FSM terminal simulation UI.
+"
 Class {
 	#name : 'OPFsmTerminalDataChanged',
 	#superclass : 'Announcement',

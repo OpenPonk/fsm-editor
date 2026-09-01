@@ -1,3 +1,6 @@
+"
+Integration tests ensuring that the FSM divisibility example model correctly serializes and materializes.
+"
 Class {
 	#name : 'OPFsmDivisibilityExamplePersistenceTest',
 	#superclass : 'OPExamplePersistenceTest',

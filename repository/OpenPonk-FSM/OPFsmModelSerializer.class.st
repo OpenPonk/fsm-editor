@@ -1,3 +1,6 @@
+"
+Handles serialization and materialization of FSM models, managing the conversion between in-memory objects and persisted string formats.
+"
 Class {
 	#name : 'OPFsmModelSerializer',
 	#superclass : 'OPModelSerializer',
@@ -6,19 +9,19 @@ Class {
 	#tag : 'Serialization'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPFsmModelSerializer class >> exportVersion [
 
 	^ 1
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPFsmModelSerializer class >> fileExtensions [
 
 	^ #( #xml )
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'formatting' }
 OPFsmModelSerializer class >> formatName [
 
 	^ #graphml

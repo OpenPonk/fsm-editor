@@ -1,3 +1,7 @@
+"
+Diagram element representing a label attached to an FSM transition edge.
+Manages the textual rendering, anchoring, and positioning along the transition's underlying Roassal shape.
+"
 Class {
 	#name : 'OPFsmTransitionLabel',
 	#superclass : 'OPEdgeLabel',
@@ -6,19 +10,19 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'adding' }
 OPFsmTransitionLabel >> defaultAnchorConstraintPosition [
 
 	^ OPRSAnchorConstraintBalanceReference balance: 0.2
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'adding' }
 OPFsmTransitionLabel >> defaultMinDistance [
 
 	^ 5
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPFsmTransitionLabel >> defaultText [
 
 	^ self modelElement name

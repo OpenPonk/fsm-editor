@@ -1,3 +1,7 @@
+"
+Deprecated serializer for older versions of FSM models.
+Maintained for backward compatibility.
+"
 Class {
 	#name : 'OPFsmModelDeprecatedSerializer',
 	#superclass : 'OPFsmModelSerializer',
@@ -6,13 +10,13 @@ Class {
 	#tag : 'Serialization'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPFsmModelDeprecatedSerializer class >> fileExtensions [
 
 	^ #( #ston )
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'formatting' }
 OPFsmModelDeprecatedSerializer class >> formatName [
 
 	^ #'graphml-ston'

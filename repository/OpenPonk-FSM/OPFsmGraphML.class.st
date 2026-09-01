@@ -1,3 +1,6 @@
+"
+Handles the import and export of FSM diagrams to and from GraphML format.
+"
 Class {
 	#name : 'OPFsmGraphML',
 	#superclass : 'Object',

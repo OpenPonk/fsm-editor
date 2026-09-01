@@ -1,6 +1,6 @@
 "
-A DCFsmStateController is a controller for a state in FSM.
-
+Controller for an FSM state.
+Manages the diagram lifecycle, connections, and interactions for state nodes.
 "
 Class {
 	#name : 'OPFsmStateController',
@@ -10,24 +10,13 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'forms' }
-OPFsmStateController >> buildEditorForm: aForm [
-
-	super buildEditorForm: aForm.
-	(aForm addCheckbox: 'Final')
-		state: self model isFinal;
-		whenChangedDo: [ :newValue |
-			self model isFinal: newValue.
-			self modelChanged ]
-]
-
 { #category : 'construction' }
-OPFsmStateController >> diagramElementClass [
+OPFsmStateController class >> diagramElementClass [
 
 	^ OPFsmStateShape
 ]
 
 { #category : 'accessing' }
-OPFsmStateController >> modelClass [
-	^ OPFsmState
+OPFsmStateController class >> viewModelClass [
+	^ OPFsmStateViewModel
 ]

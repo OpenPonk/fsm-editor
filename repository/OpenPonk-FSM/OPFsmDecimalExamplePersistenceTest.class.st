@@ -1,3 +1,6 @@
+"
+Integration tests ensuring that the FSM decimal example model correctly serializes and materializes.
+"
 Class {
 	#name : 'OPFsmDecimalExamplePersistenceTest',
 	#superclass : 'OPExamplePersistenceTest',

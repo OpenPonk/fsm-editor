@@ -1,5 +1,5 @@
 "
-I am descriptior for FSM plugin.
+I am descriptior for FSM plugin. Maps top-level controllers, models, view models, and serializers for the OpenPonk framework.
 "
 Class {
 	#name : 'OPFsmPlugin',
@@ -19,7 +19,7 @@ OPFsmPlugin >> icon [
 	^ OPCoreIcons opFsmDiagramIcon
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 OPFsmPlugin >> layouterClass [
 	^ OPFsmLayouter
 ]
@@ -39,7 +39,7 @@ OPFsmPlugin >> name [
 	^ 'FSM Diagram'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'testing' }
 OPFsmPlugin >> supportsHidingElements [
 	^ true
 ]

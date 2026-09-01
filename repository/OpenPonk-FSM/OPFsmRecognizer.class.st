@@ -14,7 +14,6 @@ Class {
 	#name : 'OPFsmRecognizer',
 	#superclass : 'OPAnnouncableObject',
 	#instVars : [
-		'model',
 		'input',
 		'consumed',
 		'path',
@@ -109,6 +108,7 @@ OPFsmRecognizer >> nextUpToEnd [
 
 { #category : 'initialization' }
 OPFsmRecognizer >> reset [
+
 	path := Stack new.
 	consumed := Stack new.
 	input := Stack new.

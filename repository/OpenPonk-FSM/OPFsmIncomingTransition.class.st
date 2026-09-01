@@ -1,9 +1,13 @@
+"
+Deprecated model representing an incoming transition in an FSM diagram.
+Retained for backward compatibility.
+"
 Class {
 	#name : 'OPFsmIncomingTransition',
 	#superclass : 'OPFsmTransition',
-	#category : 'OpenPonk-FSM-Adapters',
+	#category : 'OpenPonk-FSM-Models',
 	#package : 'OpenPonk-FSM',
-	#tag : 'Adapters'
+	#tag : 'Models'
 }
 
 { #category : 'testing' }

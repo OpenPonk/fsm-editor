@@ -1,3 +1,7 @@
+"
+Unit tests for OPFsmTransitionController and its integration with diagram elements.
+Verifies valid connections between source and target states.
+"
 Class {
 	#name : 'OPFsmTransitionControllerTest',
 	#superclass : 'OPAbstractDirectionalRelationshipControllerTest',
@@ -6,24 +10,24 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPFsmTransitionControllerTest class >> diagramElementClass [
+
+	^ OPFsmTransitionShape
+]
+
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> controllerClass [
 	^ OPFsmTransitionController
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> diagramControllerClass [
 
 	^ OPFsmController
 ]
 
-{ #category : 'construction' }
-OPFsmTransitionControllerTest >> diagramElementClass [
-
-	^ OPFsmTransitionShape
-]
-
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> diagramModelClass [
 
 	^ OPFsm
@@ -34,18 +38,18 @@ OPFsmTransitionControllerTest >> fromClass [
 	^ OPFsmInitialStateController
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> modelClass [
 	^ OPFsmTransition
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> sourceControllerClass [
 
 	^ OPFsmStateController
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPFsmTransitionControllerTest >> sourceModelClass [
 
 	^ OPFsmState

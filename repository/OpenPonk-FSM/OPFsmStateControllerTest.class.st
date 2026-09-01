@@ -1,3 +1,7 @@
+"
+Unit tests for OPFsmStateController.
+Verifies rendering logic and diagram lifecycle for standard states.
+"
 Class {
 	#name : 'OPFsmStateControllerTest',
 	#superclass : 'OPFsmVertexControllerTest',
@@ -6,18 +10,18 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
-OPFsmStateControllerTest >> controllerClass [
-	^ OPFsmStateController
-]
-
-{ #category : 'construction' }
-OPFsmStateControllerTest >> diagramElementClass [
+{ #category : 'constants' }
+OPFsmStateControllerTest class >> diagramElementClass [
 
 	^ OPFsmStateShape
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
+OPFsmStateControllerTest >> controllerClass [
+	^ OPFsmStateController
+]
+
+{ #category : 'constants' }
 OPFsmStateControllerTest >> modelClass [
 	^ OPFsmState
 ]

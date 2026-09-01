@@ -1,3 +1,6 @@
+"
+Morphic adapter for the FSM terminal panel presenter, linking the Spec model to its Morphic UI representation.
+"
 Class {
 	#name : 'OPFsmTerminalPanelAdapter',
 	#superclass : 'SpAbstractMorphicAdapter',

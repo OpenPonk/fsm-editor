@@ -1,3 +1,6 @@
+"
+Visual representation (Roassal shape) of an FSM transition edge on a diagram. Manages rendering logic, arrows, and label attachments.
+"
 Class {
 	#name : 'OPFsmTransitionShape',
 	#superclass : 'OPEdge',
@@ -13,7 +16,7 @@ OPFsmTransitionShape >> createOwnedElementsWithoutController [
 	OPFsmTransitionLabel in: self
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'rendering' }
 OPFsmTransitionShape >> renderBasicShape [
 
 	^ (self source = self target

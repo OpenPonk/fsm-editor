@@ -1,3 +1,7 @@
+"
+Abstract base class for FSM diagram controller tests.
+Provides shared setup and utilities for testing FSM elements.
+"
 Class {
 	#name : 'OPControllerOfFsmTest',
 	#superclass : 'OPAbstractElementControllerTest',
@@ -14,13 +18,13 @@ OPControllerOfFsmTest class >> isAbstract [
 	^ self name = #OPControllerOfFsmTest
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPControllerOfFsmTest >> diagramControllerClass [
 
 	^ OPFsmController
 ]
 
-{ #category : 'accessing' }
+{ #category : 'constants' }
 OPControllerOfFsmTest >> diagramModelClass [
 	^ OPFsm
 ]

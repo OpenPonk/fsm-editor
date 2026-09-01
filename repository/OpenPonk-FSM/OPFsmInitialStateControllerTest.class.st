@@ -1,3 +1,7 @@
+"
+Unit tests for OPFsmInitialStateController.
+Verifies diagram interactions and connection constraints for initial states.
+"
 Class {
 	#name : 'OPFsmInitialStateControllerTest',
 	#superclass : 'OPFsmVertexControllerTest',
@@ -6,18 +10,18 @@ Class {
 	#tag : 'Tests'
 }
 
-{ #category : 'accessing' }
-OPFsmInitialStateControllerTest >> controllerClass [
-	^ OPFsmInitialStateController
-]
-
-{ #category : 'construction' }
-OPFsmInitialStateControllerTest >> diagramElementClass [
+{ #category : 'constants' }
+OPFsmInitialStateControllerTest class >> diagramElementClass [
 
 	^ OPFsmInitialStateShape
 ]
 
-{ #category : 'hooks' }
+{ #category : 'constants' }
+OPFsmInitialStateControllerTest >> controllerClass [
+	^ OPFsmInitialStateController
+]
+
+{ #category : 'constants' }
 OPFsmInitialStateControllerTest >> modelClass [
 	^ OPFsmInitialState
 ]

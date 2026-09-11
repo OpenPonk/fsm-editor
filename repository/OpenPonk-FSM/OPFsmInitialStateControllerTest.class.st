@@ -32,5 +32,5 @@ OPFsmInitialStateControllerTest >> testCreateUsingAddAsTarget [
 	super testCreateUsingAddAsTarget.
 	self assert: (controller roassalShape isKindOf: RSCircularShape).
 	self assert: controller roassalShape color equals: Color black.
-	self assert: controller roassalShape extent equals: 14 @ 14
+	self assert: controller roassalShape extent equals: 16 @ 16
 ]

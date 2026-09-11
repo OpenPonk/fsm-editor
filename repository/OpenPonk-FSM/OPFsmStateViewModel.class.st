@@ -16,8 +16,12 @@ OPFsmStateViewModel class >> modelClass [ ^ OPFsmState
 
 { #category : 'forms' }
 OPFsmStateViewModel >> buildEditorForm: aForm [
+	(aForm addText: 'Name')
+		text: (self model name ifNil: [ '' ]);
+		whenTextChangedDo: [ :newValue |
+			self model name: newValue asString.
+			self modelChanged ].
 
-	super buildEditorForm: aForm.
 	(aForm addCheckbox: 'Final')
 		state: self model isFinal;
 		whenChangedDo: [ :newValue |

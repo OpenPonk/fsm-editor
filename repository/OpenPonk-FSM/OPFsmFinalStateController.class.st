@@ -8,3 +8,10 @@ Class {
 	#package : 'OpenPonk-FSM',
 	#tag : 'Controllers'
 }
+
+{ #category : 'construction' }
+OPFsmFinalStateController >> createModelIn: aParentModel [
+	^ (super createModelIn: aParentModel)
+		  beFinal;
+		  yourself
+]

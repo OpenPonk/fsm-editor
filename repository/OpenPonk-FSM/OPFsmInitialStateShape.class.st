@@ -14,7 +14,7 @@ Class {
 OPFsmInitialStateShape >> renderBasicShape [
 
 	^ RSCircle new
-		  size: 14;
+		  size: 16;
 		  color: Color black
 ]
 

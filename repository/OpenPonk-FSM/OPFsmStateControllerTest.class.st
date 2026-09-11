@@ -47,6 +47,5 @@ OPFsmStateControllerTest >> testFigureRefresh [
 	controller model name: 'new name'.
 	controller modelChanged.
 	self assert:
-		(controller diagramElement canvas nodes anySatisfy: [ :any |
-			 (any isKindOf: RSLabel) and: [ any text = 'new name' ] ])
+		(controller diagramElement canvas allChildren anySatisfy: [ :any | (any isKindOf: RSLabel) and: [ any text = 'new name' ] ])
 ]

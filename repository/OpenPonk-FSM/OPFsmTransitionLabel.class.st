@@ -30,10 +30,5 @@ OPFsmTransitionLabel >> defaultText [
 
 { #category : 'rendering' }
 OPFsmTransitionLabel >> renderShapeDetails [
-
-	super renderShapeDetails.
-	self roassalShape
-		when: RSMouseDoubleClick
-		do: [ :evt | OPRenameElementCommand executeOn: self modelElement ]
-		for: self
+	super renderShapeDetails
 ]

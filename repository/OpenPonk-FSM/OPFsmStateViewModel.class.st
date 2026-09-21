@@ -14,19 +14,10 @@ Class {
 OPFsmStateViewModel class >> modelClass [ ^ OPFsmState
 ]
 
-{ #category : 'forms' }
+{ #category : 'building' }
 OPFsmStateViewModel >> buildEditorForm: aForm [
-	(aForm addText: 'Name')
-		text: (self model name ifNil: [ '' ]);
-		whenTextChangedDo: [ :newValue |
-			self model name: newValue asString.
-			self modelChanged ].
-
-	(aForm addCheckbox: 'Final')
-		state: self model isFinal;
-		whenChangedDo: [ :newValue |
-			self model isFinal: newValue.
-			self modelChanged ]
+	aForm bindTextInput: 'Name' property: #name.
+	aForm bindCheckbox: 'Final' property: #isFinal
 ]
 
 { #category : 'accessing' }

@@ -87,29 +87,6 @@ OPFsmExamples class >> exampleDivisibility [
 	^ fsm
 ]
 
-{ #category : 'menu' }
-OPFsmExamples class >> menuCommandOn: aBuilder [
-
-	<worldMenu>
-	(aBuilder item: #OPFSM)
-		label: 'Finite State Machine';
-		icon: OPCoreIcons opFsmDiagramIcon;
-		action: [ self openExampleEmptyModel ];
-		parent: #MostUsedTools;
-		order: 220;
-		with: [ 
-			(aBuilder item: #'FSM Example')
-				parent: #OPFSM;
-				label: 'FSM Example Divisibility';
-				icon: OPCoreIcons opFsmDiagramIcon;
-				action: [ self openExampleDivisibility ].
-			(aBuilder item: #'FSM Example 2')
-				parent: #OPFSM;
-				label: 'FSM Example Decimal';
-				icon: OPCoreIcons opFsmDiagramIcon;
-				action: [ self openExampleDecimal ] ]
-]
-
 { #category : 'examples' }
 OPFsmExamples class >> openExample: aModel [
 

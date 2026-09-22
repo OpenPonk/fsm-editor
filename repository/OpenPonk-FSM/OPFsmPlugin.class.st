@@ -14,6 +14,23 @@ OPFsmPlugin >> diagramControllerClass [
 	^ OPFsmController
 ]
 
+{ #category : 'templates' }
+OPFsmPlugin >> exampleProjectTemplates [
+	"Answers example project templates for FSM diagrams."
+
+	^ { 
+		(OPProjectTemplate
+			named: 'Decimal'
+			icon: self icon
+			modelFactory: [ OPFsmExamples exampleDecimal ]
+			isExample: true).
+		(OPProjectTemplate
+			named: 'Divisibility'
+			icon: self icon
+			modelFactory: [ OPFsmExamples exampleDivisibility ]
+			isExample: true) }
+]
+
 { #category : 'accessing' }
 OPFsmPlugin >> icon [
 	^ OPCoreIcons opFsmDiagramIcon

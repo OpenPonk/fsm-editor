@@ -15,8 +15,7 @@ Class {
 
 { #category : 'running' }
 OPFsmLayouterTest >> setUp [
-
-	| stateController1 stateController2 transitionController canvasPresenter model stateModel1 stateModel2 transitionModel project |
+	| stateController1 stateController2 transitionController canvasPresenter model stateModel1 stateModel2 transitionModel project projectController |
 	super setUp.
 
 	stateController1 := OPFsmStateController new.
@@ -32,29 +31,25 @@ OPFsmLayouterTest >> setUp [
 		add: stateModel2;
 		add: transitionModel.
 
-	"Create a dummy project to break the circular initialization dependency"
 	project := OPProject new.
+	project addModel: model.
+	projectController := OPProjectController forProject: project.
 
 	diagramController := OPFsmController new.
+	projectController addDiagramController: diagramController.
 	canvasPresenter := OPCanvasPresenter new.
 	canvasPresenter attachController: diagramController.
 	diagramController diagramElement:
 		(OPOpenPonkDiagram forModelElement: model).
-
-	diagramController viewModelRegistry:
-		(OPViewModelRegistry forProject: project).
 	diagramController model: model.
 
-	stateController1 viewModelRegistry:
-		diagramController viewModelRegistry.
+	stateController1 diagramController: diagramController.
 	stateController1 model: stateModel1.
 
-	stateController2 viewModelRegistry:
-		diagramController viewModelRegistry.
+	stateController2 diagramController: diagramController.
 	stateController2 model: stateModel2.
 
-	transitionController viewModelRegistry:
-		diagramController viewModelRegistry.
+	transitionController diagramController: diagramController.
 	transitionController model: transitionModel.
 
 	diagramController showAllElements

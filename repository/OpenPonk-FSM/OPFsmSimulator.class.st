@@ -57,12 +57,12 @@ OPFsmSimulator class >> defaultLayout [
 		  yourself
 ]
 
-{ #category : 'toolbar' }
+{ #category : 'toolbar menu' }
 OPFsmSimulator class >> toolbarMenu: aBuilder [
 
 	<opEditorToolbarMenu: #OPFsmPlugin>
 	(aBuilder item: 'Open Simulator')
-		icon: OPCoreIcons opFsmDiagramIcon;
+		icon: OPFsmIcons opFsmDiagramIcon;
 		action: [ self new openOn: aBuilder model diagramController ]
 ]
 

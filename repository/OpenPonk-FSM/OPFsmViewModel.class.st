@@ -29,7 +29,8 @@ OPFsmViewModel >> essentialChildrenModels [
 ]
 
 { #category : 'accessing' }
-OPFsmViewModel >> icon [ ^ OPCoreIcons opFsmDiagramIcon
+OPFsmViewModel >> icon [
+	^ OPFsmIcons opFsmDiagramIcon
 ]
 
 { #category : 'accessing' }

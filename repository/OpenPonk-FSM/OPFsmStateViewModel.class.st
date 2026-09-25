@@ -21,5 +21,5 @@ OPFsmStateViewModel >> buildEditorForm: aForm [
 ]
 
 { #category : 'accessing' }
-OPFsmStateViewModel >> icon [ ^ self model isNormal ifTrue: [ OPCoreIcons opFsmRegularStateIcon ] ifFalse: [ OPCoreIcons opFsmFinalStateIcon ]
+OPFsmStateViewModel >> icon [ ^ self model isNormal ifTrue: [ OPFsmIcons opFsmRegularStateIcon ] ifFalse: [ OPFsmIcons opFsmFinalStateIcon ]
 ]

@@ -15,5 +15,6 @@ OPFsmInitialStateViewModel class >> modelClass [ ^ OPFsmInitialState
 ]
 
 { #category : 'accessing' }
-OPFsmInitialStateViewModel >> icon [ ^ OPCoreIcons opFsmInitialStateIcon
+OPFsmInitialStateViewModel >> icon [
+	^ OPFsmIcons opFsmInitialStateIcon
 ]

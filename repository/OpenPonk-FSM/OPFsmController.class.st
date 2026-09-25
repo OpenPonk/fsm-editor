@@ -47,16 +47,16 @@ OPFsmController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Initial state'
 			factory: [ OPFsmInitialStateController new ]
-			icon: OPCoreIcons opFsmInitialStateIcon;
+			icon: OPFsmIcons opFsmInitialStateIcon;
 		newSeparator;
-		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPCoreIcons opFsmRegularStateIcon;
+		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPFsmIcons opFsmRegularStateIcon;
 		newCreationTool: 'Final state'
 			factory: [ OPFsmFinalStateController new ]
-			icon: OPCoreIcons opFsmFinalStateIcon;
+			icon: OPFsmIcons opFsmFinalStateIcon;
 		newSeparator;
 		newConnectionCreationTool: 'Transition'
 			factory: [ OPFsmTransitionController new ]
-			icon: OPCoreIcons opFsmTransitionIcon
+			icon: OPFsmIcons opFsmTransitionIcon
 ]
 
 { #category : 'controllers management' }

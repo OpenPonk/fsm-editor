@@ -10,6 +10,11 @@ Class {
 }
 
 { #category : 'accessing' }
+OPFsmPlugin class >> repositoryName [
+	^ #'fsm-editor'
+]
+
+{ #category : 'accessing' }
 OPFsmPlugin >> diagramControllerClass [
 	^ OPFsmController
 ]
@@ -33,7 +38,7 @@ OPFsmPlugin >> exampleProjectTemplates [
 
 { #category : 'accessing' }
 OPFsmPlugin >> icon [
-	^ OPCoreIcons opFsmDiagramIcon
+	^ OPFsmIcons opFsmDiagramIcon
 ]
 
 { #category : 'accessing' }

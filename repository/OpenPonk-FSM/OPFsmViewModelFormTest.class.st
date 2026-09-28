@@ -1,3 +1,6 @@
+"
+Tests dynamic property form generation, field bindings, and validation for FSM view models.
+"
 Class {
 	#name : 'OPFsmViewModelFormTest',
 	#superclass : 'TestCase',

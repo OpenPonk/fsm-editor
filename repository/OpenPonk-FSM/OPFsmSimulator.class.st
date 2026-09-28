@@ -57,15 +57,6 @@ OPFsmSimulator class >> defaultLayout [
 		  yourself
 ]
 
-{ #category : 'toolbar menu' }
-OPFsmSimulator class >> toolbarMenu: aBuilder [
-
-	<opEditorToolbarMenu: #OPFsmPlugin>
-	(aBuilder item: 'Open Simulator')
-		icon: OPFsmIcons opFsmDiagramIcon;
-		action: [ self new openOn: aBuilder model diagramController ]
-]
-
 { #category : 'actions' }
 OPFsmSimulator >> backAction [
 	nextButton disable.

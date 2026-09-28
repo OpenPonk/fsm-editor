@@ -1,3 +1,6 @@
+"
+An icon utility provider supplying toolbar and palette icons for Finite State Machine diagrams.
+"
 Class {
 	#name : 'OPFsmIcons',
 	#superclass : 'Object',

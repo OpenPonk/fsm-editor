@@ -1,3 +1,6 @@
+"
+Verifies the serialization and deserialization roundtrip persistence for FSM models and diagrams.
+"
 Class {
 	#name : 'OPFsmPluginRoundtripTest',
 	#superclass : 'OPAbstractPluginExampleRoundtripTest',

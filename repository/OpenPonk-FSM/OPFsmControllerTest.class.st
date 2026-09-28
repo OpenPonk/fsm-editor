@@ -1,3 +1,6 @@
+"
+Tests diagram-level controller behaviors, element creation, and event handling for FSM diagrams.
+"
 Class {
 	#name : 'OPFsmControllerTest',
 	#superclass : 'OPAbstractDiagramControllerTest',

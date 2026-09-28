@@ -1,3 +1,6 @@
+"
+Verifies the initialization, registration, and shutdown lifecycle of the FSM plugin.
+"
 Class {
 	#name : 'OPFsmPluginLifecycleTest',
 	#superclass : 'OPAbstractPluginExampleLifecycleTest',

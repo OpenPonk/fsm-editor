@@ -1,3 +1,6 @@
+"
+Tests controller interactions, rendering, and lifecycle events for FSM final state elements.
+"
 Class {
 	#name : 'OPFsmFinalStateControllerTest',
 	#superclass : 'OPFsmStateControllerTest',

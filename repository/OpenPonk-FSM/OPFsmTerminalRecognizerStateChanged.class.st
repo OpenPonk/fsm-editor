@@ -1,3 +1,6 @@
+"
+Announcement triggered when the FSM recognizer advances, conveying the updated position and state of the input.
+"
 Class {
 	#name : 'OPFsmTerminalRecognizerStateChanged',
 	#superclass : 'Announcement',

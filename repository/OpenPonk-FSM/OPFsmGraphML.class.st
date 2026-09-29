@@ -1,3 +1,6 @@
+"
+Handles the import and export of FSM diagrams to and from GraphML format.
+"
 Class {
 	#name : 'OPFsmGraphML',
 	#superclass : 'Object',
@@ -100,7 +103,7 @@ OPFsmGraphML >> template [
 		{{# model.transitions }}
 		<edge id="{{uuid}}" source="{{source.uuid}}" target="{{target.uuid}}">
 			<data key="name">{{name}}</data>
-			<data key="matchBlock">{{matchBlock.asString}}</data>
+			<data key="matchBlock">{{matchBlock.sourceNode.sourceCode}}</data>
 		</edge>
 		{{/ model.transitions }}
 	</graph>

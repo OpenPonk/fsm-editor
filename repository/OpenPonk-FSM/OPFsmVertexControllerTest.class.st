@@ -1,3 +1,6 @@
+"
+Abstract base class for testing FSM vertex controllers (states and initial states).
+"
 Class {
 	#name : 'OPFsmVertexControllerTest',
 	#superclass : 'OPControllerOfFsmTest',

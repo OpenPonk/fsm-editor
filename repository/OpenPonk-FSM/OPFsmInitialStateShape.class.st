@@ -1,5 +1,6 @@
 "
-I am a figure for FSM initial state.
+Diagram element representing an FSM initial state.
+Manages the rendering details and basic geometry of its underlying Roassal shape.
 "
 Class {
 	#name : 'OPFsmInitialStateShape',
@@ -9,15 +10,15 @@ Class {
 	#tag : 'DiagramElements'
 }
 
-{ #category : 'instance creation' }
+{ #category : 'rendering' }
 OPFsmInitialStateShape >> renderBasicShape [
 
 	^ RSCircle new
-		  size: 14;
+		  size: 16;
 		  color: Color black
 ]
 
-{ #category : 'hooks' }
+{ #category : 'interactions' }
 OPFsmInitialStateShape >> selectableInteraction [
 
 	^ super selectableInteraction

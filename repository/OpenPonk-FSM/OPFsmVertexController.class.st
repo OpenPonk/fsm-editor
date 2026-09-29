@@ -1,6 +1,5 @@
 "
-A DCFsmVertexController is a controller for a vertex in FSM.
-
+A DCFsmVertexController is a controller for a vertex in FSM. Handles diagram interactions and validates connections for states.
 "
 Class {
 	#name : 'OPFsmVertexController',
@@ -10,12 +9,12 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'testing' }
+{ #category : 'connecting' }
 OPFsmVertexController >> canBeSourceFor: aController [
 	^ (aController respondsTo: #modelClass) and: [ aController modelClass = OPFsmTransition ]
 ]
 
-{ #category : 'testing' }
+{ #category : 'connecting' }
 OPFsmVertexController >> canBeTargetFor: aController [
 	^ self canBeSourceFor: aController
 ]
@@ -66,13 +65,7 @@ OPFsmVertexController >> createVertexAdornmentBy: builder [
 			self diagramController editor palette selectTool: tool ]
 ]
 
-{ #category : 'accessing' }
-OPFsmVertexController >> dependentElements [
-
-	^ (self model incoming , self model outgoing) asSet
-]
-
-{ #category : 'figures' }
+{ #category : 'construction' }
 OPFsmVertexController >> hookDiagramElement [
 
 	super hookDiagramElement.
@@ -83,21 +76,7 @@ OPFsmVertexController >> hookDiagramElement [
 			createTransitionAdornmentBy: builder ]
 ]
 
-{ #category : 'announcements' }
-OPFsmVertexController >> internalSubscribeTo: aModel [
-
-	super internalSubscribeTo: aModel.
-	aModel weakWhen: OPElementRemoved send: #removeControllerAndDiagramElement to: self
-]
-
-{ #category : 'destruction' }
-OPFsmVertexController >> removeModel [
-
-	self diagramController model remove: self model.
-	super removeModel
-]
-
-{ #category : 'figures' }
+{ #category : 'diagram elements' }
 OPFsmVertexController >> unhookDiagramElement [
 
 	super unhookDiagramElement.

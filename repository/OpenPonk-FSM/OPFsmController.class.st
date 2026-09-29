@@ -1,17 +1,19 @@
 "
-A DCFsmController is a diagram controller for FSM.
-
+A DCFsmController is a diagram controller for FSM. Manages the lifecycle of the FSM diagram, applies layouts, and initializes the palette.
 "
 Class {
 	#name : 'OPFsmController',
 	#superclass : 'OPDiagramController',
-	#instVars : [
-		'persistenceManager'
-	],
 	#category : 'OpenPonk-FSM-Controllers',
 	#package : 'OpenPonk-FSM',
 	#tag : 'Controllers'
 }
+
+{ #category : 'accessing' }
+OPFsmController class >> viewModelClass [
+
+	^ OPFsmViewModel
+]
 
 { #category : 'userinterface' }
 OPFsmController >> applyLayout: anAlgorithm [
@@ -25,15 +27,10 @@ OPFsmController >> applyLayout: anAlgorithm [
 	anAlgorithm on: roassalShapes asGroup edges: edges asGroup
 ]
 
-{ #category : 'testing' }
+{ #category : 'connecting' }
 OPFsmController >> canBeTargetFor: aController [
 	^ (super canBeTargetFor: aController)
 		or: [ aController isKindOf: OPFsmVertexController ]
-]
-
-{ #category : 'as yet unclassified' }
-OPFsmController >> commonModelClassPrefix [
-	^ 'OPFsm'
 ]
 
 { #category : 'accessing' }
@@ -45,27 +42,21 @@ OPFsmController >> controllerFactory [
 		  register: OPFsmTransitionController forModel: OPFsmTransition
 ]
 
-{ #category : 'accessing' }
-OPFsmController >> elementsToShowInside [
-
-	^ self model elements
-]
-
-{ #category : 'initialization' }
+{ #category : 'ui interaction' }
 OPFsmController >> initializePalette: aPalette [
 	aPalette
 		newCreationTool: 'Initial state'
 			factory: [ OPFsmInitialStateController new ]
-			icon: OPCoreIcons opFsmInitialStateIcon;
+			icon: OPFsmIcons opFsmInitialStateIcon;
 		newSeparator;
-		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPCoreIcons opFsmRegularStateIcon;
+		newCreationTool: 'State' factory: [ OPFsmStateController new ] icon: OPFsmIcons opFsmRegularStateIcon;
 		newCreationTool: 'Final state'
 			factory: [ OPFsmFinalStateController new ]
-			icon: OPCoreIcons opFsmFinalStateIcon;
+			icon: OPFsmIcons opFsmFinalStateIcon;
 		newSeparator;
 		newConnectionCreationTool: 'Transition'
 			factory: [ OPFsmTransitionController new ]
-			icon: OPCoreIcons opFsmTransitionIcon
+			icon: OPFsmIcons opFsmTransitionIcon
 ]
 
 { #category : 'controllers management' }

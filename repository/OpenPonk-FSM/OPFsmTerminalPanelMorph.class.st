@@ -29,7 +29,7 @@ OPFsmTerminalPanelMorph >> data: aCollection [
 		do: [ :terminal | self addMorphBack: (OPFsmTerminalBoxMorph new terminal: terminal) ]
 ]
 
-{ #category : 'initialize' }
+{ #category : 'accessing - defaults' }
 OPFsmTerminalPanelMorph >> defaultColor [
 	^ Color transparent
 ]

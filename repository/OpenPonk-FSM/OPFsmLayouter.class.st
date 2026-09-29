@@ -1,6 +1,9 @@
+"
+Applies automated layout algorithms to FSM diagrams, positioning states and routing transitions for optimal readability.
+"
 Class {
 	#name : 'OPFsmLayouter',
-	#superclass : 'OPLayouter',
+	#superclass : 'OPNodesAndEdgesLayouter',
 	#category : 'OpenPonk-FSM-Plugin',
 	#package : 'OpenPonk-FSM',
 	#tag : 'Plugin'

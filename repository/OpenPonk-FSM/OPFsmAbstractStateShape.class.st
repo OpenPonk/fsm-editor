@@ -18,7 +18,7 @@ OPFsmAbstractStateShape >> adornmentCreationBlock: aBlock [
 	adornmentCreationBlock := aBlock
 ]
 
-{ #category : 'hooks' }
+{ #category : 'interactions' }
 OPFsmAbstractStateShape >> selectableInteraction [
 
 	^ OPRSSelectable highlightAdornments: [ :builder |
@@ -30,10 +30,4 @@ OPFsmAbstractStateShape >> selectableInteraction [
 			  middle.
 		  builder directionDown.
 		  adornmentCreationBlock value: builder ]
-]
-
-{ #category : 'rendering' }
-OPFsmAbstractStateShape >> shouldBePositionableByUser [
-
-	^ true
 ]

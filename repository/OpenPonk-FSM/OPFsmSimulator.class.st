@@ -1,14 +1,6 @@
 "
-I manage visualization of recognizer in DCEditor.
-
-!! Responsibility
-
-Observe Recognizer events and highlight/unhighlight figures through diagram controller.
-
-!! Collaborators
-
-DCFsmRecognizer
-DCFsmController
+Spec presenter managing the visualization of the FSM recognizer simulation within the editor.
+Observes recognizer events and triggers highlighting of figures through the diagram controller.
 "
 Class {
 	#name : 'OPFsmSimulator',
@@ -33,7 +25,7 @@ Class {
 	#tag : 'Simulations'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'layout' }
 OPFsmSimulator class >> defaultLayout [
 
 	^ SpBoxLayout newTopToBottom
@@ -65,15 +57,6 @@ OPFsmSimulator class >> defaultLayout [
 		  yourself
 ]
 
-{ #category : 'toolbar' }
-OPFsmSimulator class >> toolbarMenu: aBuilder [
-
-	<opEditorToolbarMenu: #OPFsmPlugin>
-	(aBuilder item: 'Open Simulator')
-		icon: OPCoreIcons opFsmDiagramIcon;
-		action: [ self new openOn: aBuilder model diagramController ]
-]
-
 { #category : 'actions' }
 OPFsmSimulator >> backAction [
 	nextButton disable.
@@ -87,7 +70,7 @@ OPFsmSimulator >> backButton [
 	^ backButton
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'initialization' }
 OPFsmSimulator >> connectPresenters [
 
 	super connectPresenters.
@@ -132,12 +115,13 @@ OPFsmSimulator >> connectPresenters [
 
 { #category : 'initialization' }
 OPFsmSimulator >> initialize [
+
 	recognizer := OPFsmRecognizer new.
 	self watchRecognizer: recognizer.
 	super initialize
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'initialization' }
 OPFsmSimulator >> initializePresenters [
 
 	inputLabel := self newLabel.
@@ -153,7 +137,7 @@ OPFsmSimulator >> initializePresenters [
 	runButton := self newButton
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'initialization' }
 OPFsmSimulator >> initializeWindow: aWindow [
 
 	super initializeWindow: aWindow.

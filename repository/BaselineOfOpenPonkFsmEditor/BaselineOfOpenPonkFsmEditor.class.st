@@ -1,3 +1,6 @@
+"
+Metacello baseline for the OpenPonk Finite State Machine (FSM) editor plugin, defining its package dependencies and load configurations.
+"
 Class {
 	#name : 'BaselineOfOpenPonkFsmEditor',
 	#superclass : 'BaselineOf',

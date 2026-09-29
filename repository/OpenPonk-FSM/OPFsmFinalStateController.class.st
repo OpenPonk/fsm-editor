@@ -1,5 +1,5 @@
 "
-A DCFsmFinalStateController is a controller for the final state in FSM.
+Specialized controller for initializing and handling final states in an FSM diagram.
 "
 Class {
 	#name : 'OPFsmFinalStateController',
@@ -9,9 +9,8 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'accessing' }
+{ #category : 'construction' }
 OPFsmFinalStateController >> createModelIn: aParentModel [
-
 	^ (super createModelIn: aParentModel)
 		  beFinal;
 		  yourself

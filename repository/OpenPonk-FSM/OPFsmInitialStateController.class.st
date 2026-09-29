@@ -1,6 +1,6 @@
 "
-A DCFsmInitialStateController is a controller for the initial state in FSM.
-
+Controller for the initial state in an FSM diagram.
+Manages diagram lifecycle and interactions for the starting node.
 "
 Class {
 	#name : 'OPFsmInitialStateController',
@@ -10,18 +10,18 @@ Class {
 	#tag : 'Controllers'
 }
 
-{ #category : 'testing' }
-OPFsmInitialStateController >> canBeTargetFor: aController [
-	^ false
-]
-
 { #category : 'construction' }
-OPFsmInitialStateController >> diagramElementClass [
+OPFsmInitialStateController class >> diagramElementClass [
 
 	^ OPFsmInitialStateShape
 ]
 
 { #category : 'accessing' }
-OPFsmInitialStateController >> modelClass [
-	^ OPFsmInitialState
+OPFsmInitialStateController class >> viewModelClass [
+	^ OPFsmInitialStateViewModel
+]
+
+{ #category : 'connecting' }
+OPFsmInitialStateController >> canBeTargetFor: aController [
+	^ false
 ]

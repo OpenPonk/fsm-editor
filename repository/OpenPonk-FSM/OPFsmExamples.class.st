@@ -1,3 +1,6 @@
+"
+Provides example models and diagram setups for FSM (Finite State Machine).
+"
 Class {
 	#name : 'OPFsmExamples',
 	#superclass : 'Object',
@@ -82,29 +85,6 @@ OPFsmExamples class >> exampleDivisibility [
 			(two => two name: '1') }.
 
 	^ fsm
-]
-
-{ #category : 'menu' }
-OPFsmExamples class >> menuCommandOn: aBuilder [
-
-	<worldMenu>
-	(aBuilder item: #OPFSM)
-		label: 'Finite State Machine';
-		icon: OPCoreIcons opFsmDiagramIcon;
-		action: [ self openExampleEmptyModel ];
-		parent: #MostUsedTools;
-		order: 220;
-		with: [ 
-			(aBuilder item: #'FSM Example')
-				parent: #OPFSM;
-				label: 'FSM Example Divisibility';
-				icon: OPCoreIcons opFsmDiagramIcon;
-				action: [ self openExampleDivisibility ].
-			(aBuilder item: #'FSM Example 2')
-				parent: #OPFSM;
-				label: 'FSM Example Decimal';
-				icon: OPCoreIcons opFsmDiagramIcon;
-				action: [ self openExampleDecimal ] ]
 ]
 
 { #category : 'examples' }

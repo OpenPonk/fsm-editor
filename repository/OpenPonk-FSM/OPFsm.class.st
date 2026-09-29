@@ -1,6 +1,5 @@
 "
-A DCFsm is the class representing FSM diagram.
-
+A DCFsm is the class representing FSM diagram. Acts as the root model container for states and transitions.
 "
 Class {
 	#name : 'OPFsm',

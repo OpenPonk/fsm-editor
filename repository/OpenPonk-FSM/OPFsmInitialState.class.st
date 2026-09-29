@@ -1,6 +1,5 @@
 "
-A DCFsmInitialState is the class representing initial state in FSM.
-
+Model representing an initial state in an FSM diagram.
 "
 Class {
 	#name : 'OPFsmInitialState',

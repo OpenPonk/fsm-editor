@@ -48,7 +48,7 @@ OPFsmVertexController >> createVertexAdornmentBy: builder [
 				 yourself)
 		action: [ 
 			| tool |
-			(tool := OPCreationTool new)
+			(tool := OPNodeCreationTool new)
 				palette: self diagramController editor palette;
 				factory: [ OPFsmStateController new ];
 				whenCreated: [ :ctrl | 

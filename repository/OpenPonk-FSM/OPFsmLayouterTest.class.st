@@ -57,8 +57,11 @@ OPFsmLayouterTest >> setUp [
 
 { #category : 'tests' }
 OPFsmLayouterTest >> testApplyLayout [
-
-	^ OPFsmLayouter new
-		  diagramController: diagramController;
-		  applyLayout: [ :a :b |  ]
+	| invoked |
+	invoked := false.
+	OPFsmLayouter new
+		diagramController: diagramController;
+		applyLayout: [ :nodes :edges | invoked := true ].
+	self assert: invoked.
+	self denyEmpty: diagramController controllers
 ]

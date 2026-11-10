@@ -41,19 +41,21 @@ OPFsmTest >> setUp [
 
 { #category : 'tests' }
 OPFsmTest >> testAdd [
-	self assert: diagram elements isEmpty.
+
+	self assertEmpty: diagram elements.
 	diagram add: initial.
 	diagram add: state.
 	diagram add: firstTransition.
 	self assertCollection: diagram ownedElements hasSameElements: (Array with: initial with: firstTransition with: state).
 	self assert: initial owner equals: diagram.
 	self assert: state owner equals: diagram.
-	self assertCollection: initial outgoing hasSameElements: {firstTransition}.
-	self assertCollection: state incoming hasSameElements: {firstTransition}
+	self assertCollection: initial outgoing hasSameElements: { firstTransition }.
+	self assertCollection: state incoming hasSameElements: { firstTransition }
 ]
 
 { #category : 'tests' }
 OPFsmTest >> testRemoveState [
+
 	diagram add: initial.
 	diagram add: state.
 	diagram add: final.
@@ -64,13 +66,14 @@ OPFsmTest >> testRemoveState [
 	self assert: state owner isNil.
 	self assert: firstTransition source isNil.
 	self assert: secondTransition source isNil.
-	self assert: initial outgoing isEmpty.
-	self assert: state incoming isEmpty.
+	self assertEmpty: initial outgoing.
+	self assertEmpty: state incoming.
 	self assertCollection: diagram elements hasSameElements: (Array with: initial with: final)
 ]
 
 { #category : 'tests' }
 OPFsmTest >> testRemoveState2 [
+
 	diagram add: state.
 	diagram add: selfTransition.
 
@@ -78,13 +81,14 @@ OPFsmTest >> testRemoveState2 [
 	self assert: state owner isNil.
 	self assert: selfTransition source isNil.
 	self assert: selfTransition target isNil.
-	self assert: state outgoing isEmpty.
-	self assert: state incoming isEmpty.
-	self assert: diagram elements isEmpty
+	self assertEmpty: state outgoing.
+	self assertEmpty: state incoming.
+	self assertEmpty: diagram elements
 ]
 
 { #category : 'tests' }
 OPFsmTest >> testRemoveTransition [
+
 	diagram add: initial.
 	diagram add: state.
 	diagram add: firstTransition.
@@ -93,21 +97,21 @@ OPFsmTest >> testRemoveTransition [
 
 	firstTransition remove.
 	self assert: diagram elements size equals: 2.
-	self assert: initial outgoing isEmpty.
-	self assert: state incoming isEmpty
+	self assertEmpty: initial outgoing.
+	self assertEmpty: state incoming
 ]
 
 { #category : 'tests' }
 OPFsmTest >> testTransition [
+
 	diagram add: initial.
 	diagram add: state.
-
-	self assert: initial outgoing isEmpty.
-	self assert: state incoming isEmpty.
+	self assertEmpty: initial outgoing.
+	self assertEmpty: state incoming.
 	self assert: firstTransition owner isNil.
 
 	diagram add: firstTransition.
 	self assert: firstTransition owner equals: diagram.
-	self assertCollection: initial outgoing hasSameElements: {firstTransition}.
-	self assertCollection: state incoming hasSameElements: {firstTransition}
+	self assertCollection: initial outgoing hasSameElements: { firstTransition }.
+	self assertCollection: state incoming hasSameElements: { firstTransition }
 ]

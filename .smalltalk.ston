@@ -1,17 +1,1 @@
-SmalltalkCISpec {
-	#loading : [
-		SCIMetacelloLoadSpec {
-			#baseline : 'OpenPonkFsmEditor',
-			#directory : 'repository',
-			#platforms : [ #pharo ]
-		}
-	],
-	#preLoading : 'ci-scripts/.github/scripts/preLoad.st',
-	#postLoading : 'ci-scripts/.github/scripts/postLoad.st',
-	#testing : {
-		#packages : [ 'OpenPonk*' ],
-		#coverage : {
-			#packages : [ 'OpenPonk-FSM*' ]
-		}
-	}
-}
+SmalltalkCISpec {	#loading : [		SCIMetacelloLoadSpec {			#baseline : 'OpenPonkFsmEditor',			#directory : 'repository',			#platforms : [ #pharo ]		}	],	#preLoading : 'ci-scripts/.github/scripts/preLoad.st',	#postLoading : 'ci-scripts/.github/scripts/postLoad.st',	#testing : {		#packages : [ 'OpenPonk*' ],		#coverage : {			#packages : [ 'OpenPonk-FSM' ]		}	}}

@@ -4,9 +4,9 @@ Verifies the initialization, registration, and shutdown lifecycle of the FSM plu
 Class {
 	#name : 'OPFsmPluginLifecycleTest',
 	#superclass : 'OPAbstractPluginExampleLifecycleTest',
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-Plugin',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'accessing' }

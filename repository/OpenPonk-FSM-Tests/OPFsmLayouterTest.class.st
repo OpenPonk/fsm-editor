@@ -8,9 +8,9 @@ Class {
 	#instVars : [
 		'diagramController'
 	],
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-Plugin',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'running' }

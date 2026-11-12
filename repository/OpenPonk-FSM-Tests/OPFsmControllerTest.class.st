@@ -4,8 +4,8 @@ Tests diagram-level controller behaviors, element creation, and event handling f
 Class {
 	#name : 'OPFsmControllerTest',
 	#superclass : 'OPAbstractDiagramControllerTest',
-	#category : 'OpenPonk-FSM-Controllers',
-	#package : 'OpenPonk-FSM',
+	#category : 'OpenPonk-FSM-Tests-Controllers',
+	#package : 'OpenPonk-FSM-Tests',
 	#tag : 'Controllers'
 }
 

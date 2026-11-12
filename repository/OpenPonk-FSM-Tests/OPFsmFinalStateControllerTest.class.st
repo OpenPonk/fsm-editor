@@ -4,9 +4,9 @@ Tests controller interactions, rendering, and lifecycle events for FSM final sta
 Class {
 	#name : 'OPFsmFinalStateControllerTest',
 	#superclass : 'OPFsmStateControllerTest',
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-Controllers',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Controllers'
 }
 
 { #category : 'constants' }

@@ -1,0 +1,30 @@
+"
+Abstract base class for FSM diagram controller tests.
+Provides shared setup and utilities for testing FSM elements.
+"
+Class {
+	#name : 'OPControllerOfFsmTest',
+	#superclass : 'OPAbstractElementControllerTest',
+	#category : 'OpenPonk-FSM-Tests-Controllers',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Controllers'
+}
+
+{ #category : 'testing' }
+OPControllerOfFsmTest class >> isAbstract [
+	"Override to true if a TestCase subclass is Abstract and should not have
+	TestCase instances built from it"
+
+	^ self name = #OPControllerOfFsmTest
+]
+
+{ #category : 'constants' }
+OPControllerOfFsmTest >> diagramControllerClass [
+
+	^ OPFsmController
+]
+
+{ #category : 'constants' }
+OPControllerOfFsmTest >> diagramModelClass [
+	^ OPFsm
+]

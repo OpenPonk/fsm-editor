@@ -1,0 +1,51 @@
+"
+Unit tests for OPFsmStateController.
+Verifies rendering logic and diagram lifecycle for standard states.
+"
+Class {
+	#name : 'OPFsmStateControllerTest',
+	#superclass : 'OPFsmVertexControllerTest',
+	#category : 'OpenPonk-FSM-Tests-Controllers',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Controllers'
+}
+
+{ #category : 'constants' }
+OPFsmStateControllerTest class >> diagramElementClass [
+
+	^ OPFsmStateShape
+]
+
+{ #category : 'constants' }
+OPFsmStateControllerTest >> controllerClass [
+	^ OPFsmStateController
+]
+
+{ #category : 'constants' }
+OPFsmStateControllerTest >> modelClass [
+	^ OPFsmState
+]
+
+{ #category : 'tests' }
+OPFsmStateControllerTest >> testCreateUsingAddAsTarget [
+
+	super testCreateUsingAddAsTarget.
+	self assert: (controller roassalShape isKindOf: RSCircularShape).
+	self assert: controller roassalShape color equals: Color white.
+	self assert: controller roassalShape extent >= (50 @ 50)
+]
+
+{ #category : 'tests' }
+OPFsmStateControllerTest >> testFigureRefresh [
+
+	controller createModelIn: diagramController model.
+	diagramController addController: controller.
+	controller
+		createDiagramElement;
+		renderDiagramElement.
+	self assert: controller diagramElement modelElement name equals: ''.
+	controller model name: 'new name'.
+	controller modelChanged.
+	self assert:
+		(controller diagramElement canvas allChildren anySatisfy: [ :any | (any isKindOf: RSLabel) and: [ any text = 'new name' ] ])
+]

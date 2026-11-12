@@ -4,9 +4,9 @@ Tests dynamic property form generation, field bindings, and validation for FSM v
 Class {
 	#name : 'OPFsmViewModelFormTest',
 	#superclass : 'TestCase',
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-ViewModels',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'ViewModels'
 }
 
 { #category : 'tests' }

@@ -4,9 +4,9 @@ Verifies the serialization and deserialization roundtrip persistence for FSM mod
 Class {
 	#name : 'OPFsmPluginRoundtripTest',
 	#superclass : 'OPAbstractPluginExampleRoundtripTest',
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-Plugin',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Plugin'
 }
 
 { #category : 'accessing' }

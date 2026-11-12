@@ -4,9 +4,9 @@ Integration tests ensuring that the FSM decimal example model correctly serializ
 Class {
 	#name : 'OPFsmDecimalExamplePersistenceTest',
 	#superclass : 'OPExamplePersistenceTest',
-	#category : 'OpenPonk-FSM-Tests',
-	#package : 'OpenPonk-FSM',
-	#tag : 'Tests'
+	#category : 'OpenPonk-FSM-Tests-Examples',
+	#package : 'OpenPonk-FSM-Tests',
+	#tag : 'Examples'
 }
 
 { #category : 'hooks' }

@@ -26,6 +26,9 @@ BaselineOfOpenPonkFsmEditor >> baseline: spec [
 			package: 'OpenPonk-FSM'
 			with: [
 			spec requires: #( 'OpenPonkModel' 'Mustache' ) ].
-		spec group: 'plugin' with: #( 'OpenPonk-FSM' ).
+		spec
+			package: 'OpenPonk-FSM-Tests'
+			with: [ spec requires: #( 'OpenPonk-FSM' ) ].
+		spec group: 'plugin' with: #( 'OpenPonk-FSM' 'OpenPonk-FSM-Tests' ).
 		spec group: 'default' with: #( 'OpenPonk' 'plugin' ) ]
 ]

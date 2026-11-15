@@ -63,9 +63,13 @@ OPFsmTest >> testRemoveState [
 	diagram add: secondTransition.
 
 	state remove.
-	self assert: state owner isNil.
-	self assert: firstTransition source isNil.
-	self assert: secondTransition source isNil.
+	self assert: state owner identicalTo: nil.
+	self assert: firstTransition owner identicalTo: nil.
+	self assert: firstTransition source identicalTo: nil.
+	self assert: firstTransition target identicalTo: nil.
+	self assert: secondTransition owner identicalTo: nil.
+	self assert: secondTransition source identicalTo: nil.
+	self assert: secondTransition target identicalTo: nil.
 	self assertEmpty: initial outgoing.
 	self assertEmpty: state incoming.
 	self assertCollection: diagram elements hasSameElements: (Array with: initial with: final)
@@ -78,9 +82,10 @@ OPFsmTest >> testRemoveState2 [
 	diagram add: selfTransition.
 
 	state remove.
-	self assert: state owner isNil.
-	self assert: selfTransition source isNil.
-	self assert: selfTransition target isNil.
+	self assert: state owner identicalTo: nil.
+	self assert: selfTransition owner identicalTo: nil.
+	self assert: selfTransition source identicalTo: nil.
+	self assert: selfTransition target identicalTo: nil.
 	self assertEmpty: state outgoing.
 	self assertEmpty: state incoming.
 	self assertEmpty: diagram elements
@@ -94,9 +99,14 @@ OPFsmTest >> testRemoveTransition [
 	diagram add: firstTransition.
 
 	self assert: diagram elements size equals: 3.
+	self assertCollection: diagram elements hasSameElements: (Array with: initial with: state with: firstTransition).
 
 	firstTransition remove.
 	self assert: diagram elements size equals: 2.
+	self assertCollection: diagram elements hasSameElements: (Array with: initial with: state).
+	self assert: firstTransition owner identicalTo: nil.
+	self assert: firstTransition source identicalTo: nil.
+	self assert: firstTransition target identicalTo: nil.
 	self assertEmpty: initial outgoing.
 	self assertEmpty: state incoming
 ]
@@ -108,7 +118,7 @@ OPFsmTest >> testTransition [
 	diagram add: state.
 	self assertEmpty: initial outgoing.
 	self assertEmpty: state incoming.
-	self assert: firstTransition owner isNil.
+	self assert: firstTransition owner identicalTo: nil.
 
 	diagram add: firstTransition.
 	self assert: firstTransition owner equals: diagram.

@@ -57,11 +57,23 @@ OPFsmLayouterTest >> setUp [
 
 { #category : 'tests' }
 OPFsmLayouterTest >> testApplyLayout [
-	| invoked |
-	invoked := false.
+
+	| invocationCount layoutNodes layoutEdges expectedNodes expectedEdges |
+	invocationCount := 0.
+	layoutNodes := #(  ).
+	layoutEdges := #(  ).
 	OPFsmLayouter new
 		diagramController: diagramController;
-		applyLayout: [ :nodes :edges | invoked := true ].
-	self assert: invoked.
-	self denyEmpty: diagramController controllers
+		applyLayout: [ :nodes :edges |
+				invocationCount := invocationCount + 1.
+				layoutNodes := nodes.
+				layoutEdges := edges ].
+	expectedNodes := diagramController controllers select: [ :each | each class == OPFsmStateController ] thenCollect: #roassalShape.
+	expectedEdges := diagramController controllers
+		                 select: [ :each | each class == OPFsmTransitionController ]
+		                 thenCollect: #roassalShape.
+	self assert: invocationCount equals: 1.
+	self assert: diagramController controllers size equals: 3.
+	self assertCollection: layoutNodes hasSameElements: expectedNodes.
+	self assertCollection: layoutEdges hasSameElements: expectedEdges
 ]

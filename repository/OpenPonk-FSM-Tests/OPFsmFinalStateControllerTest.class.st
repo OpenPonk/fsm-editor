@@ -16,10 +16,13 @@ OPFsmFinalStateControllerTest >> controllerClass [
 
 { #category : 'tests' }
 OPFsmFinalStateControllerTest >> testCreateModelInCreatesFinalState [
+
 	| stateModel |
 	stateModel := controller createModelIn: diagramController model.
-	self assert: stateModel isFinal.
-	self assert: controller model isFinal
+	self assert: stateModel class identicalTo: OPFsmState.
+	self assert: controller model identicalTo: stateModel.
+	self assert: stateModel isFinal description: 'OPFsmFinalStateController must create a final OPFsmState'.
+	self assertCollection: diagramController model states includesAll: { stateModel }
 ]
 
 { #category : 'tests' }

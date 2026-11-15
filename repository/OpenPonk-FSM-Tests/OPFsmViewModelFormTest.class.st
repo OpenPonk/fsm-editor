@@ -20,6 +20,11 @@ OPFsmViewModelFormTest >> testStateViewModelBindsNameAndFinal [
 	viewModel := OPFsmStateViewModel new model: model.
 	form := OPPropertiesForm new.
 	viewModel buildEditorForm: form.
-	self assert: (form bindings anySatisfy: [ :each | each selector = #name ]).
-	self assert: (form bindings anySatisfy: [ :each | each selector = #isFinal ])
+	self assert: (form bindings collect: #selector as: Array) equals: #( #name #isFinal ).
+	self assert: (form bindings collect: #class as: Array) equals: {
+			OPFormTextBinding.
+			OPFormCheckboxBinding }.
+	self assert: (form bindings collect: [ :each | each presenter class ] as: Array) equals: {
+			SpTextInputFieldPresenter.
+			SpCheckBoxPresenter }
 ]

@@ -18,7 +18,8 @@ Class {
 		'consumed',
 		'path',
 		'current',
-		'canContinue'
+		'canContinue',
+		'hasFailed'
 	],
 	#category : 'OpenPonk-FSM-Simulations',
 	#package : 'OpenPonk-FSM',
@@ -27,16 +28,18 @@ Class {
 
 { #category : 'stepping' }
 OPFsmRecognizer >> back [
+
 	path ifEmpty: [ ^ self ].
 	canContinue := true.
+	hasFailed := false.
 	self goTo: path pop.
-	current isState
-		ifTrue: [ input push: consumed pop ]
+	current isState ifTrue: [ input push: consumed pop ]
 ]
 
 { #category : 'terminators' }
 OPFsmRecognizer >> beComplete [
-	input isEmpty & current isFinal
+
+	hasFailed not & input isEmpty & current isFinal
 		ifTrue: [ self beSuccess ]
 		ifFalse: [ self beFailure ].
 	canContinue := false
@@ -83,17 +86,17 @@ OPFsmRecognizer >> isPathEmpty [
 
 { #category : 'stepping' }
 OPFsmRecognizer >> next [
+
 	| transition |
-	canContinue
-		ifFalse: [ ^ self beComplete ].
-	current isState & input isEmpty
-		ifTrue: [ ^ self beComplete ].
+	canContinue ifFalse: [ ^ self beComplete ].
+	current isState & input isEmpty ifTrue: [ ^ self beComplete ].
 	path push: current.
-	current isTransition
-		ifTrue: [ ^ self goTo: current target ].
+	current isTransition ifTrue: [ ^ self goTo: current target ].
 	consumed push: input pop.
 	transition := self transitionFrom: current using: consumed top.
-	transition ifNil: [ ^ self beComplete ].
+	transition ifNil: [
+			hasFailed := true.
+			^ self beComplete ].
 	self goTo: transition
 ]
 
@@ -112,7 +115,9 @@ OPFsmRecognizer >> reset [
 	path := Stack new.
 	consumed := Stack new.
 	input := Stack new.
-	canContinue := true
+	current := nil.
+	canContinue := true.
+	hasFailed := false
 ]
 
 { #category : 'private' }

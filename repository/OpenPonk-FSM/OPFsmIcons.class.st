@@ -45,19 +45,6 @@ UMCk9cDxYAKGnzA8xOE1Dh/SlFOe8pn++s4v54Jh4eRQWrEAAAAASUVORK5CYII='
 ]
 
 { #category : 'icons' }
-OPFsmIcons class >> opFsmFlippedTransitionIcon [
-
-	^ Form fromBinaryStream: self opFsmFlippedTransitionIconContents base64Decoded asByteArray readStream
-]
-
-{ #category : 'icons' }
-OPFsmIcons class >> opFsmFlippedTransitionIconContents [
-	"Private - Method generated with the content of the file File @ /home/peter/prog/dynacase/icons/dcFsmTransition.png"
-
-	^ 'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAAAAHdElNRQfeDBERByHXeUXaAAAAGXRFWHRDb21tZW50AENyZWF0ZWQgd2l0aCBHSU1QV4EOFwAAAIxJREFUOE/tk7ENAyEMRT9ZhRKJBSjYiwpWADZjANaggjtbXJorILkmRZ5k2S54km0hxgke8Jr5a35YsLuamyClBCEExxZ0BaLWOpRSw1rLfe+d8wo+YwgB3nvknGGMQWtt6tewQGuNUgqcczw7xTYkIGKM9IrzJ7wFF7QDKeXs1twExDnOrNb8/wJwAD42FpEUsSdQAAAAAElFTkSuQmCC'
-]
-
-{ #category : 'icons' }
 OPFsmIcons class >> opFsmInitialStateIcon [
 
 	^ Form fromBinaryStream: self opFsmInitialStateIconContents base64Decoded asByteArray readStream

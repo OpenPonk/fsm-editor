@@ -29,20 +29,22 @@ Class {
 { #category : 'stepping' }
 OPFsmRecognizer >> back [
 
+	| previous |
 	path ifEmpty: [ ^ self ].
 	canContinue := true.
 	hasFailed := false.
-	self goTo: path pop.
-	current isState ifTrue: [ input push: consumed pop ]
+	previous := path pop.
+	previous isState ifTrue: [ input push: consumed pop ].
+	self goTo: previous
 ]
 
 { #category : 'terminators' }
 OPFsmRecognizer >> beComplete [
 
+	canContinue := false.
 	hasFailed not & input isEmpty & current isFinal
 		ifTrue: [ self beSuccess ]
-		ifFalse: [ self beFailure ].
-	canContinue := false
+		ifFalse: [ self beFailure ]
 ]
 
 { #category : 'terminators' }
@@ -53,6 +55,12 @@ OPFsmRecognizer >> beFailure [
 { #category : 'terminators' }
 OPFsmRecognizer >> beSuccess [
 	self announce: (OPFsmRecognizerSuccess place: current)
+]
+
+{ #category : 'testing' }
+OPFsmRecognizer >> canContinue [
+
+	^ canContinue
 ]
 
 { #category : 'private' }

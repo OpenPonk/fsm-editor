@@ -27,6 +27,19 @@ OPFsmInitialStateControllerTest >> modelClass [
 ]
 
 { #category : 'tests' }
+OPFsmInitialStateControllerTest >> testConnectionConstraints [
+
+	| transitionController stateController |
+	transitionController := OPFsmTransitionController new.
+	stateController := OPFsmStateController new.
+	self assert: (controller canBeSourceFor: transitionController) description: 'Initial state must allow outgoing transitions'.
+	self
+		deny: (controller canBeSourceFor: stateController)
+		description: 'Initial state must reject non-transition source connections'.
+	self deny: (controller canBeTargetFor: transitionController) description: 'Initial state must not allow incoming transitions'
+]
+
+{ #category : 'tests' }
 OPFsmInitialStateControllerTest >> testCreateUsingAddAsTarget [
 
 	super testCreateUsingAddAsTarget.

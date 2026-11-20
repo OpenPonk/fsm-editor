@@ -99,6 +99,38 @@ OPFsmRecognizerTest >> testBackAndResumeNext [
 ]
 
 { #category : 'tests' }
+OPFsmRecognizerTest >> testCanContinueIsFalseDuringCompletionAnnouncementAndBackRestoresStateBeforeEnter [
+
+	| initialDivisibility failureCanContinueStates backEnterPositions backEnterInputEmptyStates |
+	initialDivisibility := self initialStateOf: divisibilityModel.
+	failureCanContinueStates := OrderedCollection new.
+	backEnterPositions := OrderedCollection new.
+	backEnterInputEmptyStates := OrderedCollection new.
+
+	recognizer when: OPFsmRecognizerFailure do: [ :event | failureCanContinueStates add: recognizer canContinue ] for: self.
+	recognizer
+		when: OPFsmRecognizerEnter
+		do: [ :event |
+				backEnterPositions add: recognizer inputPosition.
+				backEnterInputEmptyStates add: recognizer isInputEmpty ]
+		for: self.
+
+	recognizer input: #( '9' '0' ) startingAt: initialDivisibility.
+	self assert: recognizer canContinue description: 'Recognizer must report canContinue immediately after initialization'.
+	recognizer next.
+	self assert: failureCanContinueStates asArray equals: #( false ).
+	self deny: recognizer canContinue description: 'Recognizer must not report canContinue after failure'.
+
+	recognizer input: #( '9' ) startingAt: initialDivisibility.
+	recognizer next.
+	backEnterPositions removeAll.
+	backEnterInputEmptyStates removeAll.
+	recognizer back.
+	self assert: backEnterPositions asArray equals: #( 1 ).
+	self assert: backEnterInputEmptyStates asArray equals: #( false )
+]
+
+{ #category : 'tests' }
 OPFsmRecognizerTest >> testDeterministicSuccessAndFailurePaths [
 
 	| initialDivisibility zeroState oneState twoState initialDecimal stateK |

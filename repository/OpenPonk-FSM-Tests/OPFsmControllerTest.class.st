@@ -45,10 +45,22 @@ OPFsmControllerTest >> testControllerFactory [
 { #category : 'tests' }
 OPFsmControllerTest >> testInitializePalette [
 
-	| palette entryLabels |
+	| palette entries entryLabels expectedFactories |
 	palette := OPPalette new.
 	controller initializePalette: palette.
 	self assert: palette items size equals: 8.
-	entryLabels := palette items select: [ :eachItem | eachItem class == OPPaletteEntry ] thenCollect: #label.
-	self assert: entryLabels asArray equals: #( 'Select' 'Initial state' 'State' 'Final state' 'Transition' )
+	entries := palette items select: [ :eachItem | eachItem class == OPPaletteEntry ].
+	entryLabels := entries collect: #label as: Array.
+	self assert: entryLabels equals: #( 'Select' 'Initial state' 'State' 'Final state' 'Transition' ).
+
+	expectedFactories := {
+		                     ('Initial state' -> OPFsmInitialStateController).
+		                     ('State' -> OPFsmStateController).
+		                     ('Final state' -> OPFsmFinalStateController).
+		                     ('Transition' -> OPFsmTransitionController) }.
+	expectedFactories do: [ :eachPair |
+			| entry |
+			entry := entries detect: [ :eachEntry | eachEntry label = eachPair key ].
+			entry performAction.
+			self assert: (palette selectedTool instVarNamed: #controller) class identicalTo: eachPair value ]
 ]

@@ -28,7 +28,7 @@ OPFsmFigureHighlighter class >> highlight: aShapedObject with: aColor [
 { #category : 'api - highlight' }
 OPFsmFigureHighlighter class >> highlightLine: aLine with: aColor [
 
-	self unhighlightNode: aLine.
+	self unhighlightLine: aLine.
 	aLine propertyAt: self name put: aLine color.
 	aLine color: aColor.
 	aLine signalUpdate

@@ -55,6 +55,13 @@ OPFsmLayouterTest >> setUp [
 	diagramController showAllElements
 ]
 
+{ #category : 'running' }
+OPFsmLayouterTest >> tearDown [
+
+	diagramController := nil.
+	super tearDown
+]
+
 { #category : 'tests' }
 OPFsmLayouterTest >> testApplyLayout [
 

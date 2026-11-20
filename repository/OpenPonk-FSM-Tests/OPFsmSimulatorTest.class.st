@@ -3,7 +3,7 @@ Verifies the headless finite-state machine simulator presenter, terminal panel w
 "
 Class {
 	#name : 'OPFsmSimulatorTest',
-	#superclass : 'TestCase',
+	#superclass : 'OPAbstractUITest',
 	#instVars : [
 		'project',
 		'projectController',

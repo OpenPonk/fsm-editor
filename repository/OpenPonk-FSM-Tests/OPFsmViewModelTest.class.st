@@ -10,13 +10,12 @@ Class {
 }
 
 { #category : 'tests' }
-OPFsmViewModelTest >> testViewModelChildrenEssentialChildrenAndIcons [
+OPFsmViewModelTest >> testViewModelChildrenAndIcons [
 
 	| fsm initialState regularState finalState transition fsmViewModel initialViewModel regularViewModel finalViewModel transitionViewModel |
 	fsm := OPFsm named: 'Machine'.
 	fsmViewModel := OPFsmViewModel new model: fsm.
 	self assertEmpty: fsmViewModel childrenModels.
-	self assertEmpty: fsmViewModel essentialChildrenModels.
 	self assert: fsmViewModel modelRootViewModel identicalTo: fsmViewModel.
 	self assert: fsmViewModel icon bits equals: OPFsmIcons opFsmDiagramIcon bits.
 
@@ -38,12 +37,6 @@ OPFsmViewModelTest >> testViewModelChildrenEssentialChildrenAndIcons [
 			initialState.
 			regularState.
 			finalState }.
-	self assert: fsmViewModel essentialChildrenModels class identicalTo: Array.
-	self assertCollection: fsmViewModel essentialChildrenModels hasSameElements: {
-			initialState.
-			regularState.
-			finalState.
-			transition }.
 
 	initialViewModel := OPFsmInitialStateViewModel new model: initialState.
 	regularViewModel := OPFsmStateViewModel new model: regularState.

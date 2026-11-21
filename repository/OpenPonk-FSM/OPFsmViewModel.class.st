@@ -1,5 +1,5 @@
 "
-View model for the top-level FSM model. Provides essential child models and icon definitions for the workbench tree and UI integration.
+View model for the top-level FSM model. Provides child models and icon definitions for the workbench tree and UI integration.
 "
 Class {
 	#name : 'OPFsmViewModel',
@@ -21,11 +21,6 @@ OPFsmViewModel class >> modelClass [ ^ OPFsm
 
 { #category : 'accessing' }
 OPFsmViewModel >> childrenModels [ ^ self model states
-]
-
-{ #category : 'accessing' }
-OPFsmViewModel >> essentialChildrenModels [
-			^ self model elements asArray
 ]
 
 { #category : 'accessing' }

@@ -10,6 +10,26 @@ Class {
 }
 
 { #category : 'tests' }
+OPFsmViewModelTest >> testSelfLoopTransitionIsNotDuplicatedInChildrenModels [
+
+	| fsm state selfLoop stateViewModel children |
+	fsm := OPFsm named: 'SelfLoopMachine'.
+	state := OPFsmState named: 'loop'.
+	selfLoop := (state => state)
+		            name: 'stay';
+		            yourself.
+	fsm addAll: {
+			state.
+			selfLoop }.
+	stateViewModel := OPFsmStateViewModel new model: state.
+
+	children := stateViewModel childrenModels.
+
+	self assert: children size equals: 1.
+	self assertCollection: children hasSameElements: { selfLoop }
+]
+
+{ #category : 'tests' }
 OPFsmViewModelTest >> testViewModelChildrenAndIcons [
 
 	| fsm initialState regularState finalState transition fsmViewModel initialViewModel regularViewModel finalViewModel transitionViewModel |

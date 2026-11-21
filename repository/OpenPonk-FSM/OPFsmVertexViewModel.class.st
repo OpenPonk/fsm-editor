@@ -20,7 +20,12 @@ OPFsmVertexViewModel class >> modelClass [ ^ OPFsmVertex
 ]
 
 { #category : 'accessing' }
-OPFsmVertexViewModel >> childrenModels [ ^ self model incoming asArray , self model outgoing asArray
+OPFsmVertexViewModel >> childrenModels [
+
+	^ self model incoming asOrderedCollection
+		  addAll: self model outgoing;
+		  removeDuplicates;
+		  yourself
 ]
 
 { #category : 'accessing' }

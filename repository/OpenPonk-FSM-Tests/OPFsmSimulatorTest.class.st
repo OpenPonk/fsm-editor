@@ -266,6 +266,21 @@ OPFsmSimulatorTest >> testSuccessfulStepByStepSimulationResetStopAndCompletedRun
 ]
 
 { #category : 'tests' }
+OPFsmSimulatorTest >> testTerminalBoxMorphDarkThemeColorScheme [
+
+	| boxMorph |
+	boxMorph := OPFsmTerminalBoxMorph new.
+	boxMorph stub theme willReturn: PharoDarkTheme new.
+	boxMorph initializeColorScheme.
+	boxMorph processed.
+	self assert: boxMorph color equals: Color paleOrange muchDarker.
+	boxMorph failure.
+	self assert: boxMorph color equals: Color paleRed muchDarker.
+	boxMorph success.
+	self assert: boxMorph color equals: Color paleGreen muchDarker
+]
+
+{ #category : 'tests' }
 OPFsmSimulatorTest >> testTerminalPanelPresenterMorphBoxAndAnnouncements [
 
 	| dataEvent stateEvent boxMorph panelMorph presenter receivedDataEvents receivedStateEvents |
